@@ -1,6 +1,6 @@
 "use client";
 
-import { FaAmbulance, FaBaby, FaFlask, FaXRay, FaDesktop, FaBrain, FaCut, FaHeartbeat } from "react-icons/fa";
+import { FaAmbulance, FaBaby, FaFlask, FaXRay, FaDesktop, FaBrain, FaCut, FaHeartbeat, FaStethoscope } from "react-icons/fa";
 import { useLocale } from "@/app/locale-provider";
 import Link from "next/link";
 
@@ -13,6 +13,10 @@ const services = [
   { key: "ct-scan", icon: <FaBrain size={20} />, color: "#14b8a6", bg: "#f0fdfa" },
   { key: "surgical", icon: <FaCut size={20} />, color: "var(--primary)", bg: "var(--primary-50)" },
   { key: "ecg", icon: <FaHeartbeat size={20} />, color: "#7FD9C4", bg: "var(--primary-100)" },
+  { key: "ent", icon: <FaCut size={20} />, color: "#0ea5e9", bg: "#f0f9ff" },
+  { key: "gynecology", icon: <FaBaby size={20} />, color: "#d946ef", bg: "#fdf4ff" },
+  { key: "maxillofacial", icon: <FaCut size={20} />, color: "#f59e0b", bg: "#fffbeb" },
+  { key: "general", icon: <FaStethoscope size={20} />, color: "var(--primary)", bg: "var(--primary-50)" },
 ];
 
 const taglines = [
@@ -24,6 +28,10 @@ const taglines = [
   "Advanced Scanning",
   "Expert Precision",
   "Heart Monitoring",
+  "ENT & Sinus Care",
+  "Women's Health",
+  "Facial & Oral Surgery",
+  "24/7 Comprehensive Care",
 ];
 
 export default function MedicalServices() {

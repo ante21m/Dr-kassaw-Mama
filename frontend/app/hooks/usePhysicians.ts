@@ -4,6 +4,7 @@ import { useGetPhysiciansQuery } from "@/app/store/api/physicianApi";
 import type { Physician as ApiPhysician } from "@/app/store/api/physicianApi";
 import type { Physician } from "@/app/data/about.config";
 import { physicians as fallbackPhysicians } from "@/app/data/about.config";
+import { resolveImage } from "@/lib/resolveImage";
 
 function mapPhysician(p: ApiPhysician): Physician {
   return {
@@ -12,7 +13,7 @@ function mapPhysician(p: ApiPhysician): Physician {
     name_am: p.nameAm,
     specialty: p.specialty,
     specialty_am: p.specialtyAm,
-    image: p.image || "",
+    image: resolveImage(p.image) || "",
     rating: Number(p.rating) || 0,
     reviews: Number(p.reviews) || 0,
     available: p.available,

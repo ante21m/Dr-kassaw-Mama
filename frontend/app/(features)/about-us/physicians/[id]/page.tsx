@@ -81,7 +81,7 @@ export default function PhysicianProfile() {
                 <Box pos="absolute" style={{ top: -32, left: -32, width: 128, height: 128, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
                 <Image
                   src={physician.image + imgVer}
-                  alt={physician.name}
+                  alt=""
                   fill
                   style={{ objectFit: "cover", objectPosition: "top", transition: "transform 0.6s" }}
                   className="hover:scale-105"
@@ -379,7 +379,7 @@ export default function PhysicianProfile() {
                     </ThemeIcon>
                     <div>
                       <Text size="xs" c="gray.5" fw={600} tt="uppercase" lts="0.05em">{locale === "am" ? "ቦታ" : "Location"}</Text>
-                      <Text fw={600} size="sm">Medhin Primary Hospital</Text>
+                      <Text fw={600} size="sm">Dr. Kassaw Mama Primary Hospital</Text>
                     </div>
                   </Group>
                 </Stack>

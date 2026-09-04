@@ -103,10 +103,10 @@ export default function NewsClient() {
               {/* Image */}
               <Box
                 style={{ position: "relative", height: 200, overflow: "hidden", cursor: "zoom-in" }}
-                onClick={() => setPreview({ src: resolveAsset(article.image) || "/images/hospital-hero.jpg", alt: article.title })}
+                onClick={() => setPreview({ src: resolveAsset(article.image) || "/images/hospital-hero1.jpg", alt: article.title })}
               >
                 <Image
-                  src={resolveAsset(article.image) || "/images/hospital-hero.jpg"}
+                  src={resolveAsset(article.image) || "/images/hospital-hero1.jpg"}
                   alt={article.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

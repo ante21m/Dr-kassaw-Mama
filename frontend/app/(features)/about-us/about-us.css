@@ -764,7 +764,7 @@
   right: 0;
   width: 64px;
   height: 64px;
-  background: #062F2A;
+  background: #082E3A;
   transform: translate(16px, -50%) skewX(-30deg);
   display: flex;
   align-items: center;
@@ -841,7 +841,7 @@
   align-items: center;
   gap: 10px;
   padding: 15px 34px;
-  background: linear-gradient(135deg, #084A42, #062F2A);
+  background: linear-gradient(135deg, #0A3D4C, #082E3A);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-weight: 600;
@@ -861,7 +861,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0E8371, #0B5D52);
+  background: linear-gradient(135deg, #0B6B84, #0B4A5D);
   transition: left 0.3s ease;
 }
 .bk-btn:hover::before { left: 0; }
@@ -925,8 +925,8 @@
 }
 .bk-chip:hover { border-color: var(--primary); color: var(--primary); }
 .bk-chip.active {
-  background: #062F2A;
-  border-color: #062F2A;
+  background: #082E3A;
+  border-color: #082E3A;
   color: #7FD9C4;
 }
 
@@ -1130,7 +1130,7 @@
   margin: auto 0 0;
   padding: 12px 14px;
   border-radius: 2px;
-  background: linear-gradient(135deg, var(--primary), #0B5D52);
+  background: linear-gradient(135deg, var(--primary), #0B4A5D);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-size: 0.7rem;
@@ -1142,7 +1142,7 @@
   transition: box-shadow 0.25s ease, transform 0.1s ease;
 }
 .physician-card .book-btn:hover {
-  background: linear-gradient(135deg, #0E8371, #062F2A);
+  background: linear-gradient(135deg, #0B6B84, #082E3A);
   color: #fff;
   box-shadow: 0 12px 30px rgba(11,93,82,0.35);
 }

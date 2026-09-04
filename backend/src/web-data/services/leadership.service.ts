@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Leadership } from '../entities/leadership.entity';
@@ -11,7 +11,7 @@ const seedData = [
     role: 'CEO & Medical Director',
     roleAm: 'ስልጣኔ ኃላፊ እና የሕክምና መሪ',
     bio: 'Dr. Kassaw brings over 20 years of leadership experience in healthcare administration and clinical practice.',
-    image: '/leadership/dr-kassaw.jpg',
+    image: '/uploads/leadership/leadership-placeholder.png',
     experience: '20+ Years',
     certificates: ['MD - Addis Ababa University', 'MBA in Healthcare Management'],
     awards: ['Healthcare Leadership Award 2023'],
@@ -23,7 +23,7 @@ const seedData = [
     role: 'Chief of Medical Services',
     roleAm: 'የሕክምና አገልግሎት ዋና ኃላፊ',
     bio: 'Dr. Hana oversees all clinical operations and ensures the highest standards of patient care.',
-    image: '/leadership/dr-hana.jpg',
+    image: '/uploads/leadership/leadership-placeholder.png',
     experience: '15+ Years',
     certificates: ['MD - Jimma University', 'Specialty in Internal Medicine'],
     awards: ['Excellence in Patient Care 2022'],
@@ -35,7 +35,7 @@ const seedData = [
     role: 'Chief Operations Officer',
     roleAm: 'የስራ ኃላፊ',
     bio: 'Samuel manages hospital operations, ensuring efficient service delivery and resource management.',
-    image: '/leadership/samuel-bekele.jpg',
+    image: '/uploads/leadership/leadership-placeholder.png',
     experience: '12+ Years',
     certificates: ['BSc in Health Administration', 'MPH - Ethiopian Civil Service University'],
     awards: [],
@@ -44,11 +44,15 @@ const seedData = [
 ];
 
 @Injectable()
-export class LeadershipService {
+export class LeadershipService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Leadership)
     private repo: Repository<Leadership>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   findAll(): Promise<Leadership[]> {
     return this.repo.find({ where: { isActive: true }, order: { order: 'ASC' } });

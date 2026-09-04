@@ -31,7 +31,7 @@ export default function VisionMission() {
         {/* RIGHT: IMAGE */}
         <div className="vision-mission-image fade-right" style={{ cursor: "zoom-in" }} onClick={() => setPreview(true)}>
           <Image
-            src="/images/clinic.jpg"
+src="/images/clinic1.jpg"
             alt="Clinic Vision and Mission"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -44,7 +44,7 @@ export default function VisionMission() {
       {/* IMAGE LIGHTBOX */}
       <Lightbox
         open={preview}
-        src="/images/clinic.jpg"
+        src="/images/clinic1.jpg"
         caption={t("about.visionMission")}
         onClose={() => setPreview(false)}
       />

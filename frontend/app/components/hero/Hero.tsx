@@ -6,7 +6,7 @@ import Typed from "typed.js";
 import { imgVer } from "@/lib/imgver";
 
 const slides = [
-  { src: `/images/hospital-hero.jpg${imgVer}`, baseOverlay: 0.3 },
+  { src: `/images/hospital-hero1.jpg${imgVer}`, baseOverlay: 0.3 },
 ];
 
 const SLIDE_DURATION = 4500;

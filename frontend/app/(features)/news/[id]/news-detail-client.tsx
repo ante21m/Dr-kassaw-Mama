@@ -118,9 +118,9 @@ export default function NewsDetailClient() {
       {/* Hero Banner */}
       <Box
         style={{ position: "relative", height: 280, overflow: "hidden", cursor: "zoom-in" }}
-        onClick={() => setPreview(resolveAsset(article.image) || "/images/hospital-hero.jpg")}
+        onClick={() => setPreview(resolveAsset(article.image) || "/images/hospital-hero1.jpg")}
       >
-        <Image src={resolveAsset(article.image) || "/images/hospital-hero.jpg"} alt={article.title} fill style={{ objectFit: "cover" }} priority />
+        <Image src={resolveAsset(article.image) || "/images/hospital-hero1.jpg"} alt={article.title} fill style={{ objectFit: "cover" }} priority />
         <Box
           style={{
             position: "absolute", top: 12, right: 12, zIndex: 5,

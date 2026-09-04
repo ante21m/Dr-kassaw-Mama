@@ -4,73 +4,30 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import type { LeadershipData } from "@/app/data/site-fallbacks";
+import { useLeadership } from "@/app/hooks/useLeadership";
 import Lightbox from "@/app/components/ui/Lightbox";
 import "../../../../app/(features)/about-us/about-us.css";
 
-/* =========================
-   TYPES
-========================= */
-type Leader = {
-  id: number;
-  image: string;
-  nameKey: string;
-  roleKey: string;
-  bioKey: string;
-  experienceKey?: string;
-  certificatesKey?: string;
-  awardsKey?: string;
-};
-
-/* =========================
-   LEADERSHIP DATA
-========================= */
-const leadership: Leader[] = [
-  {
-    id: 1,
-    image: "/leadership/dr-kassaw.jpg",
-    nameKey: "leadership.kassaw.name",
-    roleKey: "leadership.kassaw.role",
-    bioKey: "leadership.kassaw.bio",
-    experienceKey: "leadership.kassaw.experience",
-    certificatesKey: "leadership.kassaw.certificates",
-    awardsKey: "leadership.kassaw.awards",
-  },
-  {
-    id: 2,
-    image: "/leadership/dr-hana.jpg",
-    nameKey: "leadership.hana.name",
-    roleKey: "leadership.hana.role",
-    bioKey: "leadership.hana.bio",
-    experienceKey: "leadership.hana.experience",
-    certificatesKey: "leadership.hana.certificates",
-    awardsKey: "leadership.hana.awards",
-  },
-  {
-    id: 3,
-    image: "/leadership/samuel-bekele.jpg",
-    nameKey: "leadership.samuel.name",
-    roleKey: "leadership.samuel.role",
-    bioKey: "leadership.samuel.bio",
-    experienceKey: "leadership.samuel.experience",
-    certificatesKey: "leadership.samuel.certificates",
-    awardsKey: "leadership.samuel.awards",
-  },
-];
-
 export default function AboutCompany() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const { leadership } = useLeadership();
 
-  const [activeLeader, setActiveLeader] = useState<Leader | null>(null);
+  const [activeLeader, setActiveLeader] = useState<LeadershipData | null>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [aboutPreview, setAboutPreview] = useState(false);
-  const [leaderPreview, setLeaderPreview] = useState<Leader | null>(null);
+  const [leaderPreview, setLeaderPreview] = useState<LeadershipData | null>(null);
+
+  const lname = (l: LeadershipData) => (locale === "am" ? l.nameAm || l.name : l.name);
+  const lrole = (l: LeadershipData) => (locale === "am" ? l.roleAm || l.role : l.role);
 
   /* =========================
      AUTOPLAY CAROUSEL
   ========================= */
   useEffect(() => {
     if (paused) return;
+    if (leadership.length === 0) return;
 
     const timer = setInterval(() => {
       setIndex((prev) =>
@@ -79,7 +36,7 @@ export default function AboutCompany() {
     }, 3500);
 
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [paused, leadership.length]);
 
   /* =========================
      ESC KEY CLOSE
@@ -94,16 +51,6 @@ export default function AboutCompany() {
     document.addEventListener("keydown", onEsc);
     return () => document.removeEventListener("keydown", onEsc);
   }, [activeLeader]);
-
-  /* =========================
-     SAFE LIST HELPER
-  ========================= */
-  const getList = (key?: string) => {
-    if (!key) return [];
-    const value = t(key);
-    if (!value || value === key) return [];
-    return value.split("|");
-  };
 
   return (
     <>
@@ -123,8 +70,8 @@ export default function AboutCompany() {
           {/* IMAGE */}
           <div className="about-company-image fade-right" style={{ cursor: "zoom-in" }} onClick={() => setAboutPreview(true)}>
             <Image
-              src={"/images/clinic.jpg" + imgVer}
-              alt="Medhin Primary Hospital"
+              src={"/images/clinic1.jpg" + imgVer}
+              alt="Dr. Kassaw Mama Primary Hospital"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -163,8 +110,8 @@ export default function AboutCompany() {
                   {/* SMART LEADER IMAGE */}
                   <div className="physician-image" style={{ cursor: "zoom-in" }} onClick={(e) => { e.stopPropagation(); setLeaderPreview(leader); }}>
                     <Image
-                      src={leader.image + imgVer}
-                      alt={t(leader.nameKey)}
+                      src={(leader.image || "/leadership/leadership-placeholder.png") + imgVer}
+                      alt={lname(leader)}
                       fill
                       sizes="(max-width: 768px) 70vw, 260px"
                       style={{ objectFit: "cover" }}
@@ -172,8 +119,8 @@ export default function AboutCompany() {
                     />
                   </div>
 
-                  <h3>{t(leader.nameKey)}</h3>
-                  <p>{t(leader.roleKey)}</p>
+                  <h3>{lname(leader)}</h3>
+                  <p>{lrole(leader)}</p>
 
                   <span className="view-profile-btn">
                     {t("leadership.viewProfile")}
@@ -211,8 +158,8 @@ export default function AboutCompany() {
             {/* IMAGE */}
             <div className="modal-image">
               <Image
-                src={activeLeader.image + imgVer}
-                alt={t(activeLeader.nameKey)}
+                src={(activeLeader.image || "/leadership/leadership-placeholder.png") + imgVer}
+                alt={lname(activeLeader)}
                 fill
                 sizes="(max-width: 768px) 80vw, 320px"
                 style={{ objectFit: "cover" }}
@@ -220,29 +167,29 @@ export default function AboutCompany() {
             </div>
 
             {/* TEXT */}
-            <h3>{t(activeLeader.nameKey)}</h3>
+            <h3>{lname(activeLeader)}</h3>
             <span className="modal-role">
-              {t(activeLeader.roleKey)}
+              {lrole(activeLeader)}
             </span>
 
             <div className="modal-content">
               <section>
                 <h4>{t("leadership.about")}</h4>
-                <p>{t(activeLeader.bioKey)}</p>
+                <p>{activeLeader.bio}</p>
               </section>
 
-              {activeLeader.experienceKey && (
+              {activeLeader.experience && (
                 <section>
                   <h4>{t("leadership.experience")}</h4>
-                  <p>{t(activeLeader.experienceKey)}</p>
+                  <p>{activeLeader.experience}</p>
                 </section>
               )}
 
-              {activeLeader.certificatesKey && (
+              {activeLeader.certificates && activeLeader.certificates.length > 0 && (
                 <section>
                   <h4>{t("leadership.certificates")}</h4>
                   <ul>
-                    {getList(activeLeader.certificatesKey).map(
+                    {activeLeader.certificates.map(
                       (item, i) => (
                         <li key={i}>{item}</li>
                       )
@@ -251,11 +198,11 @@ export default function AboutCompany() {
                 </section>
               )}
 
-              {activeLeader.awardsKey && (
+              {activeLeader.awards && activeLeader.awards.length > 0 && (
                 <section>
                   <h4>{t("leadership.awards")}</h4>
                   <ul>
-                    {getList(activeLeader.awardsKey).map(
+                    {activeLeader.awards.map(
                       (item, i) => (
                         <li key={i}>{item}</li>
                       )
@@ -271,14 +218,14 @@ export default function AboutCompany() {
       {/* IMAGE LIGHTBOXES */}
       <Lightbox
         open={aboutPreview}
-        src={"/images/clinic.jpg" + imgVer}
+        src={"/images/clinic1.jpg" + imgVer}
         caption={t("about.title")}
         onClose={() => setAboutPreview(false)}
       />
       <Lightbox
         open={!!leaderPreview}
-        src={leaderPreview ? leaderPreview.image + imgVer : undefined}
-        caption={leaderPreview ? t(leaderPreview.nameKey) : undefined}
+        src={leaderPreview ? (leaderPreview.image || "/leadership/leadership-placeholder.png") + imgVer : undefined}
+        caption={leaderPreview ? lname(leaderPreview) : undefined}
         onClose={() => setLeaderPreview(null)}
       />
     </>

@@ -16,7 +16,7 @@ export default function HomePhysicians() {
   const { t, locale } = useLocale();
   const router = useRouter();
   const { physicians } = usePhysicians();
-  const displayDoctors = physicians.slice(0, 10);
+  const displayDoctors = physicians.slice(0, 4);
 
   const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
   const [measure, setMeasure] = useState({ w: 0, cols: 3 });
@@ -39,7 +39,7 @@ export default function HomePhysicians() {
     return () => ro.disconnect();
   }, []);
 
-  const cols = measure.w > 0 ? measure.cols : 3;
+  const cols = Math.min(4, measure.w > 0 ? measure.cols : 3);
   const totalRows = Math.ceil(displayDoctors.length / cols);
   const needsCarousel = totalRows > 2;
   const maxPage = Math.max(0, Math.ceil(displayDoctors.length / cols) - 1);
@@ -85,7 +85,7 @@ export default function HomePhysicians() {
             {doc.image ? (
               <Image
                 src={doc.image + imgVer}
-                alt={name}
+                alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 style={{ objectFit: "cover", transition: "transform .5s ease" }}

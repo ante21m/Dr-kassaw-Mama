@@ -16,7 +16,7 @@ function TiktokIcon({ size }: { size: number }) {
 
 const socialLinks = [
   { icon: FaFacebookF, href: "https://facebook.com/medhinprimaryhospital", label: "Facebook" },
-  { icon: FaTelegramPlane, href: "https://t.me/Medhin_Primary_Hospital", label: "Telegram" },
+  { icon: FaTelegramPlane, href: "https://t.me/Dr. Kassaw Mama_Primary_Hospital", label: "Telegram" },
   { icon: FaYoutube, href: "https://youtube.com/@medhinprimaryhospital", label: "YouTube" },
   { icon: FaTwitter, href: "https://twitter.com/medhinprimaryhospital", label: "Twitter" },
   { icon: TiktokIcon, href: "https://www.tiktok.com/@medhin.hospital", label: "TikTok" },
@@ -47,7 +47,7 @@ export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer style={{ background: "var(--bg-deep)", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
+    <footer style={{ background: "#0B4A5D", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
       {/* Decorative */}
       <div style={{ position: "absolute", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
       <div style={{ position: "absolute", bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.015)" }} />
@@ -59,9 +59,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-              <Image src="/hospital-logo.jpg" alt="Medhin Logo" width={42} height={42} style={{ borderRadius: "50%", objectFit: "cover" }} />
+              <Image src="/images/km-logo.png" alt="Dr. Kassaw Mama Logo" width={42} height={42} style={{ borderRadius: 7, objectFit: "cover" }} />
               <div>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem", fontWeight: 500, color: "#fff", lineHeight: 1.2 }}>Medhin Primary</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem", fontWeight: 500, color: "#fff", lineHeight: 1.2 }}>Dr. Kassaw Mama Primary</div>
                 <div style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Hospital</div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function Footer() {
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <FaPhone style={{ color: "#7FD9C4", flexShrink: 0 }} size={14} />
-                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>0334314795</span>
+                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>0973 245 788 / 0921 316 666</span>
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <FaEnvelope style={{ color: "#7FD9C4", flexShrink: 0 }} size={14} />
@@ -147,7 +147,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div style={{ marginTop: 48, padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)" }}>© {new Date().getFullYear()} Medhin Primary Hospital. {t("footer.rights")}</span>
+          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)" }}>© {new Date().getFullYear()} Dr. Kassaw Mama Primary Hospital. {t("footer.rights")}</span>
           <Link href="/admin/login" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }}
             onMouseEnter={e => e.currentTarget.style.color = "#7FD9C4"}
             onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>

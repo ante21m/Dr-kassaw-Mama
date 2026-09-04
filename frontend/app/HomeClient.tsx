@@ -7,7 +7,7 @@ import SmartHero from "./components/smart-home/SmartHero";
 import ScrollReveal from "./components/ScrollReveal";
 import AnimatedCounter from "./components/AnimatedCounter";
 import Link from "next/link";
-import { FaCalendarCheck, FaPhone, FaAmbulance, FaFlask, FaXRay, FaCut, FaHeartbeat, FaBaby, FaDesktop, FaBrain } from "react-icons/fa";
+import { FaCalendarCheck, FaPhone, FaAmbulance, FaFlask, FaXRay, FaCut, FaHeartbeat, FaBaby, FaDesktop, FaBrain, FaStethoscope, FaUserMd, FaSmile } from "react-icons/fa";
 
 const WhyChooseUs = dynamic(() => import("./components/smart-home/WhyChooseUs"));
 const HomePhysicians = dynamic(() => import("./components/smart-home/HomePhysicians"));
@@ -22,6 +22,10 @@ const iconMap: Record<string, React.ReactNode> = {
   FaBaby: <FaBaby size={18} />,
   FaDesktop: <FaDesktop size={18} />,
   FaBrain: <FaBrain size={18} />,
+  FaEar: <FaUserMd size={18} />,
+  FaFlower: <FaBaby size={18} />,
+  FaSmile: <FaSmile size={18} />,
+  FaStethoscope: <FaStethoscope size={18} />,
 };
 
 const defaultDepartments = [
@@ -33,6 +37,10 @@ const defaultDepartments = [
   { id: "delivery", icon: "FaBaby", color: "#ec4899" },
   { id: "ultrasound", icon: "FaDesktop", color: "#06b6d4" },
   { id: "ct-scan", icon: "FaBrain", color: "#14b8a6" },
+  { id: "ent", icon: "FaEar", color: "#0ea5e9" },
+  { id: "gynecology", icon: "FaFlower", color: "#d946ef" },
+  { id: "maxillofacial", icon: "FaSmile", color: "#f59e0b" },
+  { id: "general", icon: "FaStethoscope", color: "var(--primary)" },
 ];
 
 export default function HomePage() {
@@ -56,7 +64,7 @@ export default function HomePage() {
 
   const stats = [
     { end: parseInt(settings.home_stats_experience || "2"), suffix: settings.home_stats_experience_suffix || "+", label: t("homePage.statsExperience"), icon: "🏥", color: "var(--primary)" },
-    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#0B5D52" },
+    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#0B4A5D" },
     { end: parseInt(settings.home_stats_patients || "100"), suffix: settings.home_stats_patients_suffix || "K+", label: t("homePage.statsPatients"), icon: "❤️", color: "var(--urgent)" },
     { end: parseInt(settings.home_stats_departments || "12"), suffix: settings.home_stats_departments_suffix || "+", label: t("homePage.statsDepartments"), icon: "🩺", color: "var(--accent)" },
   ];

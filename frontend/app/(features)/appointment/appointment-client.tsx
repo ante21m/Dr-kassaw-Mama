@@ -349,7 +349,7 @@ export default function AppointmentClient() {
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
                       <Text size="sm" fw={600} mb={4} c="gray.7">{t("appointment.phoneNumber")} *</Text>
-                      <TextInput value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+251 9XX XXX XXX" required />
+                      <TextInput value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="0973 245 788" required />
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
                       <Text size="sm" fw={600} mb={4} c="gray.7">{t("appointment.note")}</Text>

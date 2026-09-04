@@ -3,6 +3,7 @@
 import { useGetLeadershipQuery } from "@/app/store/api/leadershipApi";
 import type { Leadership } from "@/app/store/api/leadershipApi";
 import { fallbackLeadership, type LeadershipData } from "@/app/data/site-fallbacks";
+import { resolveImage } from "@/lib/resolveImage";
 
 function mapLeadership(item: Leadership): LeadershipData {
   return {
@@ -12,7 +13,7 @@ function mapLeadership(item: Leadership): LeadershipData {
     role: item.role,
     roleAm: item.roleAm,
     bio: item.bio,
-    image: item.image,
+    image: resolveImage(item.image),
     experience: item.experience,
     certificates: item.certificates || [],
     awards: item.awards || [],

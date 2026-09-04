@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { SiteSetting } from '../entities/site-settings.entity';
@@ -14,9 +14,9 @@ const defaultSettings = [
   { key: 'home_stats_departments', value: '12', group: 'home' },
   { key: 'home_stats_departments_suffix', value: '+', group: 'home' },
   { key: 'hero_slides', value: JSON.stringify([
-    { src: '/images/hospital-hero.jpg', title: 'Medhin Primary Hospital', titleAm: 'መድህን ፕራይማሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
-    { src: '/images/hospital-1.jpg', title: 'Your Health, Our Priority', titleAm: 'ጤናዎ ቅድሚያችን ነው', subtitle: 'Expert Care, Compassionate Hearts', subtitleAm: 'ባለሙያ እንክብካቤ፣ አዛኝ ልቦች' },
-    { src: '/images/hospital-2.jpg', title: 'Advanced Medical Technology', titleAm: 'ዘመናዊ የሕክምና ቴክኖሎጂ', subtitle: '24/7 Emergency Services', subtitleAm: 'የ24/7 የአደጋ ጊዜ አገልግሎት' },
+    { src: '/uploads/images/hospital-hero1.jpg', title: 'Dr. Kassaw Mama Primary Hospital', titleAm: 'ዶ/ር ካሳው ማማ ፕራይማሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
+    { src: '/uploads/images/hospital-hero2.jpg', title: 'Your Health, Our Priority', titleAm: 'ጤናዎ ቅድሚያችን ነው', subtitle: 'Expert Care, Compassionate Hearts', subtitleAm: 'ባለሙያ እንክብካቤ፣ አዛኝ ልቦች' },
+    { src: '/uploads/images/mama-staff1.jpg', title: 'Experienced Medical Staff', titleAm: 'ልምድ ያላቸው የህክምና ሰራተኞች', subtitle: '24/7 Emergency & 24 Hour Pharmacy', subtitleAm: 'የ24/7 የአደጋ ጊዜ እና የ24 ሰዓት መድኃኒት ቤት' },
   ]), group: 'home' },
   { key: 'home_partners', value: JSON.stringify(['Woldia University', 'North Wollo Health Bureau', 'Ethiopian Medical Association', 'WHO Ethiopia', 'UNICEF Ethiopia']), group: 'home' },
   { key: 'home_departments', value: JSON.stringify([
@@ -28,6 +28,10 @@ const defaultSettings = [
     { id: 'delivery', icon: 'FaBaby', color: '#ec4899' },
     { id: 'ultrasound', icon: 'FaDesktop', color: '#06b6d4' },
     { id: 'ct-scan', icon: 'FaBrain', color: '#14b8a6' },
+    { id: 'ent', icon: 'FaEar', color: '#0ea5e9' },
+    { id: 'gynecology', icon: 'FaFlower', color: '#d946ef' },
+    { id: 'maxillofacial', icon: 'FaSmile', color: '#f59e0b' },
+    { id: 'general', icon: 'FaStethoscope', color: 'var(--primary)' },
   ]), group: 'home' },
   { key: 'search_items', value: JSON.stringify([
     { label: 'Cardiology', href: '/departments', category: 'Departments' },
@@ -56,11 +60,15 @@ const defaultSettings = [
 ];
 
 @Injectable()
-export class SiteSettingsService {
+export class SiteSettingsService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(SiteSetting)
     private repo: Repository<SiteSetting>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   async findAll(): Promise<SiteSetting[]> {
     return this.repo.find({ where: { isActive: true }, order: { group: 'ASC', key: 'ASC' } });

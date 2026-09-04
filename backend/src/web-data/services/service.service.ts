@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Service } from '../entities/service.entity';
@@ -6,11 +6,15 @@ import { CreateServiceDto, UpdateServiceDto } from '../dtos/service.dto';
 import { seedServices } from '../seed-data';
 
 @Injectable()
-export class ServiceService {
+export class ServiceService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Service)
     private serviceRepository: Repository<Service>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   findAll(): Promise<Service[]> {
     return this.serviceRepository.find({
@@ -46,6 +50,8 @@ export class ServiceService {
   }
 
   async seed(): Promise<Service[]> {
+    const count = await this.serviceRepository.count();
+    if (count > 0) return this.serviceRepository.find({ order: { order: 'ASC' } });
     const services = this.serviceRepository.create(seedServices);
     return this.serviceRepository.save(services);
   }

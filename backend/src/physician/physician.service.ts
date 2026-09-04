@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Physician } from './physician.entity';
@@ -6,11 +6,15 @@ import { CreatePhysicianDto, UpdatePhysicianDto } from './physician.dto';
 import { seedPhysicians } from './seed-data';
 
 @Injectable()
-export class PhysicianService {
+export class PhysicianService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Physician)
     private physicianRepository: Repository<Physician>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   findAll(): Promise<Physician[]> {
     return this.physicianRepository.find({
@@ -46,6 +50,8 @@ export class PhysicianService {
   }
 
   async seed(): Promise<Physician[]> {
+    const count = await this.physicianRepository.count();
+    if (count > 0) return this.physicianRepository.find({ order: { createdAt: 'ASC' } });
     const physicians = this.physicianRepository.create(seedPhysicians);
     return this.physicianRepository.save(physicians);
   }

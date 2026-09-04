@@ -4,12 +4,12 @@ const data = [
   {
     title: "Emergency Care",
     description: "Immediate response and advanced facilities",
-    image: "/images/slide1.jpg",
+    image: "/images/hospital-hero1.jpg",
   },
   {
     title: "Qualified Doctors",
     description: "Experienced professionals you can trust",
-    image: "/images/slide2.jpg",
+    image: "/images/hospital-hero2.jpg",
   },
 ];
 

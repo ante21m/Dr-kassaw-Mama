@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Department } from '../entities/department.entity';
@@ -9,11 +9,15 @@ import {
 import { seedDepartments } from '../department-seed-data';
 
 @Injectable()
-export class DepartmentService {
+export class DepartmentService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Department)
     private departmentRepository: Repository<Department>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   findAll(): Promise<Department[]> {
     return this.departmentRepository.find({
@@ -51,7 +55,21 @@ export class DepartmentService {
   }
 
   async seed(): Promise<Department[]> {
-    const departments = this.departmentRepository.create(seedDepartments);
-    return this.departmentRepository.save(departments);
+    const existing = await this.departmentRepository.find();
+    const results: Department[] = [];
+    for (const seed of seedDepartments) {
+      const found = existing.find((d) => d.name === seed.name);
+      if (found) {
+        Object.assign(found, { ...(seed as unknown as object), id: found.id });
+        results.push(await this.departmentRepository.save(found));
+      } else {
+        results.push(
+          await this.departmentRepository.save(
+            this.departmentRepository.create(seed as CreateDepartmentDto),
+          ),
+        );
+      }
+    }
+    return results;
   }
 }

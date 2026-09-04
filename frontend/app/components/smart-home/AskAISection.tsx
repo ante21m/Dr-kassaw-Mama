@@ -34,7 +34,7 @@ const symptomResponses: Record<string, { text: string; dept: string; links: { la
     links: [{ label: "Book Appointment", href: "/appointment" }, { label: "Contact Us", href: "/contact" }],
   },
   chest: {
-    text: "Chest pain requires immediate attention. Visit our emergency department or call +251 900 000 000 right away.",
+    text: "Chest pain requires immediate attention. Visit our emergency department or call 0973 245 788 right away.",
     dept: "Emergency",
     links: [{ label: "Emergency Service", href: "/services/emergency" }, { label: "Cardiology Dept", href: "/departments/cardiology" }],
   },
@@ -366,19 +366,19 @@ const amharicSymptomMap: Record<string, string[]> = {
 };
 
 const faqAnswers: Record<string, { text: string; icon: React.ReactNode; links?: { label: string; href: string }[] }> = {
-  "What services does Medhin Hospital offer?": {
+  "What services does Dr. Kassaw Mama Hospital offer?": {
     icon: <FaMicroscope size={18} />,
     text: "We offer Emergency Care (24/7), Delivery & Maternity, Laboratory Testing, Digital X-Ray, Ultrasound, CT Scan, Surgical Services, and ECG — all delivered with modern technology by experienced professionals.",
     links: [{ label: "View All Services", href: "/services" }],
   },
   "Do you accept health insurance?": {
     icon: <FaShieldAlt size={18} />,
-    text: "Yes, we accept most major health insurance plans. Please contact our billing department at +251 900 000 000 for specific information about your coverage.",
+    text: "Yes, we accept most major health insurance plans. Please contact our billing department at 0973 245 788 for specific information about your coverage.",
     links: [{ label: "Contact Us", href: "/contact" }],
   },
   "How do I book an appointment?": {
     icon: <FaCalendarCheck size={18} />,
-    text: "You can book online through our Appointment page, by calling +251 900 000 000, or by visiting us in person. We recommend booking in advance to minimize wait times.",
+    text: "You can book online through our Appointment page, by calling 0973 245 788, or by visiting us in person. We recommend booking in advance to minimize wait times.",
     links: [{ label: "Book Now", href: "/appointment" }],
   },
   "What are your working hours?": {
@@ -387,7 +387,7 @@ const faqAnswers: Record<string, { text: string; icon: React.ReactNode; links?: 
   },
   "Is there emergency care available?": {
     icon: <FaPhoneAlt size={18} />,
-    text: "Yes! Our emergency department is open 24 hours a day, 7 days a week, including public holidays. For immediate emergencies, call +251 900 000 000.",
+    text: "Yes! Our emergency department is open 24 hours a day, 7 days a week, including public holidays. For immediate emergencies, call 0973 245 788.",
     links: [{ label: "Emergency Service", href: "/services/emergency" }],
   },
 };
@@ -417,7 +417,7 @@ export default function AskAISection() {
       if (matched) {
         setAnswer(matched);
       } else {
-        setAnswer({ icon: <FaCommentDots size={18} />, text: "Thank you for your question. Please contact us at +251 900 000 000 or visit our Contact page for more information.", links: [{ label: "Contact Us", href: "/contact" }] });
+        setAnswer({ icon: <FaCommentDots size={18} />, text: "Thank you for your question. Please contact us at 0973 245 788 or visit our Contact page for more information.", links: [{ label: "Contact Us", href: "/contact" }] });
       }
       setIsTyping(false);
     }, 600);

@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
-import { physicians } from "@/app/data/about.config";
+import { usePhysicians } from "@/app/hooks/usePhysicians";
 
 export default function ExperiencedStaffs() {
   const { t, locale } = useLocale();
+  const { physicians } = usePhysicians();
 
   const displayDoctors = physicians.slice(0, 8);
 

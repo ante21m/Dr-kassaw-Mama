@@ -10,6 +10,10 @@ import {
   Brain,
   HeartPulse,
   Bone,
+  Ear,
+  Flower2,
+  Smile,
+  Stethoscope,
 } from "lucide-react";
 
 export const iconMap: Record<string, ReactNode> = {
@@ -22,4 +26,8 @@ export const iconMap: Record<string, ReactNode> = {
   brain: <Brain size={32} />,
   heart: <HeartPulse size={32} />,
   bone: <Bone size={32} />,
+  ear: <Ear size={32} />,
+  flower: <Flower2 size={32} />,
+  smile: <Smile size={32} />,
+  stethoscope: <Stethoscope size={32} />,
 };

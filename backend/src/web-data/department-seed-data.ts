@@ -1,9 +1,9 @@
-export const seedDepartments = [
+﻿export const seedDepartments = [
   {
     name: 'Cardiology',
     description: 'Expert diagnosis and treatment of heart conditions including coronary artery disease, heart failure, arrhythmias, and preventive cardiology using modern evidence-based medicine.',
-    image: '/images/departments/cardiology.jpg',
-    headOfDepartment: 'Dr. Melkamu Adamu',
+    image: '/uploads/images/hospital-1.jpg',
+    headOfDepartment: 'Dr. A',
     email: 'cardiology@medhin-hospital.com',
     phone: '+251-11-123-4567',
     order: 1,
@@ -11,8 +11,8 @@ export const seedDepartments = [
   {
     name: 'Neurology',
     description: 'Comprehensive neurological care specializing in stroke management, epilepsy treatment, headache disorders, and neurodegenerative conditions with advanced diagnostic capabilities.',
-    image: '/images/departments/neurology.jpg',
-    headOfDepartment: 'Dr. Abebe Kebede',
+    image: '/uploads/images/hospital-2.jpg',
+    headOfDepartment: 'Dr. B',
     email: 'neurology@medhin-hospital.com',
     phone: '+251-11-123-4568',
     order: 2,
@@ -20,8 +20,8 @@ export const seedDepartments = [
   {
     name: 'Orthopedics',
     description: 'Full-spectrum orthopedic care including fracture treatment, joint replacement, sports medicine, spine care, and rehabilitation services performed by experienced specialists.',
-    image: '/images/departments/orthopedics.jpg',
-    headOfDepartment: 'Dr. Aragaw Tesfaye',
+    image: '/uploads/images/hospital-3.jpg',
+    headOfDepartment: 'Dr. C',
     email: 'orthopedics@medhin-hospital.com',
     phone: '+251-11-123-4569',
     order: 3,
@@ -29,8 +29,8 @@ export const seedDepartments = [
   {
     name: 'Pediatrics',
     description: 'Complete pediatric healthcare from infancy through adolescence, including well-child checkups, vaccinations, growth monitoring, and treatment of common childhood illnesses.',
-    image: '/images/departments/pediatrics.jpg',
-    headOfDepartment: 'Dr. Aderajew Getahun',
+    image: '/uploads/images/hospital-4.jpg',
+    headOfDepartment: 'Dr. D',
     email: 'pediatrics@medhin-hospital.com',
     phone: '+251-11-123-4570',
     order: 4,

@@ -21,9 +21,9 @@ function resolveAsset(path?: string) {
 }
 
 const defaultSlides: HeroSlide[] = [
-  { src: `/images/hospital-hero.jpg${imgVer}`, title: "Medhin Primary Hospital", titleAm: "መድህን ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
-  { src: `/images/hospital-1.jpg${imgVer}`, title: "Your Health, Our Priority", titleAm: "ጤናዎ ቅድሚያችን ነው", subtitle: "Expert Care, Compassionate Hearts", subtitleAm: "ባለሙያ እንክብካቤ፣ አዛኝ ልቦች" },
-  { src: `/images/hospital-2.jpg${imgVer}`, title: "Advanced Medical Technology", titleAm: "ዘመናዊ የሕክምና ቴክኖሎጂ", subtitle: "24/7 Emergency Services", subtitleAm: "የ24/7 የአደጋ ጊዜ አገልግሎት" },
+  { src: `/images/hospital-hero1.jpg${imgVer}`, title: "Dr. Kassaw Mama Primary Hospital", titleAm: "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
+  { src: `/images/hospital-hero2.jpg${imgVer}`, title: "Your Health, Our Priority", titleAm: "ጤናዎ ቅድሚያችን ነው", subtitle: "Expert Care, Compassionate Hearts", subtitleAm: "ባለሙያ እንክብካቤ፣ አዛኝ ልቦች" },
+  { src: `/images/mama-staff1.jpg${imgVer}`, title: "Experienced Medical Staff", titleAm: "ልምድ ያላቸው የህክምና ሰራተኞች", subtitle: "24/7 Emergency & 24 Hour Pharmacy", subtitleAm: "የ24/7 የአደጋ ጊዜ እና የ24 ሰዓት መድኃኒት ቤት" },
 ];
 
 const SLIDE_MS = 5500;

@@ -24,7 +24,7 @@ export default function PhysicianCard({ physician }: { physician: Physician }) {
       <div className="physician-card-image" onClick={() => setPreview(true)}>
         <Image
           src={physician.image + imgVer}
-          alt={physician.name}
+          alt=""
           fill
           sizes="(max-width: 600px) 85vw, (max-width: 1024px) 45vw, 280px"
           className="physician-card-img"

@@ -38,25 +38,25 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const title = "Medhin Primary Hospital — Quality Healthcare in Woldia";
+const title = "Dr. Kassaw Mama Primary Hospital — Quality Healthcare in Woldia";
 const description =
-  "Medhin Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.";
+  "Dr. Kassaw Mama Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0B5D52",
+  themeColor: "#0B4A5D",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://medhinprimaryhospital.com"),
   title: {
     default: title,
-    template: "%s | Medhin Primary Hospital",
+    template: "%s | Dr. Kassaw Mama Primary Hospital",
   },
   description,
   keywords: [
-    "Medhin Primary Hospital",
+    "Dr. Kassaw Mama Primary Hospital",
     "Woldia hospital",
     "healthcare Woldia",
     "clinic in Woldia",
@@ -65,12 +65,12 @@ export const metadata: Metadata = {
     "medical clinic Ethiopia",
     "specialized clinic",
   ],
-  authors: [{ name: "Medhin Primary Hospital" }],
+  authors: [{ name: "Dr. Kassaw Mama Primary Hospital" }],
   openGraph: {
     title,
     description,
     url: "https://medhinprimaryhospital.com",
-    siteName: "Medhin Primary Hospital",
+    siteName: "Dr. Kassaw Mama Primary Hospital",
     locale: "en_US",
     type: "website",
   },

@@ -13,7 +13,7 @@ import { ArrowRight } from "lucide-react";
 import "./about-us.css";
 
 /* =========================================================
-   BYKM-STYLE DESIGN TOKENS (adapted to Medhin palette)
+   BYKM-STYLE DESIGN TOKENS (adapted to Dr. Kassaw Mama palette)
 ========================================================= */
 const MINT = "#7FD9C4"; // signature accent on dark sections
 
@@ -23,7 +23,7 @@ const copy = {
     eyebrow: "About Us",
     storyLabel: "Our Story",
     storyTitle: "Who We Are",
-    cards: [{ title: "The Foundation" }, { title: "Our Journey" }, { title: "Medhin Today" }],
+    cards: [{ title: "The Foundation" }, { title: "Our Journey" }, { title: "Dr. Kassaw Mama Today" }],
     vmLabel: "Purpose",
     missionKicker: "Mission",
     visionKicker: "Vision",
@@ -36,7 +36,7 @@ const copy = {
     journeyLabel: "Our Journey",
     journeyTitle: "Milestones of Care",
     timeline: [
-      { year: "2024", title: "The Beginning", desc: "Medhin Primary Hospital opened its doors in Woldia with one promise — quality healthcare, close to home." },
+      { year: "2024", title: "The Beginning", desc: "Dr. Kassaw Mama Primary Hospital opened its doors in Woldia with one promise — quality healthcare, close to home." },
       { year: "Growth", title: "Expanding Services", desc: "New departments, more specialists and broader medical services grew our capacity to serve." },
       { year: "Technology", title: "Modern Diagnostics", desc: "Investment in modern laboratory and imaging technology brought faster, more accurate diagnoses." },
       { year: "24/7", title: "Always Open", desc: "Our emergency department never closes — round-the-clock critical care when every minute counts." },
@@ -132,7 +132,6 @@ export default function AboutClient() {
 
   /* Physicians */
   const [physDept, setPhysDept] = useState("All");
-  const [physAuto, setPhysAuto] = useState(true);
   const departments = ["All", ...new Set(docs.map((p) => p.specialty))];
   const filteredDocs = physDept === "All" ? docs : docs.filter((p) => p.specialty === physDept);
 
@@ -153,18 +152,6 @@ export default function AboutClient() {
     document.addEventListener("keydown", onEsc);
     return () => document.removeEventListener("keydown", onEsc);
   }, [activeLeader]);
-
-  useEffect(() => {
-    if (!physAuto || physDept !== "All") return;
-    const el = document.querySelector(".phys-carousel-track") as HTMLElement;
-    if (!el) return;
-    const timer = setInterval(() => {
-      const card = el.querySelector(".phys-slide") as HTMLElement;
-      if (!card) return;
-      el.scrollBy({ left: card.offsetWidth + 20, behavior: "smooth" });
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [physAuto, physDept]);
 
   const lname = (l: { name: string; nameAm?: string }) => (locale === "am" && l.nameAm ? l.nameAm : l.name);
   const lrole = (l: { role: string; roleAm?: string }) => (locale === "am" && l.roleAm ? l.roleAm : l.role);
@@ -247,7 +234,7 @@ export default function AboutClient() {
                   {c.values.map((v, i) => (
                     <div key={i} className="bk-mini-card">
                       <div style={{ position: "relative", zIndex: 1 }}>
-                        <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B5D52, #062F2A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,93,82,0.35)" }}>
+                        <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B4A5D, #082E3A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,74,93,0.35)" }}>
                           {v.icon}
                         </div>
                         <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#fff", marginBottom: 6 }}>{v.title}</h3>
@@ -309,7 +296,7 @@ export default function AboutClient() {
 
       {/* ══════════════ COMMITMENT BANNER ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B5D52, #0E2622)", color: "#fff", padding: "72px 24px" }}>
+        <section style={{ background: "linear-gradient(90deg, #0B4A5D, #0B3B4A)", color: "#fff", padding: "72px 24px" }}>
           <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 36 }}>
             <div style={{ maxWidth: 720 }}>
               <Eyebrow>{c.promiseLabel}</Eyebrow>
@@ -324,7 +311,7 @@ export default function AboutClient() {
               </p>
             </div>
             <div style={{ flexShrink: 0 }}>
-              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #0E8371, #062F2A)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #0B6B84, #082E3A)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
                 <FaHeartbeat size={40} color="#fff" />
               </div>
             </div>
@@ -366,7 +353,7 @@ export default function AboutClient() {
                       onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
                     >
                       <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", overflow: "hidden", background: "var(--line-soft)" }}>
-                        <Image src={(leader.image || "/leadership/placeholder.jpg") + imgVer} alt={lname(leader)} fill sizes="296px" style={{ objectFit: "cover", transition: "transform .5s ease" }} />
+                        <Image src={(leader.image || "/leadership/leadership-placeholder.png") + imgVer} alt={lname(leader)} fill sizes="296px" style={{ objectFit: "cover", transition: "transform .5s ease" }} />
                       </div>
                       <div style={{ padding: "22px 18px 20px", textAlign: "center" }}>
                         <h3 style={{ fontSize: "1.02rem", fontWeight: 700, color: "var(--ink)", margin: "0 0 6px" }}>{lname(leader)}</h3>
@@ -410,7 +397,7 @@ export default function AboutClient() {
             </button>
             <div className="hgrid modalgrid">
               <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", borderRadius: 2, overflow: "hidden", background: "var(--line-soft)" }}>
-                <Image src={(activeLeader.image || "/leadership/placeholder.jpg") + imgVer} alt={lname(activeLeader)} fill sizes="280px" style={{ objectFit: "cover" }} />
+                <Image src={(activeLeader.image || "/images/physician-placeholder.png") + imgVer} alt={lname(activeLeader)} fill sizes="280px" style={{ objectFit: "cover" }} />
               </div>
               <div>
                 <h3 className="bk-display" style={{ fontSize: "1.35rem", fontWeight: 600, color: "var(--ink)", margin: "0 0 6px" }}>{lname(activeLeader)}</h3>
@@ -471,15 +458,10 @@ export default function AboutClient() {
             </div>
 
             <div
-              className="phys-carousel-track"
-              style={{ display: "flex", gap: 20, overflowX: "auto", scrollBehavior: "smooth", padding: "8px 4px 16px", scrollbarWidth: "none" } as React.CSSProperties}
-              onMouseEnter={() => setPhysAuto(false)}
-              onMouseLeave={() => setPhysAuto(true)}
+              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}
             >
-              {filteredDocs.slice(0, 10).map((p) => (
-                <div key={p.id} className="phys-slide" style={{ minWidth: 260, maxWidth: 260, flexShrink: 0 }}>
-                  <PhysicianCard physician={p} />
-                </div>
+              {filteredDocs.slice(0, 4).map((p) => (
+                <PhysicianCard key={p.id} physician={p} />
               ))}
             </div>
 
@@ -494,7 +476,7 @@ export default function AboutClient() {
 
       {/* ══════════════ CTA ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B5D52, #0E2622)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
+        <section style={{ background: "linear-gradient(90deg, #0B4A5D, #0B3B4A)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: 640, margin: "0 auto" }}>
             <h2 className="bk-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 600, margin: "0 0 14px" }}>
               {t("aboutPage.ctaTitle")}

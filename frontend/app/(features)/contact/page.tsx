@@ -4,11 +4,11 @@ import ContactClient from "./contact-client";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Medhin Primary Hospital in Woldia, Ethiopia. Find our address, phone, email, hours, and directions.",
+    "Get in touch with Dr. Kassaw Mama Primary Hospital in Woldia, Ethiopia. Find our address, phone, email, hours, and directions.",
   openGraph: {
-    title: "Contact Us | Medhin Primary Hospital",
+    title: "Contact Us | Dr. Kassaw Mama Primary Hospital",
     description:
-      "Get in touch with Medhin Primary Hospital in Woldia, Ethiopia. Find our address, phone, email, hours, and directions.",
+      "Get in touch with Dr. Kassaw Mama Primary Hospital in Woldia, Ethiopia. Find our address, phone, email, hours, and directions.",
   },
 };
 

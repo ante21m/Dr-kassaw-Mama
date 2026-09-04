@@ -13,7 +13,7 @@ import {
 const contactInfo = [
   { icon: MapPin, labelKey: "contactPage.office", descKey: "contactPage.address", isHours: false as const, phone: null as string | null, email: null as string | null },
   { icon: Clock, labelKey: "contactPage.hours", descKey: null, isHours: true as const, phone: null, email: null },
-  { icon: Phone, labelKey: "footer.phoneLabel", descKey: null, isHours: false, phone: "+251 9XX XXX XXX", email: null },
+  { icon: Phone, labelKey: "footer.phoneLabel", descKey: null, isHours: false, phone: "0973 245 788 / 0921 316 666", email: null },
   { icon: Mail, labelKey: "footer.emailLabel", descKey: null, isHours: false, phone: null, email: "info@medhinhospital.com" },
 ];
 
@@ -155,7 +155,7 @@ export default function ContactClient() {
 
                 <Box style={{ borderRadius: 3, overflow: "hidden", height: 200, border: "1px solid #f3f4f6" }} mb="md">
                   <iframe
-                    title={locale === "am" ? "መድህን ፕራይመሪ ሆስፒታል አድራሻ" : "Medhin Primary Hospital Location"}
+                    title={locale === "am" ? "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል አድራሻ" : "Dr. Kassaw Mama Primary Hospital Location"}
                     src={embedMapUrl}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -245,7 +245,7 @@ export default function ContactClient() {
           </Title>
 
           <Text size="sm" mb="xl" maw={460} mx="auto" lh={1.6} style={{ color: "rgba(255,255,255,0.62)" }}>
-            {locale === "am" ? "በወልድያ ከተማ በሚገኘው የመድህን ፕራይመሪ ሆስፒታል እንጠብቅዎታለን" : "We look forward to welcoming you at Medhin Primary Hospital in Woldia"}
+            {locale === "am" ? "በወልድያ ከተማ በሚገኘው የዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል እንጠብቅዎታለን" : "We look forward to welcoming you at Dr. Kassaw Mama Primary Hospital in Woldia"}
           </Text>
 
           <Box

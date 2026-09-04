@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Gallery } from '../entities/gallery.entity';
@@ -6,11 +6,15 @@ import { CreateGalleryDto, UpdateGalleryDto } from '../dtos/gallery.dto';
 import { seedGallery } from '../gallery-seed-data';
 
 @Injectable()
-export class GalleryService {
+export class GalleryService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Gallery)
     private galleryRepository: Repository<Gallery>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.seed();
+  }
 
   findAll(): Promise<Gallery[]> {
     return this.galleryRepository.find({ order: { order: 'ASC' } });
@@ -39,6 +43,8 @@ export class GalleryService {
   }
 
   async seed(): Promise<Gallery[]> {
+    const count = await this.galleryRepository.count();
+    if (count > 0) return this.galleryRepository.find({ order: { order: 'ASC' } });
     const items = this.galleryRepository.create(seedGallery);
     return this.galleryRepository.save(items);
   }

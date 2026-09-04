@@ -48,4 +48,20 @@ export const services = [
     id: "pediatrics",
     icon: "baby",
   },
+  {
+    id: "ent",
+    icon: "ear",
+  },
+  {
+    id: "gynecology",
+    icon: "flower",
+  },
+  {
+    id: "maxillofacial",
+    icon: "smile",
+  },
+  {
+    id: "general",
+    icon: "stethoscope",
+  },
 ];

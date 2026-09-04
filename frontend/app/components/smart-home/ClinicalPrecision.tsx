@@ -19,7 +19,7 @@ export default function ClinicalPrecision() {
             <div className="m-eyebrow m-eyebrow--light">Our Engineering Mindset</div>
             <h2 className="m-h2" style={{ color: "#fff", marginBottom: 18 }}>Clinical Precision, by Design</h2>
             <p style={{ color: "var(--on-deep-soft)", fontSize: "0.98rem", lineHeight: 1.7, marginBottom: 32, maxWidth: 46 + "ch" }}>
-              Every workflow at Medhin — from intake to diagnosis to discharge — is built like a system: measured, monitored, and continuously verified. Precision isn&apos;t a slogan here, it&apos;s the operating standard.
+              Every workflow at Dr. Kassaw Mama — from intake to diagnosis to discharge — is built like a system: measured, monitored, and continuously verified. Precision isn&apos;t a slogan here, it&apos;s the operating standard.
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(255,255,255,0.1)", borderRadius: "var(--radius)", overflow: "hidden" }}>

@@ -15,7 +15,7 @@ export class CreateAppointmentDto {
   @IsString()
   doctorSpecialty?: string;
 
-  @ApiProperty({ example: 'Abebe Kebede' })
+  @ApiProperty({ example: 'Patient Name' })
   @IsString()
   patientName: string;
 

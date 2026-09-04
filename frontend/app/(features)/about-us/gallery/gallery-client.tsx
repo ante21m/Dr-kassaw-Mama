@@ -9,6 +9,8 @@ import {
 } from "@mantine/core";
 import { ZoomIn } from "lucide-react";
 import { imgVer } from "@/lib/imgver";
+import { resolveImage } from "@/lib/resolveImage";
+import { useGetGalleryQuery } from "@/app/store/api/galleryApi";
 import Lightbox from "@/app/components/ui/Lightbox";
 
 const categories = ["All", "Facilities", "Doctors", "Staff", "Equipment"] as const;
@@ -21,65 +23,32 @@ const catKeys: Record<string, string> = {
   Equipment: "galleryPage.equipment",
 };
 
-const imageTitles: Record<string, Record<string, string>> = {
-  en: {
-    "Clinic Building": "Clinic Building",
-    "Main Entrance": "Main Entrance",
-    "Waiting Area": "Waiting Area",
-    "Patient Room": "Patient Room",
-    "Reception Desk": "Reception Desk",
-    "Clinic Overview": "Clinic Overview",
-    "Building Exterior": "Building Exterior",
-    "Clinic Front": "Clinic Front",
-    "Consultation Room": "Consultation Room",
-    "Doctor at Work": "Doctor at Work",
-    "Medical Team": "Medical Team",
-    "Surgery in Progress": "Surgery in Progress",
-    "Medhin Staff": "Medhin Staff",
-    "X-Ray Machine": "X-Ray Machine",
-    "CT Scanner": "CT Scanner",
-    "Ultrasound Device": "Ultrasound Device",
-    "Laboratory Equipment": "Laboratory Equipment",
-  },
-  am: {
-    "Clinic Building": "የክሊኒክ ህንፃ",
-    "Main Entrance": "ዋና መግቢያ",
-    "Waiting Area": "የሚጠባበቂያ ክፍል",
-    "Patient Room": "የታካሚ ክፍል",
-    "Reception Desk": "የአቀባበል ዴስክ",
-    "Clinic Overview": "የክሊኒክ አጠቃላይ እይታ",
-    "Building Exterior": "የህንፃ ውጫዊ ገጽታ",
-    "Clinic Front": "የክሊኒክ ፊት ለፊት",
-    "Consultation Room": "የምክር ክፍል",
-    "Doctor at Work": "ሐኪም በስራ ላይ",
-    "Medical Team": "የሕክምና ቡድን",
-    "Surgery in Progress": "የቀዶ ጥገና በሂደት ላይ",
-    "Medhin Staff": "የመድህን ሰራተኞች",
-    "X-Ray Machine": "ኤክስሬይ ማሽን",
-    "CT Scanner": "ሲቲ ስካነር",
-    "Ultrasound Device": "አልትራሳውንድ መሣሪያ",
-    "Laboratory Equipment": "የላቦራቶሪ መሣሪያዎች",
-  },
-};
+function catFromTitle(title: string): string {
+  const t = title.toLowerCase();
+  if (/(x-ray|xray|ct|scanner|ultrasound|laboratory|equipment|machin|scan|ecg)/.test(t)) return "Equipment";
+  if (/(doctor|physician|consult|surgeon|medical team|nurse)/.test(t)) return "Doctors";
+  if (/(staff|supporting|dedicated)/.test(t)) return "Staff";
+  return "Facilities";
+}
 
 const rawImages = [
-  { src: "/images/hospital-hero.jpg", cat: "Facilities", en: "Clinic Building" },
-  { src: "/images/hospital-1.jpg", cat: "Facilities", en: "Main Entrance" },
-  { src: "/images/hospital-2.jpg", cat: "Facilities", en: "Waiting Area" },
-  { src: "/images/hospital-3.jpg", cat: "Facilities", en: "Patient Room" },
-  { src: "/images/clinic.jpg", cat: "Facilities", en: "Reception Desk" },
-  { src: "/images/clinic-poster.jpg", cat: "Facilities", en: "Clinic Overview" },
-  { src: "/images/slide1.jpg", cat: "Facilities", en: "Building Exterior" },
-  { src: "/images/slide2.jpg", cat: "Facilities", en: "Clinic Front" },
-  { src: "/images/doctor-1.jpg", cat: "Doctors", en: "Consultation Room" },
-  { src: "/images/doctor-2.jpg", cat: "Doctors", en: "Doctor at Work" },
-  { src: "/images/doctor-3.jpg", cat: "Doctors", en: "Medical Team" },
-  { src: "/images/doctor-4.jpg", cat: "Doctors", en: "Surgery in Progress" },
-  { src: "/images/medhin-staff.jpg", cat: "Staff", en: "Medhin Staff" },
-  { src: "/images/hospital-1.jpg", cat: "Equipment", en: "X-Ray Machine" },
-  { src: "/images/hospital-2.jpg", cat: "Equipment", en: "CT Scanner" },
-  { src: "/images/clinic.jpg", cat: "Equipment", en: "Ultrasound Device" },
-  { src: "/images/hospital-3.jpg", cat: "Equipment", en: "Laboratory Equipment" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Hospital Building", am: "የሆስፒታሉ ህንፃ" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Child & Maternal Wing", am: "የህፃናት እና የእናቶች ክፍል" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Hospital Exterior", am: "የሆስፒታሉ ውጭ እይታ" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Patient Waiting Area", am: "የታካሚ መቆያ ቦታ" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Facility Overview", am: "የተቋሙ አጠቃላይ እይታ" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Renovated Clinic Wing", am: "የታደሰው ክሊኒክ ክፍል" },
+  { src: "/images/gallery-placeholder.png", cat: "Facilities", en: "Clinic Overview", am: "የክሊኒኩ አጠቃላይ እይታ" },
+  { src: "/images/gallery-placeholder.png", cat: "Doctors", en: "Our Doctor Team", am: "የዶክተሮቻችን ቡድን" },
+  { src: "/images/gallery-placeholder.png", cat: "Doctors", en: "Consultation", am: "ምክክር" },
+  { src: "/images/gallery-placeholder.png", cat: "Doctors", en: "Medical Team", am: "የህክምና ቡድን" },
+  { src: "/images/gallery-placeholder.png", cat: "Doctors", en: "Experienced Doctors", am: "ልምድ ያላቸው ዶክተሮች" },
+  { src: "/images/gallery-placeholder.png", cat: "Staff", en: "Our Dedicated Staff", am: "ታታሪ ሰራተኞቻችን" },
+  { src: "/images/gallery-placeholder.png", cat: "Staff", en: "Supporting Staff", am: "የድጋፍ ሰራተኞች" },
+  { src: "/images/gallery-placeholder.png", cat: "Equipment", en: "Digital X-Ray Machine", am: "ዲጂታል ኤክስሬይ ማሽን" },
+  { src: "/images/gallery-placeholder.png", cat: "Equipment", en: "CT Scanner", am: "ሲቲ ስካነር" },
+  { src: "/images/gallery-placeholder.png", cat: "Equipment", en: "Ultrasound Device", am: "አልትራሳውንድ መሳሪያ" },
+  { src: "/images/gallery-placeholder.png", cat: "Equipment", en: "Laboratory Equipment", am: "የላቦራቶሪ መሳሪያዎች" },
 ];
 
 export default function GalleryClient() {
@@ -88,13 +57,21 @@ export default function GalleryClient() {
   const [active, setActive] = useState<string>("All");
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
 
-  const images = rawImages.map((img) => ({
-    ...img,
-    src: img.src + imgVer,
-    title: imageTitles[lang]?.[img.en] ?? img.en,
-  }));
+  const { data: apiImages } = useGetGalleryQuery();
+
+  const images = (apiImages && apiImages.length > 0 ? apiImages : rawImages).map((img) => {
+    if (apiImages && apiImages.length > 0) {
+      const api = img as { title: string; titleAm?: string; image: string };
+      const en = api.title;
+      const title = lang === "am" ? api.titleAm || en : en;
+      return { src: resolveImage(api.image) + imgVer, cat: catFromTitle(en), title };
+    }
+    const raw = img as { src: string; cat: string; en: string; am?: string };
+    return { src: raw.src + imgVer, cat: raw.cat, title: lang === "am" ? raw.am || raw.en : raw.en };
+  });
 
   const filtered = active === "All" ? images : images.filter((img) => img.cat === active);
+  const availableCats = ["All", ...categories.filter((c) => c !== "All" && images.some((img) => img.cat === c))];
 
   return (
     <Box bg="gray.0" mih="100vh">
@@ -140,7 +117,7 @@ export default function GalleryClient() {
       <Container size={1300} py={48}>
         {/* Filter pills */}
         <Group justify="center" gap="xs" mb="xl">
-          {categories.map((cat) => (
+          {availableCats.map((cat) => (
             <Box
               key={cat}
               component="button"

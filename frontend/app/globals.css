@@ -12,22 +12,22 @@
 :root {
   /* Surfaces */
   --bg: #ffffff;
-  --bg-tint: #F4F8F7;       /* soft clinical mint-neutral, used for alt sections */
-  --bg-deep: #0E2622;       /* near-black pine, used sparingly for depth sections */
+  --bg-tint: #F2F7F9;       /* soft clinical blue-mint neutral, used for alt sections */
+  --bg-deep: #0B3B4A;       /* deep blue-teal, used sparingly for depth sections */
 
   /* Ink */
   --ink: #16211E;
   --ink-soft: #57685F;
   --ink-faint: #8B978F;
-  --on-deep: #F3F6F4;
-  --on-deep-soft: rgba(243, 246, 244, 0.68);
+  --on-deep: #F3F7F9;
+  --on-deep-soft: rgba(243, 247, 249, 0.68);
 
-  /* Brand: deep pine/teal — trust, clinical calm, distinct from generic medical blue */
-  --primary: #0B5D52;
-  --primary-700: #084A42;
-  --primary-900: #062F2A;
-  --primary-100: #E3F0EC;
-  --primary-50: #F2F8F6;
+  /* Brand: deep blue-teal — trust, clinical calm, distinct from generic medical blue */
+  --primary: #0B4A5D;
+  --primary-700: #0A3D4C;
+  --primary-900: #082E3A;
+  --primary-100: #E2EFF4;
+  --primary-50: #F1F7F9;
 
   /* Accent: warm ochre — used sparingly, one accent per view maximum */
   --accent: #C27A2A;
@@ -1244,7 +1244,7 @@ html[lang="am"] body {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: linear-gradient(135deg, #0E8371, #062F2A);
+  background: linear-gradient(135deg, #0B6B84, #082E3A);
   color: white;
 }
 
@@ -2471,7 +2471,7 @@ html[lang="am"] body {
   justify-content: center;
   gap: 10px;
   padding: 15px 34px;
-  background: linear-gradient(135deg, #084A42, #062F2A);
+  background: linear-gradient(135deg, #0A3D4C, #082E3A);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-weight: 600;
@@ -2491,7 +2491,7 @@ html[lang="am"] body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0E8371, #0B5D52);
+  background: linear-gradient(135deg, #0B6B84, #0B4A5D);
   transition: left 0.3s ease;
 }
 .bykm-btn:hover::before { left: 0; }
@@ -2557,8 +2557,8 @@ html[lang="am"] body {
 }
 .bykm-chip:hover { border-color: var(--primary); color: var(--primary); }
 .bykm-chip.active {
-  background: #062F2A;
-  border-color: #062F2A;
+  background: #082E3A;
+  border-color: #082E3A;
   color: #7FD9C4;
 }
 
@@ -2642,7 +2642,7 @@ html[lang="am"] body {
 
 .nav-panel {
   display: none;
-  background: #062F2A;
+  background: #082E3A;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 24px 40px rgba(0, 0, 0, 0.3);
 }

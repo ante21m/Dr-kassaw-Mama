@@ -50,7 +50,7 @@ export default function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 100,
-        background: scrolled ? "#062F2A" : "#062F2A",
+        background: scrolled ? "#0B4A5D" : "#0B4A5D",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "none",
         borderBottom: "1px solid rgba(255,255,255,0.08)",
         transition: "box-shadow 0.35s ease",
@@ -63,20 +63,20 @@ export default function Navbar() {
           <div style={{
             width: 38,
             height: 38,
-            borderRadius: "50%",
+            borderRadius: 8,
             overflow: "hidden",
             border: "2px solid rgba(255,255,255,0.2)",
             transition: "border-color 0.3s, transform 0.3s",
             flexShrink: 0,
           }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.transform = "scale(1.08)"; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "#7FD9C4"; e.currentTarget.style.transform = "scale(1.08)"; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.transform = ""; }}
           >
-            <Image src="/hospital-logo.jpg" alt="Medhin Logo" width={38} height={38} style={{ borderRadius: "50%", objectFit: "cover" }} />
+            <Image src="/images/km-logo.png" alt="Dr. Kassaw Mama Logo" width={38} height={38} style={{ borderRadius: 6, objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ fontFamily: "var(--font-display)", fontSize: "1.08rem", fontWeight: 500, color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.15 }}>
-              {locale === "am" ? "መድህን" : "Medhin"}
+              {locale === "am" ? "ዶ/ር ካሳው ማማ" : "Dr. Kassaw Mama"}
             </div>
             <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.5)", fontWeight: 500, letterSpacing: "0.03em", transition: "color 0.3s" }}
               onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.8)"}
@@ -97,7 +97,7 @@ export default function Navbar() {
                   style={{
                     fontSize: "0.87rem",
                     fontWeight: 500,
-                    color: active ? "var(--accent)" : "rgba(255,255,255,0.8)",
+                    color: active ? "#7FD9C4" : "rgba(255,255,255,0.8)",
                     background: "transparent",
                     padding: "4px 0",
                     borderRadius: 0,
@@ -105,7 +105,7 @@ export default function Navbar() {
                     position: "relative",
                     transition: "color 0.25s",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "var(--accent)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = "#7FD9C4"; }}
                   onMouseLeave={e => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.8)"; }}>
                   {item.label}
                   <span style={{
@@ -114,7 +114,7 @@ export default function Navbar() {
                     left: 0,
                     width: active ? "100%" : 0,
                     height: 2,
-                    background: "var(--accent)",
+                    background: "#7FD9C4",
                     borderRadius: 999,
                     transition: "width 0.3s ease",
                   }} />
@@ -151,13 +151,13 @@ export default function Navbar() {
                 <Link href={item.href} className={`nav-panel-link${active ? " active" : ""}`}>
                   {item.label}
                 </Link>
-                <FiChevronRight size={14} style={{ color: active ? "var(--accent)" : "rgba(255,255,255,0.25)" }} />
+                <FiChevronRight size={14} style={{ color: active ? "#7FD9C4" : "rgba(255,255,255,0.25)" }} />
               </li>
             );
           })}
         </ul>
         <div style={{ padding: "0 24px 26px" }}>
-          <Link href="/appointment" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 9, padding: "13px 20px", borderRadius: 4, background: "linear-gradient(135deg, #0E8371, #0B5D52)", color: "#fff", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>
+            <Link href="/appointment" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 9, padding: "13px 20px", borderRadius: 4, background: "linear-gradient(135deg, #0B6B84, #0B4A5D)", color: "#fff", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>
             <FaCalendarCheck size={13} /> {t("nav.book")}
           </Link>
         </div>
