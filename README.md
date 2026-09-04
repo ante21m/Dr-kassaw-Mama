@@ -144,3 +144,4 @@ The app supports English and Amharic (አማርኛ). Toggle with the language bu
 - **Hours:** Mon–Sat 8AM–6PM · Emergency 24/7
 
 "# medhinHospitalui" 
+"# Dr-kassaw-Mama" 
