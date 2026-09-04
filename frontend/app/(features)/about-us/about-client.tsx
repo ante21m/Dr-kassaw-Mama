@@ -160,7 +160,7 @@ export default function AboutClient() {
     <div>
       {/* ══════════════ HERO ══════════════ */}
       <Reveal>
-        <section className="bk-deep" style={{ padding: "96px 24px 84px" }}>
+        <section className="bykm-hero" style={{ padding: "96px 24px 84px" }}>
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.55) 0%, transparent 65%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)" }} />
           <div className="bk-grid-overlay" />
@@ -214,48 +214,51 @@ export default function AboutClient() {
 
       {/* ══════════════ MISSION & VISION ══════════════ */}
       <Reveal>
-        <section className="bk-deep" style={{ padding: "90px 24px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 22% 38%, rgba(11,93,82,0.45) 0%, transparent 60%)" }} />
-          <div className="bk-grid-overlay" style={{ backgroundSize: "60px 60px" }} />
-          <div className="bk-geo" style={{ width: 220, height: 220, top: 40, right: -40, transform: "rotate(12deg)", opacity: 0.35 }} />
-          <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 10 }}>
-            <Eyebrow>{c.vmLabel}</Eyebrow>
+        <section style={{ padding: "90px 24px", background: "linear-gradient(150deg, #EAF5F6 0%, #DEEFF1 55%, #D4E9EC 100%)", position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 88% 8%, rgba(127,217,196,0.30) 0%, transparent 55%), radial-gradient(ellipse at 4% 92%, rgba(11,74,93,0.08) 0%, transparent 50%)" }} />
+          <div style={{ position: "absolute", width: 280, height: 280, borderRadius: "50%", top: -90, left: -90, background: "rgba(255,255,255,0.40)" }} />
+          <div style={{ position: "absolute", width: 220, height: 220, borderRadius: "50%", bottom: -80, right: -60, background: "rgba(255,255,255,0.30)" }} />
+          <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 2 }}>
+            <Eyebrow color="var(--primary)">{c.vmLabel}</Eyebrow>
             <div className="bk-vm-grid" style={{ marginTop: 26 }}>
               {/* Mission */}
-              <div style={{ background: "linear-gradient(135deg, rgba(11,93,82,0.30), rgba(6,47,42,0.70))", border: "1px solid rgba(127,217,196,0.22)", padding: "38px 34px" }}>
-                <span className="bk-eyebrow" style={{ color: MINT, fontSize: "0.66rem" }}>{c.missionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#fff", margin: "14px 0 12px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(11,74,93,0.10)", boxShadow: "0 24px 60px rgba(11,74,93,0.10)", padding: "38px 34px" }}>
+                <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.missionKicker}</span>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B3B4A", margin: "14px 0 12px" }}>
                   {t("mission.title")}
                 </h2>
-                <p style={{ margin: "0 0 26px", fontSize: "0.95rem", lineHeight: 1.75, color: "rgba(255,255,255,0.7)" }}>
+                <p style={{ margin: "0 0 28px", fontSize: "0.95rem", lineHeight: 1.75, color: "#49636F" }}>
                   {t("mission.description")}
                 </p>
                 <div className="bk-mini-grid">
                   {c.values.map((v, i) => (
-                    <div key={i} className="bk-mini-card">
-                      <div style={{ position: "relative", zIndex: 1 }}>
-                        <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B4A5D, #082E3A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,74,93,0.35)" }}>
-                          {v.icon}
-                        </div>
-                        <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#fff", marginBottom: 6 }}>{v.title}</h3>
-                        <p style={{ margin: "0 0 10px", fontSize: "0.86rem", lineHeight: 1.6, color: "rgba(255,255,255,0.62)" }}>{v.desc}</p>
-                        <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.64rem", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, color: MINT }}>{v.stat}</p>
+                    <div
+                      key={i}
+                      style={{ background: "linear-gradient(135deg, #F4FBFB, #E9F4F5)", border: "1px solid rgba(11,74,93,0.08)", padding: "20px", overflow: "hidden", transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 14px 30px rgba(11,74,93,0.14)"; e.currentTarget.style.borderColor = "var(--primary)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(11,74,93,0.08)"; }}
+                    >
+                      <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B4A5D, #0A6E86)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,74,93,0.28)" }}>
+                        {v.icon}
                       </div>
+                      <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#0B3B4A", marginBottom: 6 }}>{v.title}</h3>
+                      <p style={{ margin: "0 0 10px", fontSize: "0.86rem", lineHeight: 1.6, color: "#4B6470" }}>{v.desc}</p>
+                      <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.64rem", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, color: "var(--primary)" }}>{v.stat}</p>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Vision */}
-              <div style={{ background: "rgba(6,47,42,0.6)", border: "1px solid rgba(255,255,255,0.1)", padding: "30px 28px" }}>
-                <span className="bk-eyebrow" style={{ color: MINT, fontSize: "0.66rem" }}>{c.visionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "1.4rem", fontWeight: 600, color: "#fff", margin: "12px 0 10px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(11,74,93,0.10)", boxShadow: "0 24px 60px rgba(11,74,93,0.10)", padding: "38px 34px" }}>
+                <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.visionKicker}</span>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B3B4A", margin: "14px 0 12px" }}>
                   {t("vision.title")}
                 </h2>
-                <p style={{ margin: 0, fontSize: "0.92rem", lineHeight: 1.75, color: "rgba(255,255,255,0.62)" }}>
+                <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "#49636F" }}>
                   {t("vision.description")}
                 </p>
-                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", color: MINT }}>
+                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(11,74,93,0.10)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--primary)" }}>
                     <FaHeartbeat size={14} /> {t("aboutPage.isoCertified")} · {t("aboutPage.years25")}
                   </div>
                 </div>
