@@ -473,10 +473,10 @@ export default function AskAISection() {
   };
 
   return (
-    <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, #062F2A 0%, #0A3D36 50%, #062F2A 100%)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, #0B4A5D 0%, #0B3B4A 55%, #082E3A 100%)", position: "relative", overflow: "hidden" }}>
       {/* Background orbs */}
       <div style={{ position: "absolute", top: -200, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(194,122,42,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
-      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,93,82,0.1) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,74,93,0.25) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
       <div style={{ maxWidth: 960, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Header */}
