@@ -40,7 +40,6 @@ export class News {
 
   @Column({ default: true })
   isActive: boolean;
-
   @CreateDateColumn()
   createdAt: Date;
 
