@@ -684,7 +684,7 @@
 .bk-deep {
   position: relative;
   overflow: hidden;
-  background: #071511;
+  background: #0B09B5;
 }
 
 .bk-grid-overlay {
@@ -764,7 +764,7 @@
   right: 0;
   width: 64px;
   height: 64px;
-  background: #082E3A;
+  background:#070690;
   transform: translate(16px, -50%) skewX(-30deg);
   display: flex;
   align-items: center;
@@ -772,7 +772,7 @@
 }
 .bk-numbadge span {
   transform: skewX(30deg);
-  color: #7FD9C4;
+  color: #F2B61D;
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 1.05rem;
@@ -829,7 +829,7 @@
   background: #fff;
   border-radius: 3px;
   overflow: hidden;
-  border-top: 3px solid #7FD9C4;
+  border-top: 3px solid #F2B61D;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -841,7 +841,7 @@
   align-items: center;
   gap: 10px;
   padding: 15px 34px;
-  background: linear-gradient(135deg, #0A3D4C, #082E3A);
+  background: linear-gradient(135deg, #0B09B5,#070690);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-weight: 600;
@@ -861,11 +861,11 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0B6B84, #0B4A5D);
+  background: linear-gradient(135deg, #1B17D6, #0d0bc7);
   transition: left 0.3s ease;
 }
 .bk-btn:hover::before { left: 0; }
-.bk-btn:hover { box-shadow: 0 12px 30px rgba(11,93,82,0.35); color: #fff; }
+.bk-btn:hover { box-shadow: 0 12px 30px rgba(13,11,199,0.35); color: #fff; }
 .bk-btn > * { position: relative; z-index: 1; }
 
 .bk-btn-ghost {
@@ -925,9 +925,9 @@
 }
 .bk-chip:hover { border-color: var(--primary); color: var(--primary); }
 .bk-chip.active {
-  background: #082E3A;
-  border-color: #082E3A;
-  color: #7FD9C4;
+  background:#070690;
+  border-color:#070690;
+  color: #F2B61D;
 }
 
 /* =========================
@@ -1005,11 +1005,11 @@
   width: 100%;
   padding: 6px 4px 20px;
   scrollbar-width: 9;
-  scrollbar-color: rgba(11,93,82,0.4) transparent;
+  scrollbar-color: rgba(13,11,199,0.4) transparent;
 }
 .physicians-carousel::-webkit-scrollbar { height: 9px; }
 .physicians-carousel::-webkit-scrollbar-thumb {
-  background: rgba(11,93,82,0.35);
+  background: rgba(13,11,199,0.35);
   border-radius: 999px;
 }
 .physicians-carousel::-webkit-scrollbar-track { background: transparent; }
@@ -1031,8 +1031,8 @@
 }
 .physician-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(11,93,82,0.16);
-  border-color: rgba(11,93,82,0.35);
+  box-shadow: 0 24px 50px rgba(13,11,199,0.16);
+  border-color: rgba(13,11,199,0.35);
 }
 
 .physician-card-image {
@@ -1066,13 +1066,13 @@
   color: #fff;
   backdrop-filter: blur(6px);
 }
-.physician-avail.is-avail { background: rgba(11,93,82,0.85); }
+.physician-avail.is-avail { background: rgba(13,11,199,0.85); }
 .physician-avail.is-busy { background: rgba(217,119,6,0.85); }
 .physician-avail-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #7FD9C4;
+  background: #F2B61D;
   box-shadow: 0 0 0 3px rgba(127,217,196,0.25);
 }
 .is-busy .physician-avail-dot { background: #fbbf24; box-shadow: 0 0 0 3px rgba(251,191,36,0.25); }
@@ -1130,7 +1130,7 @@
   margin: auto 0 0;
   padding: 12px 14px;
   border-radius: 2px;
-  background: linear-gradient(135deg, var(--primary), #0B4A5D);
+  background: linear-gradient(135deg, var(--primary), #0d0bc7);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-size: 0.7rem;
@@ -1142,9 +1142,9 @@
   transition: box-shadow 0.25s ease, transform 0.1s ease;
 }
 .physician-card .book-btn:hover {
-  background: linear-gradient(135deg, #0B6B84, #082E3A);
+  background: linear-gradient(135deg, #1B17D6,#070690);
   color: #fff;
-  box-shadow: 0 12px 30px rgba(11,93,82,0.35);
+  box-shadow: 0 12px 30px rgba(13,11,199,0.35);
 }
 
 /* RESPONSIVE — CAROUSEL SLIDE WIDTHS */

@@ -57,7 +57,7 @@ export default function NewsClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -73,7 +73,6 @@ export default function NewsClient() {
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 44px)", marginTop: 14 }}>
               {t("newsPage.title")}
             </Title>
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
             <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("newsPage.subtitle")}
             </Text>

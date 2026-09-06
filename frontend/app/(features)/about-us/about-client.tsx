@@ -13,9 +13,9 @@ import { ArrowRight } from "lucide-react";
 import "./about-us.css";
 
 /* =========================================================
-   BYKM-STYLE DESIGN TOKENS (adapted to Dr. Kassaw Mama palette)
+   BYKM-STYLE DESIGN TOKENS (adapted to Dr. Kassaw Mamma palette)
 ========================================================= */
-const MINT = "#7FD9C4"; // signature accent on dark sections
+const MINT = "#F2B61D"; // signature accent on dark sections
 
 /* Local bilingual copy for strings not in the translation files */
 const copy = {
@@ -23,7 +23,7 @@ const copy = {
     eyebrow: "About Us",
     storyLabel: "Our Story",
     storyTitle: "Who We Are",
-    cards: [{ title: "The Foundation" }, { title: "Our Journey" }, { title: "Dr. Kassaw Mama Today" }],
+    cards: [{ title: "The Foundation" }, { title: "Our Journey" }, { title: "Dr. Kassaw Mamma Today" }],
     vmLabel: "Purpose",
     missionKicker: "Mission",
     visionKicker: "Vision",
@@ -36,7 +36,7 @@ const copy = {
     journeyLabel: "Our Journey",
     journeyTitle: "Milestones of Care",
     timeline: [
-      { year: "2024", title: "The Beginning", desc: "Dr. Kassaw Mama Primary Hospital opened its doors in Woldia with one promise — quality healthcare, close to home." },
+      { year: "2024", title: "The Beginning", desc: "Dr. Kassaw Mamma Primary Hospital opened its doors in Woldia with one promise — quality healthcare, close to home." },
       { year: "Growth", title: "Expanding Services", desc: "New departments, more specialists and broader medical services grew our capacity to serve." },
       { year: "Technology", title: "Modern Diagnostics", desc: "Investment in modern laboratory and imaging technology brought faster, more accurate diagnoses." },
       { year: "24/7", title: "Always Open", desc: "Our emergency department never closes — round-the-clock critical care when every minute counts." },
@@ -108,13 +108,10 @@ function Reveal({ children }: { children: ReactNode }) {
   );
 }
 
-/* Mono eyebrow label with accent dash */
+/* Mono eyebrow label */
 function Eyebrow({ children, color = MINT }: { children: ReactNode; color?: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      <span style={{ width: 28, height: 1, background: color }} />
-      <span className="bk-eyebrow" style={{ color }}>{children}</span>
-    </div>
+    <span className="bk-eyebrow" style={{ color }}>{children}</span>
   );
 }
 
@@ -155,13 +152,22 @@ export default function AboutClient() {
 
   const lname = (l: { name: string; nameAm?: string }) => (locale === "am" && l.nameAm ? l.nameAm : l.name);
   const lrole = (l: { role: string; roleAm?: string }) => (locale === "am" && l.roleAm ? l.roleAm : l.role);
+  const initials = (fullName: string) =>
+    fullName
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("")
+      .toUpperCase();
+  const isRealImage = (u?: string) => !!u && !u.includes("placeholder");
 
   return (
     <div>
       {/* ══════════════ HERO ══════════════ */}
       <Reveal>
-        <section className="bykm-hero" style={{ padding: "96px 24px 84px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.55) 0%, transparent 65%)" }} />
+        <section className="bykm-hero" style={{ padding: "96px 24px 84px", background: "linear-gradient(135deg, #1826F5 0%, #0d0bc7 45%, #0B09B5 100%)" }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.55) 0%, transparent 65%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)" }} />
           <div className="bk-grid-overlay" />
           <div className="bk-geo" style={{ width: 380, height: 380, top: -90, right: -90, transform: "rotate(12deg)", opacity: 0.5 }} />
@@ -175,9 +181,8 @@ export default function AboutClient() {
                     {t("aboutPage.heroTitle")}
                   </span>
                 </h1>
-                <div style={{ width: 64, height: 4, background: MINT, marginTop: 32 }} />
               </div>
-              <div style={{ paddingTop: 10 }}>
+              <div style={{ paddingTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 28 }}>
                 <div className="bk-glass-card">
                   <div className="bk-glass-bar" />
                   <p style={{ margin: 0, fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.68)" }}>
@@ -202,7 +207,6 @@ export default function AboutClient() {
               {[t("about.intro"), t("about.history"), t("about.today")].map((text, i) => (
                 <div key={i} className="bk-card">
                   <div className="bk-numbadge"><span>{String(i + 1).padStart(2, "0")}</span></div>
-                  <div style={{ width: 40, height: 3, background: "var(--primary-900)", marginBottom: 16 }} />
                   <h3 className="bk-display" style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--ink)", marginBottom: 12 }}>{c.cards[i].title}</h3>
                   <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "var(--ink-soft)" }}>{text}</p>
                 </div>
@@ -214,50 +218,50 @@ export default function AboutClient() {
 
       {/* ══════════════ MISSION & VISION ══════════════ */}
       <Reveal>
-        <section style={{ padding: "90px 24px", background: "linear-gradient(150deg, #EAF5F6 0%, #DEEFF1 55%, #D4E9EC 100%)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 88% 8%, rgba(127,217,196,0.30) 0%, transparent 55%), radial-gradient(ellipse at 4% 92%, rgba(11,74,93,0.08) 0%, transparent 50%)" }} />
+        <section style={{ padding: "90px 24px", background: "linear-gradient(150deg, #ECEEFD 0%, #DCE0FB 55%, #CDD2FA 100%)", position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 88% 8%, rgba(127,217,196,0.30) 0%, transparent 55%), radial-gradient(ellipse at 4% 92%, rgba(13,11,199,0.08) 0%, transparent 50%)" }} />
           <div style={{ position: "absolute", width: 280, height: 280, borderRadius: "50%", top: -90, left: -90, background: "rgba(255,255,255,0.40)" }} />
           <div style={{ position: "absolute", width: 220, height: 220, borderRadius: "50%", bottom: -80, right: -60, background: "rgba(255,255,255,0.30)" }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 2 }}>
             <Eyebrow color="var(--primary)">{c.vmLabel}</Eyebrow>
             <div className="bk-vm-grid" style={{ marginTop: 26 }}>
               {/* Mission */}
-              <div style={{ background: "#ffffff", border: "1px solid rgba(11,74,93,0.10)", boxShadow: "0 24px 60px rgba(11,74,93,0.10)", padding: "38px 34px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(13,11,199,0.10)", boxShadow: "0 24px 60px rgba(13,11,199,0.10)", padding: "38px 34px" }}>
                 <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.missionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B3B4A", margin: "14px 0 12px" }}>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B09B5", margin: "14px 0 12px" }}>
                   {t("mission.title")}
                 </h2>
-                <p style={{ margin: "0 0 28px", fontSize: "0.95rem", lineHeight: 1.75, color: "#49636F" }}>
+                <p style={{ margin: "0 0 28px", fontSize: "0.95rem", lineHeight: 1.75, color: "#4B5A8A" }}>
                   {t("mission.description")}
                 </p>
                 <div className="bk-mini-grid">
                   {c.values.map((v, i) => (
                     <div
                       key={i}
-                      style={{ background: "linear-gradient(135deg, #F4FBFB, #E9F4F5)", border: "1px solid rgba(11,74,93,0.08)", padding: "20px", overflow: "hidden", transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 14px 30px rgba(11,74,93,0.14)"; e.currentTarget.style.borderColor = "var(--primary)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(11,74,93,0.08)"; }}
+                      style={{ background: "linear-gradient(135deg, #EFF1FD, #E9F4F5)", border: "1px solid rgba(13,11,199,0.08)", padding: "20px", overflow: "hidden", transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 14px 30px rgba(13,11,199,0.14)"; e.currentTarget.style.borderColor = "var(--primary)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(13,11,199,0.08)"; }}
                     >
-                      <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B4A5D, #0A6E86)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,74,93,0.28)" }}>
+                      <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0d0bc7, #1B17D6)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(13,11,199,0.28)" }}>
                         {v.icon}
                       </div>
-                      <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#0B3B4A", marginBottom: 6 }}>{v.title}</h3>
-                      <p style={{ margin: "0 0 10px", fontSize: "0.86rem", lineHeight: 1.6, color: "#4B6470" }}>{v.desc}</p>
+                      <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#0B09B5", marginBottom: 6 }}>{v.title}</h3>
+                      <p style={{ margin: "0 0 10px", fontSize: "0.86rem", lineHeight: 1.6, color: "#4B5A8A" }}>{v.desc}</p>
                       <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.64rem", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, color: "var(--primary)" }}>{v.stat}</p>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Vision */}
-              <div style={{ background: "#ffffff", border: "1px solid rgba(11,74,93,0.10)", boxShadow: "0 24px 60px rgba(11,74,93,0.10)", padding: "38px 34px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(13,11,199,0.10)", boxShadow: "0 24px 60px rgba(13,11,199,0.10)", padding: "38px 34px" }}>
                 <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.visionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B3B4A", margin: "14px 0 12px" }}>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B09B5", margin: "14px 0 12px" }}>
                   {t("vision.title")}
                 </h2>
-                <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "#49636F" }}>
+                <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "#4B5A8A" }}>
                   {t("vision.description")}
                 </p>
-                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(11,74,93,0.10)" }}>
+                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(13,11,199,0.10)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--primary)" }}>
                     <FaHeartbeat size={14} /> {t("aboutPage.isoCertified")} · {t("aboutPage.years25")}
                   </div>
@@ -284,7 +288,6 @@ export default function AboutClient() {
               {c.timeline.map((item, i) => (
                 <div key={i} className="bk-card">
                   <div className="bk-numbadge"><span>{String(i + 1).padStart(2, "0")}</span></div>
-                  <div style={{ width: 40, height: 3, background: "var(--primary-900)", marginBottom: 16 }} />
                   <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--primary)", marginBottom: 8, fontWeight: 600 }}>
                     {item.year}
                   </div>
@@ -299,7 +302,7 @@ export default function AboutClient() {
 
       {/* ══════════════ COMMITMENT BANNER ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B4A5D, #0B3B4A)", color: "#fff", padding: "72px 24px" }}>
+        <section style={{ background: "linear-gradient(90deg, #0d0bc7, #0B09B5)", color: "#fff", padding: "72px 24px" }}>
           <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 36 }}>
             <div style={{ maxWidth: 720 }}>
               <Eyebrow>{c.promiseLabel}</Eyebrow>
@@ -314,7 +317,7 @@ export default function AboutClient() {
               </p>
             </div>
             <div style={{ flexShrink: 0 }}>
-              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #0B6B84, #082E3A)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #1B17D6,#070690)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
                 <FaHeartbeat size={40} color="#fff" />
               </div>
             </div>
@@ -325,7 +328,7 @@ export default function AboutClient() {
       {/* ══════════════ LEADERSHIP ══════════════ */}
       <Reveal>
         <section className="bk-deep" style={{ padding: "96px 24px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(11,93,82,0.4) 0%, transparent 65%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(13,11,199,0.4) 0%, transparent 65%)" }} />
           <div className="bk-grid-overlay" style={{ backgroundSize: "60px 60px" }} />
           <div className="bk-geo" style={{ width: 250, height: 250, top: -70, right: -30, transform: "rotate(12deg)", opacity: 0.3 }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 10 }}>
@@ -349,27 +352,33 @@ export default function AboutClient() {
             >
               <div className="bk-leader-track" style={{ transform: `translateX(-${leaderIdx * 324}px)` }}>
                 {leadershipData.map((leader) => (
-                  <div key={leader.id} style={{ minWidth: 296, cursor: "pointer" }} onClick={() => setActiveLeader(leader)}>
-                    <div
-                      className="bk-leader-card"
-                      onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 50px rgba(0,0,0,0.4)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
-                    >
-                      <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", overflow: "hidden", background: "var(--line-soft)" }}>
-                        <Image src={(leader.image || "/leadership/leadership-placeholder.png") + imgVer} alt={lname(leader)} fill sizes="296px" style={{ objectFit: "cover", transition: "transform .5s ease" }} />
-                      </div>
-                      <div style={{ padding: "22px 18px 20px", textAlign: "center" }}>
-                        <h3 style={{ fontSize: "1.02rem", fontWeight: 700, color: "var(--ink)", margin: "0 0 6px" }}>{lname(leader)}</h3>
-                        <p style={{ margin: "0 0 14px", fontFamily: "var(--font-mono)", fontSize: "0.64rem", letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 600, color: "var(--primary)" }}>
-                          {lrole(leader)}
-                        </p>
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)", fontSize: "0.66rem", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, color: "var(--primary)", borderBottom: "2px solid transparent", paddingBottom: 2 }}
-                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; }}
-                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = "transparent"; }}
+                  <div key={leader.id} style={{ minWidth: 296, cursor: "pointer" }}>
+                    <div className="card">
+                      <button
+                        onClick={() => setActiveLeader(leader)}
+                        aria-label={lname(leader)}
+                        style={{ display: "block", width: "100%", padding: 0, border: "none", background: "transparent", cursor: "pointer" }}
+                      >
+                        <div className="imageSection">
+                          {isRealImage(leader.image) ? (
+                            <Image src={(leader.image || "") + imgVer} alt={lname(leader)} fill sizes="296px" className="avatarImg" />
+                          ) : (
+                            <span className="avatarCircle">
+                              <span className="initial">{initials(lname(leader))}</span>
+                            </span>
+                          )}
+                        </div>
+                      </button>
+
+                      <div className="infoSection">
+                        <h3 className="doctorName">{lname(leader)}</h3>
+                        <p className="specialty">{lrole(leader)}</p>
+                        <button
+                          onClick={() => setActiveLeader(leader)}
+                          className="viewProfileBtn"
                         >
-                          {t("leadership.viewProfile")} <ArrowRight size={11} />
-                        </span>
+                          {t("leadership.viewProfile")} <span className="arrow"><ArrowRight size={12} /></span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -441,7 +450,7 @@ export default function AboutClient() {
 
       {/* ══════════════ PHYSICIANS ══════════════ */}
       <Reveal>
-        <section style={{ padding: "96px 24px", background: "#fff" }}>
+        <section style={{ padding: "96px 24px", background: "#F8F9FA" }}>
           <div style={{ maxWidth: 1240, margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: 34 }}>
               <div style={{ display: "flex", justifyContent: "center" }}>
@@ -479,7 +488,7 @@ export default function AboutClient() {
 
       {/* ══════════════ CTA ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B4A5D, #0B3B4A)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
+        <section style={{ background: "linear-gradient(90deg, #0d0bc7, #0B09B5)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: 640, margin: "0 auto" }}>
             <h2 className="bk-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 600, margin: "0 0 14px" }}>
               {t("aboutPage.ctaTitle")}

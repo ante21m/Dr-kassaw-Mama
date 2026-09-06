@@ -71,7 +71,7 @@ export default function AboutCompany() {
           <div className="about-company-image fade-right" style={{ cursor: "zoom-in" }} onClick={() => setAboutPreview(true)}>
             <Image
               src={"/images/clinic1.jpg" + imgVer}
-              alt="Dr. Kassaw Mama Primary Hospital"
+              alt="Dr. Kassaw Mamma Primary Hospital"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"

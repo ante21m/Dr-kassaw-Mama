@@ -11,9 +11,10 @@ import {
 import {
   ArrowRight, Clock, ShieldCheck, Users, Microscope
 } from "lucide-react";
+import "@/app/components/smart-home/doctor-card.css";
 
 export default function ServicesClient() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   return (
     <Box bg="gray.0" mih="100vh">
@@ -30,7 +31,7 @@ export default function ServicesClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -47,9 +48,6 @@ export default function ServicesClient() {
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 46px)", marginTop: 14 }}>
               {t("servicesPage.title")}
             </Title>
-
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
-
             <Text size="md" ta="center" maw={520} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("servicesPage.heroSubtitle")}
             </Text>
@@ -63,7 +61,7 @@ export default function ServicesClient() {
               { icon: <Microscope size={18} />, label: t("servicesPage.statEquipment"), sub: t("servicesPage.statEquipmentSub") },
             ].map((s) => (
               <Flex key={s.label} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
-                <Box c="#7FD9C4" style={{ flexShrink: 0 }}>{s.icon}</Box>
+                <Box c="#F2B61D" style={{ flexShrink: 0 }}>{s.icon}</Box>
                 <Box>
                   <Text c="white" fw={700} size="sm" lh={1.2}>{s.label}</Text>
                   <Text c="white" size="xs" style={{ opacity: 0.5 }}>{s.sub}</Text>
@@ -74,7 +72,7 @@ export default function ServicesClient() {
         </Container>
       </Box>
 
-      <section style={{ padding: "80px 24px", background: "var(--bg-tint)" }}>
+      <section style={{ padding: "80px 24px", background: "#F8F9FA" }}>
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="m-h2">{t("servicesPage.whatWeOffer")}</h2>
@@ -83,23 +81,30 @@ export default function ServicesClient() {
             {services.map((svc, i) => {
               const num = String(i + 1).padStart(2, "0");
               return (
-                <div key={svc.id} className="bykm-card">
-                  <div className="bykm-badge"><span>{num}</span></div>
-                  <div style={{ marginBottom: 12 }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 10, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      {iconMap[svc.icon]}
-                    </div>
+                <div key={svc.id} className="card">
+                  {/* Image / icon placeholder */}
+                  <div className="imageSection" style={{ minHeight: 200 }}>
+                    <span className="avatarCircle" style={{ width: 96, height: 96 }}>
+                      <span style={{ color: "#F2B61D", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        {iconMap[svc.icon]}
+                      </span>
+                    </span>
                   </div>
-                  <h3 style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--ink)", textTransform: "uppercase", letterSpacing: "0.06em", lineHeight: 1.4, marginTop: 0, marginRight: 0, marginBottom: 8, marginLeft: 0 }}>
-                    {t(`services.${svc.id}.title`)}
-                  </h3>
-                  <p style={{ fontSize: "0.85rem", color: "var(--ink-soft)", lineHeight: 1.65, margin: 0 }}>
-                    {t(`services.${svc.id}.description`)}
-                  </p>
-                  <Link href={`/services/${svc.id}`} className="bykm-view-detail" onClick={e => e.stopPropagation()}>
-                    {t("servicesPage.viewDetails")}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </Link>
+                  {/* Body */}
+                  <div className="infoSection">
+                    <span className="hospitalLabel">
+                      {locale === "am" ? "ዶ/ር ካሳው ማማ ሆስፒታል" : "Dr. Kassaw Mamma Hospital"}
+                    </span>
+                    <h3 className="doctorName" style={{ fontSize: 18 }}>
+                      {t(`services.${svc.id}.title`)}
+                    </h3>
+                    <p className="specialty" style={{ fontSize: 13 }}>
+                      {t(`services.${svc.id}.description`)}
+                    </p>
+                    <Link href={`/services/${svc.id}`} className="viewProfileBtn">
+                      {t("servicesPage.viewDetails")} <span className="arrow"><ArrowRight size={12} /></span>
+                    </Link>
+                  </div>
                 </div>
               );
             })}

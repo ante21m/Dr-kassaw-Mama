@@ -16,7 +16,7 @@ function TiktokIcon({ size }: { size: number }) {
 
 const socialLinks = [
   { icon: FaFacebookF, href: "https://facebook.com/medhinprimaryhospital", label: "Facebook" },
-  { icon: FaTelegramPlane, href: "https://t.me/Dr. Kassaw Mama_Primary_Hospital", label: "Telegram" },
+  { icon: FaTelegramPlane, href: "https://t.me/Dr. Kassaw Mamma_Primary_Hospital", label: "Telegram" },
   { icon: FaYoutube, href: "https://youtube.com/@medhinprimaryhospital", label: "YouTube" },
   { icon: FaTwitter, href: "https://twitter.com/medhinprimaryhospital", label: "Twitter" },
   { icon: TiktokIcon, href: "https://www.tiktok.com/@medhin.hospital", label: "TikTok" },
@@ -47,7 +47,7 @@ export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer style={{ background: "#0B4A5D", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
+    <footer style={{ background: "#0d0bc7", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
       {/* Decorative */}
       <div style={{ position: "absolute", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
       <div style={{ position: "absolute", bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.015)" }} />
@@ -59,9 +59,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-              <Image src="/images/km-logo.png" alt="Dr. Kassaw Mama Logo" width={42} height={42} style={{ borderRadius: 7, objectFit: "cover" }} />
+              <div style={{ width: 48, height: 48, borderRadius: 11, overflow: "hidden", background: "#fff", padding: 3, border: "2px solid rgba(255,255,255,0.3)", boxShadow: "0 3px 12px rgba(0,0,0,0.28)", flexShrink: 0 }}><Image src="/images/km-logo.png" alt="Dr. Kassaw Mamma Logo" width={48} height={48} style={{ borderRadius: 8, objectFit: "contain" }} /></div>
               <div>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem", fontWeight: 500, color: "#fff", lineHeight: 1.2 }}>Dr. Kassaw Mama Primary</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem", fontWeight: 500, color: "#fff", lineHeight: 1.2 }}>Dr. Kassaw Mamma Primary</div>
                 <div style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Hospital</div>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function Footer() {
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                   style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.5)", transition: "all 0.2s", textDecoration: "none" }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#7FD9C4"; e.currentTarget.style.borderColor = "#7FD9C4"; e.currentTarget.style.color = "#fff"; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#F2B61D"; e.currentTarget.style.borderColor = "#F2B61D"; e.currentTarget.style.color = "#fff"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; }}>
                   <Icon size={16} />
                 </a>
@@ -89,9 +89,9 @@ export default function Footer() {
               {services.map(s => (
                 <li key={s.href}>
                   <Link href={s.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 6 }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#7FD9C4"}
+                    onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
                     onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
-                    <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7FD9C4", flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#F2B61D", flexShrink: 0 }} />
                     {t(s.labelKey)}
                   </Link>
                 </li>
@@ -106,9 +106,9 @@ export default function Footer() {
               {quickLinks.map(l => (
                 <li key={l.href}>
                   <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 6 }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#7FD9C4"}
+                    onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
                     onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
-                    <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7FD9C4", flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#F2B61D", flexShrink: 0 }} />
                     {t(l.labelKey)}
                   </Link>
                 </li>
@@ -121,15 +121,15 @@ export default function Footer() {
             <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em" }}>{t("footer.findUs")}</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 24 }}>
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <FaMapMarkerAlt style={{ color: "#7FD9C4", marginTop: 3, flexShrink: 0 }} size={14} />
+                <FaMapMarkerAlt style={{ color: "#F2B61D", marginTop: 3, flexShrink: 0 }} size={14} />
                 <span style={{ fontSize: "0.86rem", lineHeight: 1.6, color: "rgba(255,255,255,0.55)" }}>{t("footer.location")}</span>
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                <FaPhone style={{ color: "#7FD9C4", flexShrink: 0 }} size={14} />
+                <FaPhone style={{ color: "#F2B61D", flexShrink: 0 }} size={14} />
                 <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>0973 245 788 / 0921 316 666</span>
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                <FaEnvelope style={{ color: "#7FD9C4", flexShrink: 0 }} size={14} />
+                <FaEnvelope style={{ color: "#F2B61D", flexShrink: 0 }} size={14} />
                 <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>info@medhinhospital.com</span>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function Footer() {
               <iframe title="Map" src="https://www.google.com/maps?q=11.830075,39.599407&output=embed" loading="lazy" style={{ width: "100%", height: "100%", border: "none" }} />
             </div>
             <a href="https://maps.app.goo.gl/zN7ivPM9C7ZzyuJz7" target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 10, fontSize: "0.82rem", color: "#7FD9C4", fontWeight: 600, textDecoration: "none", transition: "gap 0.2s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 10, fontSize: "0.82rem", color: "#F2B61D", fontWeight: 600, textDecoration: "none", transition: "gap 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.gap = "10px"}
               onMouseLeave={e => e.currentTarget.style.gap = "6px"}>
               {t("footer.getDirections")} →
@@ -147,9 +147,9 @@ export default function Footer() {
 
         {/* Bottom */}
         <div style={{ marginTop: 48, padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)" }}>© {new Date().getFullYear()} Dr. Kassaw Mama Primary Hospital. {t("footer.rights")}</span>
+          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)" }}>© {new Date().getFullYear()} Dr. Kassaw Mamma Primary Hospital. {t("footer.rights")}</span>
           <Link href="/admin/login" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#7FD9C4"}
+            onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
             onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>
             {t("footer.adminPortal")}
           </Link>

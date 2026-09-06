@@ -76,7 +76,7 @@ export default function AnnualReportPage() {
                       rel="noreferrer"
                       style={{ textDecoration: 'none' }}
                     >
-                      <Group gap={6} style={{ border: '1px solid rgba(11,71,61,0.35)', borderRadius: 8, padding: '8px 14px', color: '#0B473D', background: 'rgba(11,71,61,0.05)' }}>
+                      <Group gap={6} style={{ border: '1px solid rgba(11,71,61,0.35)', borderRadius: 8, padding: '8px 14px', color: '#0B09B5', background: 'rgba(11,71,61,0.05)' }}>
                         <Download size={15} />
                         <Text size="sm" fw={600}>Open PDF</Text>
                       </Group>

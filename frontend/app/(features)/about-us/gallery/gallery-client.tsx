@@ -1,19 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import { useLocale } from "@/app/locale-provider";
 import {
   Box, Container, Title, Text, Stack, Badge, Group,
   SimpleGrid
 } from "@mantine/core";
-import { ZoomIn } from "lucide-react";
+import { ZoomIn, Building2, Stethoscope, Users, ScanLine, Image as ImageIcon } from "lucide-react";
 import { imgVer } from "@/lib/imgver";
 import { resolveImage } from "@/lib/resolveImage";
 import { useGetGalleryQuery } from "@/app/store/api/galleryApi";
 import Lightbox from "@/app/components/ui/Lightbox";
 
 const categories = ["All", "Facilities", "Doctors", "Staff", "Equipment"] as const;
+
+const isRealImage = (u: string) => !u.includes("placeholder");
+
+const catIcon: Record<string, ReactNode> = {
+  Facilities: <Building2 size={30} />,
+  Doctors: <Stethoscope size={30} />,
+  Staff: <Users size={30} />,
+  Equipment: <ScanLine size={30} />,
+};
 
 const catKeys: Record<string, string> = {
   All: "galleryPage.all",
@@ -148,79 +157,90 @@ export default function GalleryClient() {
                 background: "#fff",
                 borderRadius: 12,
                 overflow: "hidden",
-                border: "1px solid var(--primary-100)",
+                border: "1px solid var(--line)",
                 cursor: "pointer",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
                 transition: "border-color .35s ease, box-shadow .35s ease, transform 0.3s ease",
               }}
               className="group"
               onClick={() => { setSelected(img); }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 20px 60px rgba(37,99,235,0.12)"; e.currentTarget.style.transform = "scale(1.02)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--primary-100)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "scale(1)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 18px 42px rgba(6,47,42,0.12)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--line)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}
             >
-              <div style={{ height: 5, background: "linear-gradient(90deg, #06b6d4, #0891b2)" }} />
               <Box
                 style={{
                   position: "relative",
+                  width: "100%",
                   aspectRatio: "4/3",
                   overflow: "hidden",
+                  background: "linear-gradient(135deg, var(--primary), var(--primary-700))",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                <Image
-                  src={img.src}
-                  alt={img.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
-                  className="group-hover:scale-110"
-                />
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: 10,
-                    right: 10,
-                    width: 36,
-                    height: 36,
-                    borderRadius: "50%",
-                    background: "rgba(4,14,11,0.65)",
-                    backdropFilter: "blur(4px)",
-                    color: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    opacity: 0,
-                    transform: "scale(0.8)",
-                    transition: "all 0.3s ease",
-                    pointerEvents: "none",
-                  }}
-                  className="group-hover:opacity-100 group-hover:scale-100"
-                >
-                  <ZoomIn size={16} />
-                </Box>
-                <Box
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                  }}
-                  className="group-hover:opacity-100"
-                />
-                <Box
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: "12px 16px",
-                    opacity: 0,
-                    transform: "translateY(8px)",
-                    transition: "all 0.3s ease",
-                  }}
-                  className="group-hover:opacity-100 group-hover:translate-y-0"
-                >
-                  <Text c="white" size="sm" fw={600}>{img.title}</Text>
-                </Box>
+                {isRealImage(img.src) ? (
+                  <>
+                    <Image
+                      src={img.src}
+                      alt={img.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+                      className="group-hover:scale-110"
+                    />
+                    <Box
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        right: 10,
+                        width: 36,
+                        height: 36,
+                        borderRadius: "50%",
+                        background: "rgba(13,11,199,0.9)",
+                        color: "#fff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        opacity: 0,
+                        transform: "scale(0.8)", 
+                        transition: "all 0.3s ease",
+                        pointerEvents: "none",
+                      }}
+                      className="group-hover:opacity-100 group-hover:scale-100"
+                    >
+                      <ZoomIn size={16} />
+                    </Box>
+                  </>
+                ) : (
+                  <Box
+                    style={{
+                      width: 88,
+                      height: 88,
+                      borderRadius: "50%",
+                      border: "3px solid rgba(255,255,255,0.2)",
+                      background: "rgba(255,255,255,0.08)",
+                      color: "#F2B61D",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "transform 0.3s ease",
+                    }}
+                    className="group-hover:scale-105"
+                  >
+                    {catIcon[img.cat] || <ImageIcon size={30} />}
+                  </Box>
+                )}
+              </Box>
+              <Box py={20} px={16} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <Text style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--primary)", fontWeight: 600 }}>
+                  {t(catKeys[img.cat] || "galleryPage.all")}
+                </Text>
+                <Text mt={6} style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>
+                  {img.title}
+                </Text>
               </Box>
             </Box>
           ))}

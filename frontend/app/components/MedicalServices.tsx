@@ -3,6 +3,7 @@
 import { FaAmbulance, FaBaby, FaFlask, FaXRay, FaDesktop, FaBrain, FaCut, FaHeartbeat, FaStethoscope } from "react-icons/fa";
 import { useLocale } from "@/app/locale-provider";
 import Link from "next/link";
+import "./smart-home/doctor-card.css";
 
 const services = [
   { key: "emergency", icon: <FaAmbulance size={20} />, color: "#ef4444", bg: "#fef2f2" },
@@ -12,7 +13,7 @@ const services = [
   { key: "ultrasound", icon: <FaDesktop size={20} />, color: "#06b6d4", bg: "#ecfeff" },
   { key: "ct-scan", icon: <FaBrain size={20} />, color: "#14b8a6", bg: "#f0fdfa" },
   { key: "surgical", icon: <FaCut size={20} />, color: "var(--primary)", bg: "var(--primary-50)" },
-  { key: "ecg", icon: <FaHeartbeat size={20} />, color: "#7FD9C4", bg: "var(--primary-100)" },
+  { key: "ecg", icon: <FaHeartbeat size={20} />, color: "#F2B61D", bg: "var(--primary-100)" },
   { key: "ent", icon: <FaCut size={20} />, color: "#0ea5e9", bg: "#f0f9ff" },
   { key: "gynecology", icon: <FaBaby size={20} />, color: "#d946ef", bg: "#fdf4ff" },
   { key: "maxillofacial", icon: <FaCut size={20} />, color: "#f59e0b", bg: "#fffbeb" },
@@ -59,60 +60,26 @@ export default function MedicalServices() {
               <Link
                 key={service.key}
                 href={`/services/${service.key}`}
-                style={{
-                  position: "relative",
-                  background: "#fff",
-                  borderRadius: "var(--radius)",
-                  border: "1px solid var(--line)",
-                  padding: "32px 28px",
-                  textDecoration: "none",
-                  transition: "all 0.35s cubic-bezier(.4,0,.2,1)",
-                  overflow: "hidden",
-                  display: "block",
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "var(--shadow)";
-                  e.currentTarget.style.borderColor = "var(--primary)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = "";
-                  e.currentTarget.style.boxShadow = "";
-                  e.currentTarget.style.borderColor = "";
-                }}
+                className="card"
+                style={{ textDecoration: "none" }}
               >
-                {/* Number */}
-                <div style={{ position: "absolute", top: 20, right: 20, fontSize: "3rem", fontWeight: 800, color: "var(--bg-tint)", lineHeight: 1, fontFamily: "system-ui, sans-serif", letterSpacing: "-0.04em", userSelect: "none" }}>
-                  {num}
+                {/* Image / icon placeholder */}
+                <div className="imageSection" style={{ minHeight: 200 }}>
+                  <span className="avatarCircle" style={{ width: 96, height: 96 }}>
+                    <span style={{ color: "#F2B61D", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {service.icon}
+                    </span>
+                  </span>
                 </div>
 
-                {/* Top accent bar */}
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${service.color}, ${service.color}88)` }} />
-
-                {/* Icon */}
-                <div style={{ width: 52, height: 52, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", background: service.bg, color: service.color, marginBottom: 20, transition: "transform 0.3s ease" }}>
-                  {service.icon}
-                </div>
-
-                {/* Tagline */}
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 8 }}>
-                  {taglines[i]}
-                </div>
-
-                {/* Title */}
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", marginBottom: 8, margin: "0 0 8px 0", lineHeight: 1.3 }}>
-                  {t(`services.${service.key}.title`)}
-                </h3>
-
-                {/* Description */}
-                <p style={{ fontSize: "0.88rem", color: "var(--ink-soft)", lineHeight: 1.65, margin: 0 }}>
-                  {t(`services.${service.key}.description`)}
-                </p>
-
-                {/* View Detail link */}
-                <div className="m-view-detail" style={{ marginTop: 20 }}>
-                  View Detail
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                {/* Body */}
+                <div className="infoSection">
+                  <span className="hospitalLabel">{taglines[i]}</span>
+                  <h3 className="doctorName" style={{ fontSize: 18 }}>{t(`services.${service.key}.title`)}</h3>
+                  <p className="specialty" style={{ fontSize: 13 }}>{t(`services.${service.key}.description`)}</p>
+                  <span className="viewProfileBtn">
+                    {t("servicesPage.viewDetails")} <span className="arrow">→</span>
+                  </span>
                 </div>
               </Link>
             );

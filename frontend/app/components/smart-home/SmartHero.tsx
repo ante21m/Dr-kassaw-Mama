@@ -21,17 +21,14 @@ function resolveAsset(path?: string) {
 }
 
 const defaultSlides: HeroSlide[] = [
-  { src: `/images/hospital-hero1.jpg${imgVer}`, title: "Dr. Kassaw Mama Primary Hospital", titleAm: "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
-  { src: `/images/hospital-hero2.jpg${imgVer}`, title: "Your Health, Our Priority", titleAm: "ጤናዎ ቅድሚያችን ነው", subtitle: "Expert Care, Compassionate Hearts", subtitleAm: "ባለሙያ እንክብካቤ፣ አዛኝ ልቦች" },
-  { src: `/images/mama-staff1.jpg${imgVer}`, title: "Experienced Medical Staff", titleAm: "ልምድ ያላቸው የህክምና ሰራተኞች", subtitle: "24/7 Emergency & 24 Hour Pharmacy", subtitleAm: "የ24/7 የአደጋ ጊዜ እና የ24 ሰዓት መድኃኒት ቤት" },
+  { src: `/images/hero-placeholder.jpg${imgVer}`, title: "Dr. Kassaw Mamma Primary Hospital", titleAm: "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
 ];
 
 const SLIDE_MS = 5500;
 
 export default function SmartHero() {
-  const { settings } = useSiteSettings("home");
-
-  const apiSlides = parseJsonSetting<HeroSlide[]>(settings.hero_slides, []);
+const { settings } = useSiteSettings("home");
+const apiSlides = parseJsonSetting<HeroSlide[]>(settings.hero_slides, []);
   const slides: HeroSlide[] =
     apiSlides.length > 0
       ? apiSlides.map((s) => ({
@@ -162,7 +159,11 @@ export default function SmartHero() {
               }}
             />
           ) : (
-            <div style={{ width: "100%", height: "100%", background: "var(--bg-deep)" }} />
+            <img
+              src={`/images/hero-placeholder.jpg${imgVer}`}
+              alt=""
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+            />
           )}
           <div
             className="smart-hero-overlay"

@@ -3,7 +3,7 @@ import NewsDetailClient from "./news-detail-client";
 
 export const metadata: Metadata = {
   title: "News Article",
-  description: "Read the latest news and updates from Dr. Kassaw Mama Primary Hospital.",
+  description: "Read the latest news and updates from Dr. Kassaw Mamma Primary Hospital.",
 };
 
 export default function Page() {

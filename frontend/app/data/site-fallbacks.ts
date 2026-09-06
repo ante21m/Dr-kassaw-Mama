@@ -117,7 +117,7 @@ export const fallbackSiteSettings: SiteSettingsData = {
     { id: "laboratory", icon: "FaFlask", color: "#8b5cf6" },
     { id: "xray", icon: "FaXRay", color: "#f97316" },
     { id: "surgical", icon: "FaCut", color: "var(--primary)" },
-    { id: "ecg", icon: "FaHeartbeat", color: "#7FD9C4" },
+    { id: "ecg", icon: "FaHeartbeat", color: "#F2B61D" },
     { id: "delivery", icon: "FaBaby", color: "#ec4899" },
     { id: "ultrasound", icon: "FaDesktop", color: "#06b6d4" },
     { id: "ct-scan", icon: "FaBrain", color: "#14b8a6" },

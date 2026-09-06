@@ -379,7 +379,7 @@ export default function PhysicianProfile() {
                     </ThemeIcon>
                     <div>
                       <Text size="xs" c="gray.5" fw={600} tt="uppercase" lts="0.05em">{locale === "am" ? "ቦታ" : "Location"}</Text>
-                      <Text fw={600} size="sm">Dr. Kassaw Mama Primary Hospital</Text>
+                      <Text fw={600} size="sm">Dr. Kassaw Mamma Primary Hospital</Text>
                     </div>
                   </Group>
                 </Stack>

@@ -1,0 +1,260 @@
+/* ==========================================
+   DOCTOR / STAFF CARD — full sample CSS
+   navy #10163a · blue #2626d6 · gold #f5a623
+   ========================================== */
+
+:root {
+  --doc-navy: #10163a;
+  --doc-blue: #2626d6;
+  --doc-gold: #f5a623;
+  --doc-grad-top: #1a1acb;
+  --doc-grad-bottom: #0a0a5c;
+}
+
+/* -------- Grid container -------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* -------- Card -------- */
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 14px 34px rgba(16, 22, 58, 0.10);
+  transform: translateY(-3px);
+}
+
+/* -------- Image / Avatar Section -------- */
+.imageSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  min-height: 320px;
+  background: linear-gradient(135deg, #1A1A9D 0%, #0F0F72 100%);
+  overflow: hidden;
+}
+
+.avatarCircle {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 2px solid rgba(140, 145, 255, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.initial {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--doc-gold);
+}
+
+.avatarImg {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .avatarImg {
+  transform: scale(1.08);
+}
+
+.zoomBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(38, 38, 214, 0.9);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover .zoomBadge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* -------- Info Section -------- */
+.infoSection {
+  padding: 28px 24px 30px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hospitalLabel {
+  display: block;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8A93A6;
+  margin-bottom: 12px;
+}
+
+.doctorName {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  color: var(--doc-navy);
+  margin: 0 0 6px;
+}
+
+.specialty {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #5C6473;
+  margin: 0 0 24px;
+}
+
+/* -------- Availability chip -------- */
+.availChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.availChip .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.availChip.isAvail {
+  background: #e6e8fa;
+  color: var(--doc-blue);
+}
+
+.availChip.isAvail .dot {
+  background: var(--doc-blue);
+}
+
+.availChip.isBusy {
+  background: #fdeeee;
+  color: #b02a2a;
+}
+
+.availChip.isBusy .dot {
+  background: #d64545;
+}
+
+/* -------- Button -------- */
+.viewProfileBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--doc-navy);
+  background: transparent;
+  border: 1.5px solid var(--doc-navy);
+  border-radius: 6px;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.viewProfileBtn:hover {
+  background: var(--doc-navy);
+  color: #ffffff;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.viewProfileBtn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.bookBtn {
+  margin-top: 10px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--doc-blue);
+  border: 1.5px solid var(--doc-blue);
+  border-radius: 4px;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.bookBtn:hover {
+  background: var(--doc-navy);
+  border-color: var(--doc-navy);
+}
+
+/* -------- Responsive tweaks -------- */
+@media (max-width: 480px) {
+  .imageSection {
+    min-height: 240px;
+    padding: 32px 16px;
+  }
+
+  .avatarCircle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .initial {
+    font-size: 46px;
+  }
+
+  .doctorName {
+    font-size: 18px;
+  }
+}

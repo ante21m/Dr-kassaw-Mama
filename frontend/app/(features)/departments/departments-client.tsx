@@ -11,6 +11,7 @@ import {
   Users, Building2,
   CalendarCheck, UserCheck
 } from "lucide-react";
+import "@/app/components/smart-home/doctor-card.css";
 
 const deptsData = {
   en: {
@@ -53,7 +54,7 @@ export default function DepartmentsClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -70,9 +71,6 @@ export default function DepartmentsClient() {
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 46px)", marginTop: 14 }}>
               {t("departments.pageTitle")}
             </Title>
-
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
-
             <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("departments.heroSubtitle")}
             </Text>
@@ -86,7 +84,7 @@ export default function DepartmentsClient() {
               { icon: <CalendarCheck size={18} />, label: t("departments.statYears"), sub: t("departments.statYearsSub") },
             ].map((s) => (
               <Flex key={s.label} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
-                <Box c="#7FD9C4" style={{ flexShrink: 0 }}>{s.icon}</Box>
+                <Box c="#F2B61D" style={{ flexShrink: 0 }}>{s.icon}</Box>
                 <Box>
                   <Text c="white" fw={700} size="sm" lh={1.2}>{s.label}</Text>
                   <Text c="white" size="xs" style={{ opacity: 0.5 }}>{s.sub}</Text>
@@ -97,7 +95,7 @@ export default function DepartmentsClient() {
         </Container>
       </Box>
 
-      <section style={{ padding: "80px 24px", background: "var(--bg-tint)" }}>
+      <section style={{ padding: "80px 24px", background: "#F8F9FA" }}>
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="m-h2">{t("departments.exploreTitle")}</h2>
@@ -107,33 +105,30 @@ export default function DepartmentsClient() {
               const num = String(i + 1).padStart(2, "0");
               const deptItems = items[dept.id as keyof typeof items] || [];
               return (
-                <div key={dept.id} className="bykm-card">
-                  <div className="bykm-badge"><span>{num}</span></div>
-                  <div style={{ marginBottom: 12 }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 10, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <dept.icon size={28} />
-                    </div>
+                <div key={dept.id} className="card">
+                  {/* Image / icon placeholder */}
+                  <div className="imageSection" style={{ minHeight: 200 }}>
+                    <span className="avatarCircle" style={{ width: 96, height: 96 }}>
+                      <span style={{ color: "#F2B61D", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <dept.icon size={30} />
+                      </span>
+                    </span>
                   </div>
-                  <h3 style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--ink)", textTransform: "uppercase", letterSpacing: "0.06em", lineHeight: 1.4, marginTop: 0, marginRight: 0, marginBottom: 8, marginLeft: 0 }}>
-                    {t(`departments.${dept.id}`)}
-                  </h3>
-                  <p style={{ fontSize: "0.85rem", color: "var(--ink-soft)", lineHeight: 1.65, margin: 0 }}>
-                    {t(`departments.${dept.id}Desc`)}
-                  </p>
-                  {deptItems.length > 0 && (
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, marginTop: 10 }}>
-                      {deptItems.map((item: string, j: number) => (
-                        <span key={j} style={{ fontSize: "0.82rem", color: "var(--ink-soft)", lineHeight: 1.4, display: "flex", alignItems: "baseline", gap: 6 }}>
-                          <span style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--primary)", flexShrink: 0, marginTop: 7 }} />
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <Link href={`/services/${dept.id}`} className="bykm-view-detail" onClick={e => e.stopPropagation()}>
-                    {t("servicesPage.viewDetails")}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </Link>
+                  {/* Body */}
+                  <div className="infoSection">
+                    <span className="hospitalLabel">
+                      {locale === "am" ? "ዶ/ር ካሳው ማማ ሆስፒታል" : "Dr. Kassaw Mamma Hospital"}
+                    </span>
+                    <h3 className="doctorName" style={{ fontSize: 18 }}>
+                      {t(`departments.${dept.id}`)}
+                    </h3>
+                    <p className="specialty" style={{ fontSize: 13 }}>
+                      {t(`departments.${dept.id}Desc`)}
+                    </p>
+                    <Link href={`/services/${dept.id}`} className="viewProfileBtn">
+                      {t("servicesPage.viewDetails")} <span className="arrow"><ArrowRight size={12} /></span>
+                    </Link>
+                  </div>
                 </div>
               );
             })}

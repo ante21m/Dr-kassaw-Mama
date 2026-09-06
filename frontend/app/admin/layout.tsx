@@ -46,8 +46,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <Stack justify="space-between" h="100%">
           <Box>
             <Group gap="sm" mb="xl" px="xs">
-              <img src="/images/km-logo.png" alt="" width={36} height={36} style={{ borderRadius: 8, objectFit: 'cover' }} />
-              <Text fw={700} size="sm">Dr. Kassaw Mama Primary Hospital</Text>
+              <div style={{ width: 40, height: 40, borderRadius: 9, overflow: 'hidden', background: '#fff', padding: 3, border: '2px solid rgba(255,255,255,0.3)', boxShadow: '0 3px 12px rgba(0,0,0,0.28)', flexShrink: 0 }}><img src="/images/km-logo.png" alt="" width={40} height={40} style={{ borderRadius: 7, objectFit: 'contain' }} /></div>
+              <Text fw={700} size="sm">Dr. Kassaw Mamma Primary Hospital</Text>
             </Group>
 
             {navItems.map((item) => {

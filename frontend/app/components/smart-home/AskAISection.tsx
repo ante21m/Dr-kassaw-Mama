@@ -366,7 +366,7 @@ const amharicSymptomMap: Record<string, string[]> = {
 };
 
 const faqAnswers: Record<string, { text: string; icon: React.ReactNode; links?: { label: string; href: string }[] }> = {
-  "What services does Dr. Kassaw Mama Hospital offer?": {
+  "What services does Dr. Kassaw Mamma Hospital offer?": {
     icon: <FaMicroscope size={18} />,
     text: "We offer Emergency Care (24/7), Delivery & Maternity, Laboratory Testing, Digital X-Ray, Ultrasound, CT Scan, Surgical Services, and ECG — all delivered with modern technology by experienced professionals.",
     links: [{ label: "View All Services", href: "/services" }],
@@ -473,15 +473,15 @@ export default function AskAISection() {
   };
 
   return (
-    <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, #0B4A5D 0%, #0B3B4A 55%, #082E3A 100%)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, #0d0bc7 0%, #0B09B5 55%,#070690 100%)", position: "relative", overflow: "hidden" }}>
       {/* Background orbs */}
-      <div style={{ position: "absolute", top: -200, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(194,122,42,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
-      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,74,93,0.25) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", top: -200, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(242,182,29,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(13,11,199,0.25) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
       <div style={{ maxWidth: 960, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(194,122,42,0.1)", border: "1px solid rgba(194,122,42,0.2)", color: "var(--accent)", padding: "6px 18px", borderRadius: 999, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(242,182,29,0.1)", border: "1px solid rgba(242,182,29,0.2)", color: "var(--accent)", padding: "6px 18px", borderRadius: 999, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 16 }}>
             <FaRobot size={13} /> {t("askAI.healthAssistant")}
           </div>
           <h2 style={{ fontSize: "clamp(26px, 4vw, 38px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: 10 }}>
@@ -504,7 +504,7 @@ export default function AskAISection() {
                 flex: 1,
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                 padding: "10px 16px", borderRadius: 8, fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", border: "none",
-                background: activeTab === key ? "rgba(194,122,42,0.15)" : "transparent",
+                background: activeTab === key ? "rgba(242,182,29,0.15)" : "transparent",
                 color: activeTab === key ? "var(--accent)" : "rgba(255,255,255,0.45)",
                 transition: "all 0.25s",
               }}>
@@ -515,7 +515,7 @@ export default function AskAISection() {
 
         {/* Card */}
         <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 36, backdropFilter: "blur(16px)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(194,122,42,0.3), transparent)" }} />
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(242,182,29,0.3), transparent)" }} />
 
           {/* ASK TAB */}
           {activeTab === "ask" && (
@@ -528,7 +528,7 @@ export default function AskAISection() {
                   {Object.entries(faqAnswers).map(([q, data]) => (
                     <button key={q} onClick={() => askQuestion(q)}
                       style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 14px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, color: "rgba(255,255,255,0.65)", fontSize: "0.84rem", textAlign: "left", cursor: "pointer", transition: "all 0.2s" }}
-                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(194,122,42,0.08)"; e.currentTarget.style.borderColor = "rgba(194,122,42,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.9)"; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,182,29,0.08)"; e.currentTarget.style.borderColor = "rgba(242,182,29,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.9)"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}>
                       <span style={{ color: "var(--accent)", opacity: 0.7, flexShrink: 0 }}>{data.icon}</span>
                       <span>{q}</span>
@@ -538,7 +538,7 @@ export default function AskAISection() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {/* Answer area */}
-                <div style={{ background: answer ? "rgba(194,122,42,0.06)" : "rgba(255,255,255,0.03)", border: answer ? "1px solid rgba(194,122,42,0.2)" : "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 24, minHeight: 160, transition: "all 0.3s", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div style={{ background: answer ? "rgba(242,182,29,0.06)" : "rgba(255,255,255,0.03)", border: answer ? "1px solid rgba(242,182,29,0.2)" : "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 24, minHeight: 160, transition: "all 0.3s", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                   {isTyping ? (
                     <div style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.4)", fontSize: "0.88rem" }}>
                       <span style={{ display: "flex", gap: 3 }}>
@@ -558,9 +558,9 @@ export default function AskAISection() {
                         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                           {answer.links.map((link, i) => (
                             <Link key={i} href={link.href}
-                              style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: "rgba(194,122,42,0.1)", border: "1px solid rgba(194,122,42,0.25)", color: "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
-                              onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#062F2A"; }}
-                              onMouseLeave={e => { e.currentTarget.style.background = "rgba(194,122,42,0.1)"; e.currentTarget.style.color = "var(--accent)"; }}>
+                              style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: "rgba(242,182,29,0.1)", border: "1px solid rgba(242,182,29,0.25)", color: "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
+                              onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#070690"; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = "rgba(242,182,29,0.1)"; e.currentTarget.style.color = "var(--accent)"; }}>
                               {link.label} <FaArrowRight size={10} />
                             </Link>
                           ))}
@@ -583,11 +583,11 @@ export default function AskAISection() {
                     onKeyDown={e => { if (e.key === "Enter") handleCustomAsk(); }}
                     placeholder={t("askAI.typeQuestion")}
                     style={{ flex: 1, padding: "12px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "0.86rem", outline: "none", transition: "border-color 0.2s" }}
-                    onFocus={e => e.currentTarget.style.borderColor = "rgba(194,122,42,0.4)"}
+                    onFocus={e => e.currentTarget.style.borderColor = "rgba(242,182,29,0.4)"}
                     onBlur={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"} />
                   <button onClick={handleCustomAsk}
-                    style={{ width: 44, height: 44, borderRadius: 10, background: "var(--accent)", color: "#062F2A", border: "none", display: "grid", placeItems: "center", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s", flexShrink: 0 }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(194,122,42,0.3)"; }}
+                    style={{ width: 44, height: 44, borderRadius: 10, background: "var(--accent)", color: "#070690", border: "none", display: "grid", placeItems: "center", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s", flexShrink: 0 }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(242,182,29,0.3)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
                     <FaPaperPlane size={14} />
                   </button>
@@ -606,17 +606,17 @@ export default function AskAISection() {
                 <textarea value={symptomInput} onChange={e => setSymptomInput(e.target.value)}
                   placeholder={t("askAI.symptomPlaceholder")}
                   style={{ width: "100%", minHeight: 140, padding: "16px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "#fff", fontSize: "0.88rem", resize: "vertical", outline: "none", lineHeight: 1.6, marginBottom: 14, transition: "border-color 0.2s" }}
-                  onFocus={e => e.currentTarget.style.borderColor = "rgba(194,122,42,0.4)"}
+                  onFocus={e => e.currentTarget.style.borderColor = "rgba(242,182,29,0.4)"}
                   onBlur={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"} />
                 <button onClick={runSymptomCheck}
-                  style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "12px 24px", borderRadius: 10, background: "var(--accent)", color: "#062F2A", border: "none", fontWeight: 700, fontSize: "0.86rem", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(194,122,42,0.3)"; }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "12px 24px", borderRadius: 10, background: "var(--accent)", color: "#070690", border: "none", fontWeight: 700, fontSize: "0.86rem", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(242,182,29,0.3)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
                   <FaSearch size={13} /> {t("askAI.analyzeBtn")}
                 </button>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ background: symptomResult ? "rgba(194,122,42,0.06)" : "rgba(255,255,255,0.03)", border: symptomResult ? "1px solid rgba(194,122,42,0.2)" : "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 24, minHeight: 160, transition: "all 0.3s", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div style={{ background: symptomResult ? "rgba(242,182,29,0.06)" : "rgba(255,255,255,0.03)", border: symptomResult ? "1px solid rgba(242,182,29,0.2)" : "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 24, minHeight: 160, transition: "all 0.3s", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                   {isTyping ? (
                     <div style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.4)", fontSize: "0.88rem" }}>
                       <span style={{ display: "flex", gap: 3 }}>
@@ -629,7 +629,7 @@ export default function AskAISection() {
                   ) : symptomResult ? (
                     <div>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-                        <span style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(194,122,42,0.15)", display: "grid", placeItems: "center", color: "var(--accent)" }}>
+                        <span style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(242,182,29,0.15)", display: "grid", placeItems: "center", color: "var(--accent)" }}>
                           <FaUserMd size={14} />
                         </span>
                         <div>
@@ -641,7 +641,7 @@ export default function AskAISection() {
                       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                         {symptomResult.links.map((link, i) => (
                           <Link key={i} href={link.href}
-                            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: i === 0 ? "var(--accent)" : "rgba(194,122,42,0.1)", border: i === 0 ? "none" : "1px solid rgba(194,122,42,0.25)", color: i === 0 ? "#062F2A" : "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
+                            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: i === 0 ? "var(--accent)" : "rgba(242,182,29,0.1)", border: i === 0 ? "none" : "1px solid rgba(242,182,29,0.25)", color: i === 0 ? "#070690" : "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
                             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; }}
                             onMouseLeave={e => { e.currentTarget.style.transform = ""; }}>
                             {link.label} <FaArrowRight size={10} />
@@ -672,8 +672,8 @@ export default function AskAISection() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
                   {["Nutrition", "Heart Health", "Maternal", "Child Care", "Prevention", "Diabetes", "Mental Health", "Sleep"].map(cat => (
                     <button key={cat} onClick={() => { setTipLoading(true); setTimeout(() => { setTip(healthTips.find(t => t.cat === cat) || healthTips[0]); setTipLoading(false); }, 300); }}
-                      style={{ padding: "7px 14px", borderRadius: 8, background: tip.cat === cat ? "rgba(194,122,42,0.15)" : "rgba(255,255,255,0.04)", border: tip.cat === cat ? "1px solid rgba(194,122,42,0.3)" : "1px solid rgba(255,255,255,0.06)", color: tip.cat === cat ? "var(--accent)" : "rgba(255,255,255,0.5)", fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}
-                      onMouseEnter={e => { if (tip.cat !== cat) { e.currentTarget.style.background = "rgba(194,122,42,0.08)"; e.currentTarget.style.borderColor = "rgba(194,122,42,0.2)"; } }}
+                      style={{ padding: "7px 14px", borderRadius: 8, background: tip.cat === cat ? "rgba(242,182,29,0.15)" : "rgba(255,255,255,0.04)", border: tip.cat === cat ? "1px solid rgba(242,182,29,0.3)" : "1px solid rgba(255,255,255,0.06)", color: tip.cat === cat ? "var(--accent)" : "rgba(255,255,255,0.5)", fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}
+                      onMouseEnter={e => { if (tip.cat !== cat) { e.currentTarget.style.background = "rgba(242,182,29,0.08)"; e.currentTarget.style.borderColor = "rgba(242,182,29,0.2)"; } }}
                       onMouseLeave={e => { if (tip.cat !== cat) { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; } }}>
                       {cat}
                     </button>
@@ -697,7 +697,7 @@ export default function AskAISection() {
                   </div>
                 ) : (
                   <>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(194,122,42,0.1)", border: "1px solid rgba(194,122,42,0.2)", color: "var(--accent)", padding: "4px 12px", borderRadius: 999, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 14, alignSelf: "flex-start" }}>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(242,182,29,0.1)", border: "1px solid rgba(242,182,29,0.2)", color: "var(--accent)", padding: "4px 12px", borderRadius: 999, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 14, alignSelf: "flex-start" }}>
                       <FaHeartbeat size={10} /> {tip.cat}
                     </div>
                     <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.92rem", lineHeight: 1.75 }}>{tip.tip}</p>

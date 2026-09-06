@@ -4,5 +4,6 @@ export function resolveImage(path?: string | null): string {
   if (!path) return "";
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   if (path.startsWith("/uploads")) return `${API_URL}${path}`;
+  if (path.startsWith("uploads/")) return `${API_URL}/${path}`;
   return path;
 }

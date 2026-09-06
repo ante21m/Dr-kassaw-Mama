@@ -7,7 +7,8 @@ import { useLocale } from "@/app/locale-provider";
 import { useRouter } from "next/navigation";
 import { imgVer } from "@/lib/imgver";
 import { usePhysicians } from "@/app/hooks/usePhysicians";
-import { FaArrowRight, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaArrowRight, FaTimes, FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
+import "./doctor-card.css";
 
 const GAP = 28;
 const MIN_COL = 280;
@@ -63,60 +64,53 @@ export default function HomePhysicians() {
       .join("")
       .toUpperCase();
 
+  const isRealImage = (u?: string) => !!u && !u.includes("placeholder");
+
   const cardW = cols > 0 ? (measure.w - (cols - 1) * GAP) / cols : MIN_COL;
 
   const renderCard = (doc: (typeof displayDoctors)[number]) => {
     const name = locale === "am" ? doc.name_am || doc.name : doc.name;
     const specialty = locale === "am" ? doc.specialty_am || doc.specialty : doc.specialty;
+    const hasImg = isRealImage(doc.image);
     return (
-      <div
-        key={doc.id}
-        className="group"
-        style={{ background: "#fff", border: "1px solid var(--line)", overflow: "hidden", transition: "border-color .3s ease, box-shadow .3s ease" }}
-        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 18px 42px rgba(6,47,42,0.12)"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--line)"; e.currentTarget.style.boxShadow = "none"; }}
-      >
+      <div key={doc.id} className="group card">
+        {/* Image / avatar */}
         <button
-          onClick={() => setLightbox({ src: doc.image + imgVer, name })}
+          onClick={() => { if (hasImg) setLightbox({ src: (doc.image || "") + imgVer, name }); }}
           aria-label={name}
-          style={{ display: "block", width: "100%", padding: 0, border: "none", background: "transparent", cursor: "zoom-in" }}
+          className="imageSectionBtn"
+          style={{ display: "block", width: "100%", padding: 0, border: "none", background: "transparent", cursor: hasImg ? "zoom-in" : "default" }}
         >
-          <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "linear-gradient(135deg, var(--primary-50), var(--primary-100))" }}>
-            {doc.image ? (
-              <Image
-                src={doc.image + imgVer}
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                style={{ objectFit: "cover", transition: "transform .5s ease" }}
-                className="group-hover:scale-105"
-              />
+          <div className="imageSection">
+            {hasImg ? (
+              <>
+                <Image
+                  src={doc.image + imgVer}
+                  alt={name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="avatarImg"
+                />
+                <span className="zoomBadge"><FaSearch size={14} /></span>
+              </>
             ) : (
-              <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 72, height: 72, borderRadius: "50%", background: "var(--bg-deep)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ color: "#7FD9C4", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26 }}>
-                    {initials(name || doc.name)}
-                  </span>
-                </div>
-                <span style={{ marginTop: 14, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--primary)" }}>
-                  {t("homePhysicians.teamEyebrow")}
-                </span>
-              </div>
+              <span className="avatarCircle">
+                <span className="initial">{initials(name || doc.name)}</span>
+              </span>
             )}
           </div>
         </button>
 
-        <div style={{ padding: "20px 20px 22px" }}>
-          <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", fontWeight: 700, color: "var(--bg-deep)", margin: 0 }}>{name}</h3>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", color: "var(--primary)", margin: "6px 0 16px", letterSpacing: "0.02em" }}>{specialty}</p>
+        {/* Info */}
+        <div className="infoSection">
+          <h3 className="doctorName">{name}</h3>
+          <p className="specialty">{specialty}</p>
           <Link
             href={`/about-us/physicians/${doc.id}`}
-            style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: "var(--primary)", border: "1px solid var(--primary)", padding: "8px 16px", transition: "all .25s ease" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--primary)"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--primary)"; }}
+            className="viewProfileBtn"
             onClick={(e) => { e.stopPropagation(); }}
           >
-            {t("leadership.viewProfile")} <FaArrowRight size={10} />
+            {t("leadership.viewProfile")} <span className="arrow"><FaArrowRight size={11} /></span>
           </Link>
         </div>
       </div>
@@ -146,7 +140,7 @@ export default function HomePhysicians() {
   };
 
   return (
-    <section style={{ padding: "96px 24px", background: "var(--bg)" }}>
+    <section style={{ padding: "96px 24px", background: "#F8F9FA" }}>
       <div style={{ maxWidth: 1300, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "inline-block", background: "var(--primary-100)", color: "var(--primary)", padding: "4px 14px", borderRadius: 999, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 12 }}>

@@ -12,7 +12,7 @@
 
     "about": {
     "company": "About The Company",
-    "companyDesc": "Dr. Kassaw Mama Primary Hospital provides high-quality, compassionate healthcare using modern medical technology.",
+    "companyDesc": "Dr. Kassaw Mamma Primary Hospital provides high-quality, compassionate healthcare using modern medical technology.",
     "physicians": "Physicians",
     "physiciansDesc": "Meet our experienced doctors delivering world-class care.",
     "annualReport": "Annual Report",
@@ -23,9 +23,9 @@
     "galleryDesc": "Explore our facilities, staff, and services.",
     "faqs": "FAQs",
     "faqsDesc": "Find answers to common questions.",
-     "title": "Dr. Kassaw Mama Primary Hospital",
-    "intro": "Dr. Kassaw Mama Primary Hospital is a patient-centered healthcare institution committed to delivering high-quality medical services through modern technology and ethical practice.",
-    "history": "Founded in 2024, Dr. Kassaw Mama Primary Hospital began with a clear vision: to provide accessible, high-quality healthcare services to the community.",
+     "title": "Dr. Kassaw Mamma Primary Hospital",
+    "intro": "Dr. Kassaw Mamma Primary Hospital is a patient-centered healthcare institution committed to delivering high-quality medical services through modern technology and ethical practice.",
+    "history": "Founded in 2024, Dr. Kassaw Mamma Primary Hospital began with a clear vision: to provide accessible, high-quality healthcare services to the community.",
     "today": "Today, the clinic is recognized as a trusted and leading specialized healthcare provider, dedicated to continuous improvement and community well-being."
   },
 "vision": {
@@ -322,7 +322,7 @@
 
 
   "hero": {
-    "title": "Dr. Kassaw Mama Primary Hospital",
+    "title": "Dr. Kassaw Mamma Primary Hospital",
     "subtitle": "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.",
     "cta": "Book Appointment"
   },
@@ -377,7 +377,7 @@
   "linkContact": "Contact"
 },
 "clinicVideo": {
-  "title": "Inside Dr. Kassaw Mama Primary Hospital",
+  "title": "Inside Dr. Kassaw Mamma Primary Hospital",
   "subtitle": "Modern facilities, expert doctors, compassionate care"
 },
   "leadership": {
@@ -419,7 +419,7 @@
  "ai": {
     "assistant": "Health Assistant",
     "placeholder": "Ask about our services...",
-    "greeting": "Hi! I'm Dr. Kassaw Mama Primary Hospital's virtual assistant. Ask me about our services, hours, or appointments.",
+    "greeting": "Hi! I'm Dr. Kassaw Mamma Primary Hospital's virtual assistant. Ask me about our services, hours, or appointments.",
     "hours": "Our clinic is open Monday to Saturday, 8:00 AM – 6:00 PM. We are closed on Sundays and public holidays.",
     "emergency": "For medical emergencies, please call 0973 245 788 or visit our emergency department immediately. We provide 24/7 emergency care.",
     "appointment": "You can book an appointment by visiting our Appointment page or calling 0973 245 788. Walk-ins are also welcome during working hours.",
@@ -448,7 +448,7 @@
     "serviceInfo": "**{title}** — {desc}\n\nWe offer: {items}",
     "serviceInfoLink": "View full details →",
     "virtualTour": "You can take a virtual tour of our clinic from the comfort of your home. Watch our video tour to see our departments, equipment, and patient care areas.",
-    "about": "🏥 **Dr. Kassaw Mama Primary Hospital** is a modern healthcare facility located in **Woldia, Ethiopia**, dedicated to providing high-quality medical services to our community.\n\nHere's what you can explore:\n• **Services** — Emergency, delivery, lab, X-ray, ultrasound, CT scan, surgery & ECG\n• **Departments** — Specialized departments staffed by experienced professionals\n• **Physicians** — Meet our board-certified specialist doctors\n• **Location** — Find us near the North Wollo High Court\n• **Virtual Tour** — Take a video walkthrough of our facility\n\n👉 Select an option below to learn more."
+    "about": "🏥 **Dr. Kassaw Mamma Primary Hospital** is a modern healthcare facility located in **Woldia, Ethiopia**, dedicated to providing high-quality medical services to our community.\n\nHere's what you can explore:\n• **Services** — Emergency, delivery, lab, X-ray, ultrasound, CT scan, surgery & ECG\n• **Departments** — Specialized departments staffed by experienced professionals\n• **Physicians** — Meet our board-certified specialist doctors\n• **Location** — Find us near the North Wollo High Court\n• **Virtual Tour** — Take a video walkthrough of our facility\n\n👉 Select an option below to learn more."
   },
 
  "search": {
@@ -466,7 +466,7 @@
 
   "newsPage": {
     "title": "News & Updates",
-    "subtitle": "Stay informed with the latest news, announcements, and health tips from Dr. Kassaw Mama Primary Hospital.",
+    "subtitle": "Stay informed with the latest news, announcements, and health tips from Dr. Kassaw Mamma Primary Hospital.",
     "readMore": "Read More",
     "latestArticles": "Latest Articles",
     "allNews": "All News",
@@ -477,7 +477,7 @@
     "by": "By",
     "shareThis": "Share this article",
     "downloadAttachment": "Download attachment",
-    "newEmergencyWingTitle": "New Emergency Wing Opens at Dr. Kassaw Mama Primary Hospital",
+    "newEmergencyWingTitle": "New Emergency Wing Opens at Dr. Kassaw Mamma Primary Hospital",
     "newEmergencyWingDesc": "We are proud to announce the opening of our expanded emergency wing, equipped with state-of-the-art life-support systems and staffed by specialized emergency physicians available 24/7.",
     "communityOutreachTitle": "Community Health Outreach Program Launched",
     "communityOutreachDesc": "Our team visited local communities to provide free health screenings, education, and preventive care services to over 500 residents.",
@@ -556,7 +556,7 @@
     "docFinderSub": "Type your concern and AI will match you with the right specialist.",
     "docFinderPlaceholder": "e.g. knee pain, child fever, heart checkup…",
     "docFinderBtn": "Match Me",
-    "whyTitle": "Why Choose Dr. Kassaw Mama Hospital?",
+    "whyTitle": "Why Choose Dr. Kassaw Mamma Hospital?",
     "promiseTitle": "Patient-First Healthcare",
     "ctaBadge": "Get Started Today",
     "ctaTitle": "Ready for Medical Care?",
@@ -576,7 +576,7 @@
     "hours": "Open Office Hours",
     "hoursWeekdays": "Sun – Mon: 24/7 Service",
     "hoursWeekend": "All Week: 24 Hours",
-    "mapTitle": "BY Dr. Kassaw Mama Hospital",
+    "mapTitle": "BY Dr. Kassaw Mamma Hospital",
     "formTitle": "Send Us a Message",
     "formName": "Full Name",
     "formNamePlaceholder": "Your full name",
@@ -651,7 +651,7 @@
     "ctaButton": "Book Appointment"
   },
   "home": {
-    "whyChooseUs": "Why Choose Dr. Kassaw Mama Hospital?"
+    "whyChooseUs": "Why Choose Dr. Kassaw Mamma Hospital?"
   },
 
   "homePage": {
@@ -700,7 +700,7 @@
   },
 
   "whyChooseUs": {
-    "title": "Why Choose Dr. Kassaw Mama Hospital?",
+    "title": "Why Choose Dr. Kassaw Mamma Hospital?",
     "i1Title": "Trusted by Thousands",
     "i1Desc": "Trusted by 100,000+ patients in the Woldia region since 2024",
     "i2Title": "Modern Diagnostics",
@@ -745,7 +745,7 @@
     "labResults": "Our laboratory services are available during clinic hours. Most routine test results are ready within 2-4 hours.",
     "emergency": "Our emergency department is open 24/7. For immediate medical emergencies, please call 0973 245 788 or visit us directly.",
     "ctScan": "We have a high-resolution CT scan for accurate diagnostic imaging. Available during working hours with a doctor's referral.",
-    "fallback": "I found some general information about Dr. Kassaw Mama Primary Hospital. Please browse our services or contact us directly."
+    "fallback": "I found some general information about Dr. Kassaw Mamma Primary Hospital. Please browse our services or contact us directly."
   },
 
   "askAI": {
@@ -784,10 +784,10 @@
   },
 
   "aboutPage": {
-    "heroTitle": "About Dr. Kassaw Mama Primary Hospital",
+    "heroTitle": "About Dr. Kassaw Mamma Primary Hospital",
     "heroSubtitle": "Providing quality healthcare with compassion and expertise since 2024 G.C.",
     "commitmentTitle": "Our Commitment",
-    "commitmentP1": "At Dr. Kassaw Mama Primary Hospital, we are committed to providing exceptional medical care with a patient-centered approach. Our team of experienced specialists and healthcare professionals work tirelessly to ensure the well-being of every patient who walks through our doors.",
+    "commitmentP1": "At Dr. Kassaw Mamma Primary Hospital, we are committed to providing exceptional medical care with a patient-centered approach. Our team of experienced specialists and healthcare professionals work tirelessly to ensure the well-being of every patient who walks through our doors.",
     "commitmentP2": "We combine modern medical technology with compassionate care to deliver the best possible outcomes. Our continuous investment in advanced equipment and staff training ensures that our patients receive treatment that meets international standards.",
     "patientCentered": "Patient-Centered Care",
     "compassionateTeam": "Compassionate Team",

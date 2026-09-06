@@ -3,7 +3,7 @@ import NewsClient from "./news-client";
 
 export const metadata: Metadata = {
   title: "News & Updates",
-  description: "Latest news and updates from Dr. Kassaw Mama Primary Hospital in Woldia, Ethiopia.",
+  description: "Latest news and updates from Dr. Kassaw Mamma Primary Hospital in Woldia, Ethiopia.",
 };
 
 export default function Page() {

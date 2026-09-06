@@ -2,9 +2,9 @@ export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
-    name: "Dr. Kassaw Mama Primary Hospital",
+    name: "Dr. Kassaw Mamma Primary Hospital",
     description:
-      "Dr. Kassaw Mama Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.",
+      "Dr. Kassaw Mamma Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.",
     url: "https://medhinprimaryhospital.com",
     telephone: "+251-973245788",
     email: "info@medhinhospital.com",

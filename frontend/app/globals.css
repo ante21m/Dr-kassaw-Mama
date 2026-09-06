@@ -10,28 +10,28 @@
    everything else stays calm, spacious and precise.
 ========================================================= */
 :root {
-  /* Surfaces */
+/* Surfaces */
   --bg: #ffffff;
-  --bg-tint: #F2F7F9;       /* soft clinical blue-mint neutral, used for alt sections */
-  --bg-deep: #0B3B4A;       /* deep blue-teal, used sparingly for depth sections */
+  --bg-tint: #F1F3FE;       /* soft blue neutral, used for alt sections */
+  --bg-deep: #0B09B5;       /* deep royal blue, used sparingly for depth sections */
 
   /* Ink */
-  --ink: #16211E;
-  --ink-soft: #57685F;
-  --ink-faint: #8B978F;
-  --on-deep: #F3F7F9;
-  --on-deep-soft: rgba(243, 247, 249, 0.68);
+  --ink: #151C2E;
+  --ink-soft: #525D78;
+  --ink-faint: #8A93A8;
+  --on-deep: #F3F4FD;
+  --on-deep-soft: rgba(243, 244, 253, 0.68);
 
-  /* Brand: deep blue-teal — trust, clinical calm, distinct from generic medical blue */
-  --primary: #0B4A5D;
-  --primary-700: #0A3D4C;
-  --primary-900: #082E3A;
-  --primary-100: #E2EFF4;
-  --primary-50: #F1F7F9;
+  /* Brand: royal blue — trust, clinical calm */
+  --primary: #0d0bc7;
+  --primary-700: #0B09B5;
+  --primary-900:#070690;
+  --primary-100: #E4E6FC;
+  --primary-50: #F1F2FE;
 
-  /* Accent: warm ochre — used sparingly, one accent per view maximum */
-  --accent: #C27A2A;
-  --accent-100: #FBF0DF;
+  /* Accent: warm gold — used sparingly, one accent per view maximum */
+  --accent: #F2B61D;
+  --accent-100: #FCF5E0;
 
   /* Signal (kept, but muted vs. the old saturated red) */
   --urgent: #C4472F;
@@ -118,7 +118,7 @@ html[lang="am"] body {
   background: var(--accent);
 }
 .m-eyebrow--light { color: var(--on-deep-soft); }
-.m-eyebrow--light::before { background: #7FD9C4; }
+.m-eyebrow--light::before { background: #F2B61D; }
 
 .m-h1, .m-h2, .m-h3 {
   font-family: var(--font-display);
@@ -1244,7 +1244,7 @@ html[lang="am"] body {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: linear-gradient(135deg, #0B6B84, #082E3A);
+  background: linear-gradient(135deg, #1B17D6,#070690);
   color: white;
 }
 
@@ -2439,9 +2439,12 @@ html[lang="am"] body {
   gap: 12px;
 }
 .bykm-kicker-dash {
-  width: 28px;
-  height: 1px;
-  background: #7FD9C4;
+  display: none;
+}
+
+.bk-glass-bar,
+.bg-glass-bar {
+  display: none;
 }
 .bykm-kicker {
   font-family: var(--font-mono);
@@ -2449,7 +2452,7 @@ html[lang="am"] body {
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: #7FD9C4;
+  color: #F2B61D;
 }
 .bykm-kicker--primary { color: var(--primary); }
 .bykm-kicker-dash--primary { background: var(--primary); }
@@ -2471,7 +2474,7 @@ html[lang="am"] body {
   justify-content: center;
   gap: 10px;
   padding: 15px 34px;
-  background: linear-gradient(135deg, #0A3D4C, #082E3A);
+  background: linear-gradient(135deg, #0B09B5,#070690);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-weight: 600;
@@ -2491,11 +2494,11 @@ html[lang="am"] body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0B6B84, #0B4A5D);
+  background: linear-gradient(135deg, #1B17D6, #0d0bc7);
   transition: left 0.3s ease;
 }
 .bykm-btn:hover::before { left: 0; }
-.bykm-btn:hover { box-shadow: 0 12px 30px rgba(11,93,82,0.35); color: #fff; }
+.bykm-btn:hover { box-shadow: 0 12px 30px rgba(13,11,199,0.35); color: #fff; }
 .bykm-btn > * { position: relative; z-index: 1; }
 .bykm-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
 
@@ -2557,9 +2560,9 @@ html[lang="am"] body {
 }
 .bykm-chip:hover { border-color: var(--primary); color: var(--primary); }
 .bykm-chip.active {
-  background: #082E3A;
-  border-color: #082E3A;
-  color: #7FD9C4;
+  background:#070690;
+  border-color:#070690;
+  color: #F2B61D;
 }
 
 /* Sharp paper card used on inner pages */
@@ -2642,7 +2645,7 @@ html[lang="am"] body {
 
 .nav-panel {
   display: none;
-  background: #082E3A;
+  background:#070690;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 24px 40px rgba(0, 0, 0, 0.3);
 }

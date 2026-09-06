@@ -151,7 +151,7 @@ export default function AppointmentClient() {
             pos="absolute"
             style={{
               inset: 0,
-              background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              background: "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
             }}
           />
           <Box className="bykm-grid-overlay" />
@@ -164,7 +164,6 @@ export default function AppointmentClient() {
               <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(26px, 4vw, 38px)", marginTop: 12 }}>
                 {t("appointment.successTitle")}
               </Title>
-              <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 14 }} />
             </Stack>
           </Container>
         </Box>
@@ -203,7 +202,7 @@ export default function AppointmentClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -220,9 +219,6 @@ export default function AppointmentClient() {
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 44px)", marginTop: 14 }}>
               {locale === "am" ? "ቀጠሮ ያስይዙ" : "Book an Appointment"}
             </Title>
-
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
-
             <Text size="md" ta="center" maw={520} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {locale === "am" ? "ሐኪም ይምረጡ፣ ቀን እና ሰዓት ይምረጡ፣ ስምዎን ያስገቡ" : "Pick a doctor, choose date & time, enter your details"}
             </Text>
@@ -235,7 +231,7 @@ export default function AppointmentClient() {
               { n: "03", label: t("appointment.yourDetails") },
             ].map((s) => (
               <Flex key={s.n} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
-                <Text ff="var(--font-mono), monospace" fw={700} size="lg" c="#7FD9C4">{s.n}</Text>
+                <Text ff="var(--font-mono), monospace" fw={700} size="lg" c="#F2B61D">{s.n}</Text>
                 <Text c="white" fw={600} size="sm">{s.label}</Text>
               </Flex>
             ))}
