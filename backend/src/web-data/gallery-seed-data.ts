@@ -1,7 +1,7 @@
 export const seedGallery = [
   { title: 'Hospital Building', titleAm: 'የሆስፒታሉ ህንፃ', image: '/uploads/images/gallery-placeholder.png', description: 'Our modern hospital building serving Woldia and beyond', descriptionAm: 'ወልዲያንና አካባቢዋን የሚያገለግል ዘመናዊ የሆስፒታል ህንፃ', order: 1 },
   { title: 'Child & Maternal Wing', titleAm: 'የህፃናት እና የእናቶች ክፍል', image: '/uploads/images/gallery-placeholder.png', description: 'Comfortable and caring facilities for mothers and children', descriptionAm: 'ለእናቶች እና ህፃናት ምቹ እና አዛኝ መገልገያዎች', order: 2 },
-  { title: 'Hospital Exterior', titleAm: 'የሆስፒታሉ ውጭ እይታ', image: '/uploads/images/gallery-placeholder.png', description: 'Welcoming exterior of Dr. Kassaw Mama Primary Hospital', descriptionAm: 'የዶ/ር ካሳው ማማ ፕራይማሪ ሆስፒታል ገላጭ ውጭ እይታ', order: 3 },
+  { title: 'Hospital Exterior', titleAm: 'የሆስፒታሉ ውጭ እይታ', image: '/uploads/images/gallery-placeholder.png', description: 'Welcoming exterior of Dr. Kassaw Mamma Primary Hospital', descriptionAm: 'የዶ/ር ካሳው ማማ ፕራይማሪ ሆስፒታል ገላጭ ውጭ እይታ', order: 3 },
   { title: 'Patient Waiting Area', titleAm: 'የታካሚ መቆያ ቦታ', image: '/uploads/images/gallery-placeholder.png', description: 'Comfortable waiting area for patients and visitors', descriptionAm: 'ለታካሚዎች እና ጎብኚዎች ምቹ መቆያ ቦታ', order: 4 },
   { title: 'Facility Overview', titleAm: 'የተቋሙ አጠቃላይ እይታ', image: '/uploads/images/gallery-placeholder.png', description: 'Overview of our comprehensive medical services', descriptionAm: 'የተሟላ የህክምና አገልግሎቶቻችን አጠቃላይ እይታ', order: 5 },
   { title: 'Renovated Clinic Wing', titleAm: 'የታደሰው ክሊኒክ ክፍል', image: '/uploads/images/gallery-placeholder.png', description: 'Our freshly renovated outpatient clinic wing', descriptionAm: 'በአዲስ የታደሰው የውጭ ታካሚ ክሊኒክ ክፍል', order: 6 },

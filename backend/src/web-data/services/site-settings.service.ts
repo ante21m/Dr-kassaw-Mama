@@ -14,7 +14,7 @@ const defaultSettings = [
   { key: 'home_stats_departments', value: '12', group: 'home' },
   { key: 'home_stats_departments_suffix', value: '+', group: 'home' },
   { key: 'hero_slides', value: JSON.stringify([
-    { src: '/uploads/images/hospital-hero1.jpg', title: 'Dr. Kassaw Mama Primary Hospital', titleAm: 'ዶ/ር ካሳው ማማ ፕራይማሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
+    { src: '/uploads/images/hospital-hero1.jpg', title: 'Dr. Kassaw Mamma Primary Hospital', titleAm: 'ዶ/ር ካሳው ማማ ፕራይማሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
     { src: '/uploads/images/hospital-hero2.jpg', title: 'Your Health, Our Priority', titleAm: 'ጤናዎ ቅድሚያችን ነው', subtitle: 'Expert Care, Compassionate Hearts', subtitleAm: 'ባለሙያ እንክብካቤ፣ አዛኝ ልቦች' },
     { src: '/uploads/images/mama-staff1.jpg', title: 'Experienced Medical Staff', titleAm: 'ልምድ ያላቸው የህክምና ሰራተኞች', subtitle: '24/7 Emergency & 24 Hour Pharmacy', subtitleAm: 'የ24/7 የአደጋ ጊዜ እና የ24 ሰዓት መድኃኒት ቤት' },
   ]), group: 'home' },

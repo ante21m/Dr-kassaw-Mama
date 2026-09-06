@@ -1,4 +1,4 @@
-# 🏥 Dr. Kassaw Mama Primary Hospital — Full Stack Project
+# 🏥 Dr. Kassaw Mamma Primary Hospital — Full Stack Project
 
 Complete project package including:
 - **Frontend** — Next.js 16 + TypeScript + Tailwind + Mantine UI + Redux Toolkit

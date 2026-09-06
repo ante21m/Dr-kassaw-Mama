@@ -19,12 +19,12 @@ export class PhysicianService implements OnApplicationBootstrap {
   findAll(): Promise<Physician[]> {
     return this.physicianRepository.find({
       where: { isActive: true },
-      order: { createdAt: 'DESC' },
+      order: { id: 'ASC' },
     });
   }
 
   findAllAdmin(): Promise<Physician[]> {
-    return this.physicianRepository.find({ order: { createdAt: 'DESC' } });
+    return this.physicianRepository.find({ order: { id: 'ASC' } });
   }
 
   async findOne(id: number): Promise<Physician> {
