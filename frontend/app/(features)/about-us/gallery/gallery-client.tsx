@@ -199,7 +199,7 @@ export default function GalleryClient() {
                         width: 36,
                         height: 36,
                         borderRadius: "50%",
-                        background: "rgba(13,11,199,0.9)",
+                        background: "rgba(21,21,139,0.9)",
                         color: "#fff",
                         display: "flex",
                         alignItems: "center",

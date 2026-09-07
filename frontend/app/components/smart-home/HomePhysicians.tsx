@@ -17,7 +17,7 @@ export default function HomePhysicians() {
   const { t, locale } = useLocale();
   const router = useRouter();
   const { physicians } = usePhysicians();
-  const displayDoctors = physicians.slice(0, 4);
+  const displayDoctors = physicians;
 
   const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
   const [measure, setMeasure] = useState({ w: 0, cols: 3 });

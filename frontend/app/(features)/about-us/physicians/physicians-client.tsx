@@ -12,8 +12,8 @@ export default function PhysiciansClient() {
   return (
     <div className="physicians-page">
       {/* ══════════════ HERO ══════════════ */}
-      <section className="physicians-hero bk-deep" style={{ background: "linear-gradient(135deg, #1826F5 0%, #0d0bc7 45%, #0B09B5 100%)" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.55) 0%, transparent 65%)" }} />
+      <section className="physicians-hero bk-deep" style={{ background: "linear-gradient(135deg, #161691 0%, #15158B 45%, #12127C 100%)" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(21,21,139,0.55) 0%, transparent 65%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)" }} />
         <div className="bk-grid-overlay" />
         <div className="bk-geo" style={{ width: 360, height: 360, top: -90, right: -80, transform: "rotate(12deg)", opacity: 0.5 }} />

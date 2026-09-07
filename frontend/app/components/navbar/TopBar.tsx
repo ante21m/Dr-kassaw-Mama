@@ -4,7 +4,7 @@ import { FaPhone } from "react-icons/fa";
 
 export default function TopBar() {
   return (
-    <div style={{ background: "#0d0bc7" }}>
+    <div style={{ background: "#15158B" }}>
       <div className="m-container" style={{ padding: "9px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <a href="tel:0973245788" style={{ display: "flex", alignItems: "center", gap: 7, fontSize: "0.78rem", color: "var(--on-deep-soft)", textDecoration: "none", fontFamily: "var(--font-mono)" }}>
