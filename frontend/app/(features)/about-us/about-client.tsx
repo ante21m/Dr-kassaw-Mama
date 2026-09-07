@@ -9,7 +9,7 @@ import { usePhysicians } from "@/app/hooks/usePhysicians";
 import { useLeadership } from "@/app/hooks/useLeadership";
 import PhysicianCard from "./physicians/PhysicianCard";
 import { FaHeartbeat } from "react-icons/fa";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import "./about-us.css";
 
 /* =========================================================
@@ -132,6 +132,29 @@ export default function AboutClient() {
   const departments = ["All", ...new Set(docs.map((p) => p.specialty))];
   const filteredDocs = physDept === "All" ? docs : docs.filter((p) => p.specialty === physDept);
 
+  const physScroller = useRef<HTMLDivElement>(null);
+  const [physHover, setPhysHover] = useState(false);
+
+  const physScrollBy = (dir: number) => {
+    const el = physScroller.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (physHover) return;
+    const el = physScroller.current;
+    if (!el) return;
+    const id = setInterval(() => {
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 4) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
+      }
+    }, 4500);
+    return () => clearInterval(id);
+  }, [physHover, filteredDocs.length]);
+
   useEffect(() => {
     if (leaderPaused) return;
     const timer = setInterval(
@@ -162,12 +185,31 @@ export default function AboutClient() {
       .toUpperCase();
   const isRealImage = (u?: string) => !!u && !u.includes("placeholder");
 
+  const physArrow: React.CSSProperties = {
+    position: "absolute",
+    top: "40%",
+    transform: "translateY(-50%)",
+    width: 38,
+    height: 38,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "#ffffff",
+    color: "var(--primary)",
+    border: "1px solid #e5e5e5",
+    borderRadius: "50%",
+    boxShadow: "0 6px 20px rgba(16,22,58,0.10)",
+    cursor: "pointer",
+    zIndex: 5,
+    transition: "background .25s ease, color .25s ease",
+  };
+
   return (
     <div>
       {/* ══════════════ HERO ══════════════ */}
       <Reveal>
-        <section className="bykm-hero" style={{ padding: "96px 24px 84px", background: "linear-gradient(135deg, #1826F5 0%, #0d0bc7 45%, #0B09B5 100%)" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.55) 0%, transparent 65%)" }} />
+        <section className="bykm-hero" style={{ padding: "96px 24px 84px", background: "linear-gradient(135deg, #161691 0%, #15158B 45%, #12127C 100%)" }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(21,21,139,0.55) 0%, transparent 65%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)" }} />
           <div className="bk-grid-overlay" />
           <div className="bk-geo" style={{ width: 380, height: 380, top: -90, right: -90, transform: "rotate(12deg)", opacity: 0.5 }} />
@@ -219,16 +261,16 @@ export default function AboutClient() {
       {/* ══════════════ MISSION & VISION ══════════════ */}
       <Reveal>
         <section style={{ padding: "90px 24px", background: "linear-gradient(150deg, #ECEEFD 0%, #DCE0FB 55%, #CDD2FA 100%)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 88% 8%, rgba(127,217,196,0.30) 0%, transparent 55%), radial-gradient(ellipse at 4% 92%, rgba(13,11,199,0.08) 0%, transparent 50%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 88% 8%, rgba(127,217,196,0.30) 0%, transparent 55%), radial-gradient(ellipse at 4% 92%, rgba(21,21,139,0.08) 0%, transparent 50%)" }} />
           <div style={{ position: "absolute", width: 280, height: 280, borderRadius: "50%", top: -90, left: -90, background: "rgba(255,255,255,0.40)" }} />
           <div style={{ position: "absolute", width: 220, height: 220, borderRadius: "50%", bottom: -80, right: -60, background: "rgba(255,255,255,0.30)" }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 2 }}>
             <Eyebrow color="var(--primary)">{c.vmLabel}</Eyebrow>
             <div className="bk-vm-grid" style={{ marginTop: 26 }}>
               {/* Mission */}
-              <div style={{ background: "#ffffff", border: "1px solid rgba(13,11,199,0.10)", boxShadow: "0 24px 60px rgba(13,11,199,0.10)", padding: "38px 34px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(21,21,139,0.10)", boxShadow: "0 24px 60px rgba(21,21,139,0.10)", padding: "38px 34px" }}>
                 <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.missionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B09B5", margin: "14px 0 12px" }}>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#12127C", margin: "14px 0 12px" }}>
                   {t("mission.title")}
                 </h2>
                 <p style={{ margin: "0 0 28px", fontSize: "0.95rem", lineHeight: 1.75, color: "#4B5A8A" }}>
@@ -238,14 +280,14 @@ export default function AboutClient() {
                   {c.values.map((v, i) => (
                     <div
                       key={i}
-                      style={{ background: "linear-gradient(135deg, #EFF1FD, #E9F4F5)", border: "1px solid rgba(13,11,199,0.08)", padding: "20px", overflow: "hidden", transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 14px 30px rgba(13,11,199,0.14)"; e.currentTarget.style.borderColor = "var(--primary)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(13,11,199,0.08)"; }}
+                      style={{ background: "linear-gradient(135deg, #EFF1FD, #E9F4F5)", border: "1px solid rgba(21,21,139,0.08)", padding: "20px", overflow: "hidden", transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 14px 30px rgba(21,21,139,0.14)"; e.currentTarget.style.borderColor = "var(--primary)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(21,21,139,0.08)"; }}
                     >
-                      <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0d0bc7, #1B17D6)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(13,11,199,0.28)" }}>
+                      <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #15158B, #2626B3)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(21,21,139,0.28)" }}>
                         {v.icon}
                       </div>
-                      <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#0B09B5", marginBottom: 6 }}>{v.title}</h3>
+                      <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#12127C", marginBottom: 6 }}>{v.title}</h3>
                       <p style={{ margin: "0 0 10px", fontSize: "0.86rem", lineHeight: 1.6, color: "#4B5A8A" }}>{v.desc}</p>
                       <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.64rem", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, color: "var(--primary)" }}>{v.stat}</p>
                     </div>
@@ -253,15 +295,15 @@ export default function AboutClient() {
                 </div>
               </div>
               {/* Vision */}
-              <div style={{ background: "#ffffff", border: "1px solid rgba(13,11,199,0.10)", boxShadow: "0 24px 60px rgba(13,11,199,0.10)", padding: "38px 34px" }}>
+              <div style={{ background: "#ffffff", border: "1px solid rgba(21,21,139,0.10)", boxShadow: "0 24px 60px rgba(21,21,139,0.10)", padding: "38px 34px" }}>
                 <span className="bk-eyebrow" style={{ color: "var(--primary)", fontSize: "0.66rem" }}>{c.visionKicker}</span>
-                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#0B09B5", margin: "14px 0 12px" }}>
+                <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#12127C", margin: "14px 0 12px" }}>
                   {t("vision.title")}
                 </h2>
                 <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "#4B5A8A" }}>
                   {t("vision.description")}
                 </p>
-                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(13,11,199,0.10)" }}>
+                <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid rgba(21,21,139,0.10)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--primary)" }}>
                     <FaHeartbeat size={14} /> {t("aboutPage.isoCertified")} · {t("aboutPage.years25")}
                   </div>
@@ -302,7 +344,7 @@ export default function AboutClient() {
 
       {/* ══════════════ COMMITMENT BANNER ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0d0bc7, #0B09B5)", color: "#fff", padding: "72px 24px" }}>
+        <section style={{ background: "linear-gradient(90deg, #15158B, #12127C)", color: "#fff", padding: "72px 24px" }}>
           <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 36 }}>
             <div style={{ maxWidth: 720 }}>
               <Eyebrow>{c.promiseLabel}</Eyebrow>
@@ -317,7 +359,7 @@ export default function AboutClient() {
               </p>
             </div>
             <div style={{ flexShrink: 0 }}>
-              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #1B17D6,#070690)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #2626B3,#0C0C5E)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
                 <FaHeartbeat size={40} color="#fff" />
               </div>
             </div>
@@ -328,7 +370,7 @@ export default function AboutClient() {
       {/* ══════════════ LEADERSHIP ══════════════ */}
       <Reveal>
         <section className="bk-deep" style={{ padding: "96px 24px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(13,11,199,0.4) 0%, transparent 65%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(21,21,139,0.4) 0%, transparent 65%)" }} />
           <div className="bk-grid-overlay" style={{ backgroundSize: "60px 60px" }} />
           <div className="bk-geo" style={{ width: 250, height: 250, top: -70, right: -30, transform: "rotate(12deg)", opacity: 0.3 }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 10 }}>
@@ -469,12 +511,35 @@ export default function AboutClient() {
               ))}
             </div>
 
-            <div
-              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}
-            >
-              {filteredDocs.slice(0, 4).map((p) => (
-                <PhysicianCard key={p.id} physician={p} />
-              ))}
+            <div style={{ position: "relative" }}>
+              <div
+                ref={physScroller}
+                onMouseEnter={() => setPhysHover(true)}
+                onMouseLeave={() => setPhysHover(false)}
+                className="phys-scroller"
+                style={{ display: "flex", gap: 20, overflowX: "auto", scrollSnapType: "x mandatory", paddingBottom: 4 }}
+              >
+                {filteredDocs.map((p) => (
+                  <div key={p.id} style={{ flex: "0 0 clamp(250px, 29vw, 280px)", scrollSnapAlign: "start" }}>
+                    <PhysicianCard physician={p} />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => physScrollBy(-1)}
+                aria-label="Previous"
+                style={{ ...physArrow, left: -18 }}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => physScrollBy(1)}
+                aria-label="Next"
+                style={{ ...physArrow, right: -18 }}
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
 
             <div style={{ textAlign: "center", marginTop: 28 }}>
@@ -488,7 +553,7 @@ export default function AboutClient() {
 
       {/* ══════════════ CTA ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0d0bc7, #0B09B5)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
+        <section style={{ background: "linear-gradient(135deg, #050A28 0%, #0A0B3B 50%, #15158B 100%)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: 640, margin: "0 auto" }}>
             <h2 className="bk-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 600, margin: "0 0 14px" }}>
               {t("aboutPage.ctaTitle")}
@@ -512,6 +577,8 @@ export default function AboutClient() {
 
       <style>{`
         @keyframes modalFade { from { opacity: 0; transform: scale(0.96) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .phys-scroller { scrollbar-width: none; }
+        .phys-scroller::-webkit-scrollbar { display: none; }
       `}</style>
     </div>
   );

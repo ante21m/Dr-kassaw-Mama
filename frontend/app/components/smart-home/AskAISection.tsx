@@ -473,10 +473,10 @@ export default function AskAISection() {
   };
 
   return (
-    <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, #0d0bc7 0%, #0B09B5 55%,#070690 100%)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "84px 24px", background: "linear-gradient(180deg, #15158B 0%, #12127C 60%, #0C0C5E 100%)", position: "relative", overflow: "hidden" }}>
       {/* Background orbs */}
       <div style={{ position: "absolute", top: -200, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(242,182,29,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
-      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(13,11,199,0.25) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", bottom: -150, left: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(21,21,139,0.25) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
       <div style={{ maxWidth: 960, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Header */}
@@ -559,7 +559,7 @@ export default function AskAISection() {
                           {answer.links.map((link, i) => (
                             <Link key={i} href={link.href}
                               style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: "rgba(242,182,29,0.1)", border: "1px solid rgba(242,182,29,0.25)", color: "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
-                              onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#070690"; }}
+                              onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#0C0C5E"; }}
                               onMouseLeave={e => { e.currentTarget.style.background = "rgba(242,182,29,0.1)"; e.currentTarget.style.color = "var(--accent)"; }}>
                               {link.label} <FaArrowRight size={10} />
                             </Link>
@@ -586,7 +586,7 @@ export default function AskAISection() {
                     onFocus={e => e.currentTarget.style.borderColor = "rgba(242,182,29,0.4)"}
                     onBlur={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"} />
                   <button onClick={handleCustomAsk}
-                    style={{ width: 44, height: 44, borderRadius: 10, background: "var(--accent)", color: "#070690", border: "none", display: "grid", placeItems: "center", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s", flexShrink: 0 }}
+                    style={{ width: 44, height: 44, borderRadius: 10, background: "var(--accent)", color: "#0C0C5E", border: "none", display: "grid", placeItems: "center", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s", flexShrink: 0 }}
                     onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(242,182,29,0.3)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
                     <FaPaperPlane size={14} />
@@ -609,7 +609,7 @@ export default function AskAISection() {
                   onFocus={e => e.currentTarget.style.borderColor = "rgba(242,182,29,0.4)"}
                   onBlur={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"} />
                 <button onClick={runSymptomCheck}
-                  style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "12px 24px", borderRadius: 10, background: "var(--accent)", color: "#070690", border: "none", fontWeight: 700, fontSize: "0.86rem", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "12px 24px", borderRadius: 10, background: "var(--accent)", color: "#0C0C5E", border: "none", fontWeight: 700, fontSize: "0.86rem", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }}
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(242,182,29,0.3)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
                   <FaSearch size={13} /> {t("askAI.analyzeBtn")}
@@ -641,7 +641,7 @@ export default function AskAISection() {
                       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                         {symptomResult.links.map((link, i) => (
                           <Link key={i} href={link.href}
-                            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: i === 0 ? "var(--accent)" : "rgba(242,182,29,0.1)", border: i === 0 ? "none" : "1px solid rgba(242,182,29,0.25)", color: i === 0 ? "#070690" : "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
+                            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: i === 0 ? "var(--accent)" : "rgba(242,182,29,0.1)", border: i === 0 ? "none" : "1px solid rgba(242,182,29,0.25)", color: i === 0 ? "#0C0C5E" : "var(--accent)", fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", transition: "all 0.2s" }}
                             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; }}
                             onMouseLeave={e => { e.currentTarget.style.transform = ""; }}>
                             {link.label} <FaArrowRight size={10} />

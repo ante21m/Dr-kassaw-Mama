@@ -31,6 +31,13 @@ function getMinDate(): string {
   return new Date().toISOString().split("T")[0];
 }
 
+const PLACEHOLDER_IMG = "/images/gallery-placeholder.png";
+function physImg(src?: string | null): string {
+  if (!src) return `${PLACEHOLDER_IMG}${imgVer}`;
+  if (src.startsWith("http") || src.startsWith("/")) return `${src}${src.includes("?") ? "" : imgVer}`;
+  return `${src}${imgVer}`;
+}
+
 type FormData = {
   name: string;
   phone: string;
@@ -97,7 +104,7 @@ export default function AppointmentClient() {
     <Paper radius={3} withBorder p="lg" style={{ position: "sticky", top: 100, borderTop: "4px solid var(--primary)", borderColor: "var(--primary-100)", background: "linear-gradient(180deg, var(--primary-50) 0%, #fff 40%)" }}>
       <Stack align="center" gap="xs" mb="md">
         <Box pos="relative" style={{ width: 100, height: 100, borderRadius: "50%", overflow: "hidden", border: "3px solid #fff", boxShadow: "0 4px 20px rgba(37,99,235,0.15)" }}>
-          <Image src={selectedDoctor.image + imgVer} alt={selectedDoctor.name} fill style={{ objectFit: "cover" }} />
+          <Image src={physImg(selectedDoctor.image)} alt={selectedDoctor.name} fill style={{ objectFit: "cover" }} />
         </Box>
         <Text fw={800} size="lg" ta="center" style={{ lineHeight: 1.3 }}>{doctorName}</Text>
         <Badge variant="light" color="blue" size="lg" radius="xl">{specialtyName}</Badge>
@@ -151,7 +158,7 @@ export default function AppointmentClient() {
             pos="absolute"
             style={{
               inset: 0,
-              background: "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              background: "radial-gradient(ellipse at 18% 28%, rgba(21,21,139,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
             }}
           />
           <Box className="bykm-grid-overlay" />
@@ -202,7 +209,7 @@ export default function AppointmentClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(21,21,139,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -268,7 +275,7 @@ export default function AppointmentClient() {
                     >
                       <Group gap="md" wrap="nowrap">
                         <Box pos="relative" style={{ width: 64, height: 64, borderRadius: "50%", overflow: "hidden", flexShrink: 0 }} bg="gray.1">
-                          <Image src={doc.image + imgVer} alt={doc.name} fill style={{ objectFit: "cover" }} />
+                          <Image src={physImg(doc.image)} alt={doc.name} fill style={{ objectFit: "cover" }} />
                         </Box>
                         <Box style={{ flex: 1, minWidth: 0 }}>
                           <Text fw={700} size="sm" truncate>{doc.name}</Text>

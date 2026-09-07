@@ -7,7 +7,7 @@ import SmartHero from "./components/smart-home/SmartHero";
 import ScrollReveal from "./components/ScrollReveal";
 import AnimatedCounter from "./components/AnimatedCounter";
 import Link from "next/link";
-import { FaCalendarCheck, FaPhone, FaAmbulance, FaFlask, FaXRay, FaCut, FaHeartbeat, FaBaby, FaDesktop, FaBrain, FaStethoscope, FaUserMd, FaSmile } from "react-icons/fa";
+import { FaCalendarCheck, FaAmbulance, FaFlask, FaXRay, FaCut, FaHeartbeat, FaBaby, FaDesktop, FaBrain, FaStethoscope, FaUserMd, FaSmile } from "react-icons/fa";
 
 const WhyChooseUs = dynamic(() => import("./components/smart-home/WhyChooseUs"));
 const HomePhysicians = dynamic(() => import("./components/smart-home/HomePhysicians"));
@@ -64,7 +64,7 @@ export default function HomePage() {
 
   const stats = [
     { end: parseInt(settings.home_stats_experience || "2"), suffix: settings.home_stats_experience_suffix || "+", label: t("homePage.statsExperience"), icon: "🏥", color: "var(--primary)" },
-    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#0d0bc7" },
+    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#15158B" },
     { end: parseInt(settings.home_stats_patients || "100"), suffix: settings.home_stats_patients_suffix || "K+", label: t("homePage.statsPatients"), icon: "❤️", color: "var(--urgent)" },
     { end: parseInt(settings.home_stats_departments || "12"), suffix: settings.home_stats_departments_suffix || "+", label: t("homePage.statsDepartments"), icon: "🩺", color: "var(--accent)" },
   ];
@@ -74,7 +74,7 @@ export default function HomePage() {
       <SmartHero />
 
       {/* ── HERO CTA BAR ── */}
-      <div style={{ background: "var(--primary-900)", borderTop: "1px solid rgba(255,255,255,0.12)", borderBottom: "1px solid var(--line)", padding: "18px 24px" }}>
+      <div style={{ background: "linear-gradient(135deg, #15158B 0%, #15158B 50%, #12127C 100%)", borderTop: "1px solid rgba(242,182,29,0.55)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "20px 24px", boxShadow: "inset 0 6px 24px rgba(0,0,0,0.12)" }}>
         <div className="m-container" style={{ display: "flex", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
           <Link href="/appointment" className="m-btn m-btn-primary" style={{ padding: "12px 28px", fontSize: "0.88rem" }}>
             <FaCalendarCheck size={14} /> {t("homePage.bookAppointment")}
@@ -85,21 +85,19 @@ export default function HomePage() {
         </div>
       </div>
 
+      <AskAISection />
+
       {/* ── STATS STRIP ── */}
-      <section style={{ padding: "28px 0", background: "var(--bg-tint)", borderBottom: "1px solid var(--line)" }}>
+      <section style={{ padding: "40px 0", background: "var(--bg-tint)", borderBottom: "1px solid var(--line)" }}>
         <div className="m-container">
-          <div className="hgrid grid-4">
+          <div className="hgrid grid-4" style={{ gap: 16 }}>
             {stats.map((s, i) => (
-              <div key={i} style={{ padding: "16px 12px", textAlign: "center", position: "relative", borderRight: i < stats.length - 1 ? "1px solid var(--line)" : "none" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, margin: "0 auto" }}>
-                  <span style={{ fontSize: "1.2rem" }}>{s.icon}</span>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 700, color: "var(--primary)", lineHeight: 1 }}>
-                      <AnimatedCounter end={s.end} suffix={s.suffix} />
-                    </div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--ink-faint)", fontWeight: 500, letterSpacing: "0.03em" }}>{s.label}</div>
-                  </div>
+              <div key={i} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 16, padding: "22px 16px", textAlign: "center", boxShadow: "0 6px 20px rgba(21,21,139,0.06)" }}>
+                <span style={{ width: 46, height: 46, borderRadius: 13, background: "rgba(242,182,29,0.14)", color: "#B8860B", display: "grid", placeItems: "center", margin: "0 auto 12px", fontSize: "1.3rem" }}>{s.icon}</span>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.6rem, 3vw, 2.1rem)", fontWeight: 700, color: "var(--primary)", lineHeight: 1 }}>
+                  <AnimatedCounter end={s.end} suffix={s.suffix} />
                 </div>
+                <div style={{ fontSize: "0.74rem", color: "var(--ink-faint)", fontWeight: 500, letterSpacing: "0.04em", marginTop: 6 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -163,31 +161,6 @@ export default function HomePage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <AskAISection />
-
-      {/* ── CTA ── */}
-      <section className="m-section m-section--deep" style={{ textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div className="m-pattern-dots--light" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
-        <div className="m-blob" style={{ width: 360, height: 360, top: -120, left: "50%", transform: "translateX(-50%)", background: "var(--primary-700)", opacity: 0.5 }} />
-        <div className="m-container" style={{ maxWidth: 620, position: "relative", zIndex: 1 }}>
-          <svg className="m-vital" viewBox="0 0 300 34" style={{ maxWidth: 220, margin: "0 auto 22px", color: "#F2B61D" }} aria-hidden="true">
-            <path d="M0 17 H100 L115 3 L131 31 L147 5 L159 17 H300" stroke="currentColor" strokeWidth="2.5" />
-          </svg>
-          <h2 className="m-h2" style={{ marginBottom: 14 }}>{t("homePage.ctaReady")}</h2>
-          <p style={{ color: "var(--on-deep-soft)", fontSize: "1rem", marginBottom: 34, lineHeight: 1.65 }}>
-            {t("homePage.ctaSubtitle")}
-          </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/appointment" className="m-btn m-btn-primary" style={{ padding: "15px 30px" }}>
-              <FaCalendarCheck size={16} /> {t("homePage.bookAppointment")}
-            </Link>
-            <Link href="/contact" className="m-btn m-btn-ghost-light" style={{ padding: "15px 30px" }}>
-              <FaPhone size={15} /> {t("homePage.contactUs")}
-            </Link>
           </div>
         </div>
       </section>

@@ -47,10 +47,14 @@ export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer style={{ background: "#0d0bc7", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
-      {/* Decorative */}
-      <div style={{ position: "absolute", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
-      <div style={{ position: "absolute", bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.015)" }} />
+    <footer style={{ background: "linear-gradient(180deg, #183588 0%, #15158B 55%, #0C0C5E 100%)", color: "rgba(255,255,255,0.7)", position: "relative", overflow: "hidden" }}>
+      {/* Top gold accent line */}
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(242,182,29,0.45), transparent)" }} />
+      {/* Decorative glows */}
+      <div style={{ position: "absolute", top: -140, right: -100, width: 460, height: 460, borderRadius: "50%", background: "radial-gradient(circle, rgba(242,182,29,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", bottom: -180, left: -100, width: 420, height: 420, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      {/* Dots grid overlay */}
+      <div style={{ position: "absolute", inset: 0, opacity: 0.3, backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
 
       {/* Main */}
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "72px 24px 0", position: "relative", zIndex: 1 }}>
@@ -73,9 +77,9 @@ export default function Footer() {
             <div style={{ display: "flex", gap: 10 }}>
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.5)", transition: "all 0.2s", textDecoration: "none" }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#F2B61D"; e.currentTarget.style.borderColor = "#F2B61D"; e.currentTarget.style.color = "#fff"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; }}>
+                  style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.55)", transition: "all 0.22s", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "linear-gradient(135deg, #F2B61D, #FFC94D)"; e.currentTarget.style.borderColor = "#FFC94D"; e.currentTarget.style.color = "#0C0C5E"; e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 18px rgba(242,182,29,0.35)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "rgba(255,255,255,0.55)"; e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)"; }}>
                   <Icon size={16} />
                 </a>
               ))}
@@ -84,13 +88,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em" }}>{t("footer.services")}</h4>
+            <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em", paddingLeft: 12, borderLeft: "3px solid #F2B61D", lineHeight: 1.25 }}>{t("footer.services")}</h4>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {services.map(s => (
                 <li key={s.href}>
-                  <Link href={s.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 6 }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
-                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
+                  <Link href={s.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s, transform 0.2s", display: "flex", alignItems: "center", gap: 6 }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#F2B61D"; e.currentTarget.style.transform = "translateX(3px)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.transform = ""; }}>
                     <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#F2B61D", flexShrink: 0 }} />
                     {t(s.labelKey)}
                   </Link>
@@ -101,13 +105,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em" }}>{t("footer.quickLinks")}</h4>
+            <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em", paddingLeft: 12, borderLeft: "3px solid #F2B61D", lineHeight: 1.25 }}>{t("footer.quickLinks")}</h4>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {quickLinks.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 6 }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
-                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
+                  <Link href={l.href} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.86rem", transition: "color 0.2s, transform 0.2s", display: "flex", alignItems: "center", gap: 6 }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#F2B61D"; e.currentTarget.style.transform = "translateX(3px)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.transform = ""; }}>
                     <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#F2B61D", flexShrink: 0 }} />
                     {t(l.labelKey)}
                   </Link>
@@ -118,7 +122,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em" }}>{t("footer.findUs")}</h4>
+            <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#fff", marginBottom: 20, letterSpacing: "0.03em", paddingLeft: 12, borderLeft: "3px solid #F2B61D", lineHeight: 1.25 }}>{t("footer.findUs")}</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 24 }}>
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                 <FaMapMarkerAlt style={{ color: "#F2B61D", marginTop: 3, flexShrink: 0 }} size={14} />
@@ -130,7 +134,7 @@ export default function Footer() {
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <FaEnvelope style={{ color: "#F2B61D", flexShrink: 0 }} size={14} />
-                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>info@medhinhospital.com</span>
+                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>info@mammahospital.com</span>
               </div>
             </div>
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", height: 140 }}>
@@ -146,13 +150,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div style={{ marginTop: 48, padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div style={{ marginTop: 48, padding: "20px 0", borderTop: "1px solid rgba(242,182,29,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)" }}>© {new Date().getFullYear()} Dr. Kassaw Mamma Primary Hospital. {t("footer.rights")}</span>
-          <Link href="/admin/login" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
-            onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>
-            {t("footer.adminPortal")}
-          </Link>
+          <div style={{ display: "flex", gap: 18, alignItems: "center", flexWrap: "wrap" }}>
+            <Link href="/privacy-policy" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#F2B61D"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

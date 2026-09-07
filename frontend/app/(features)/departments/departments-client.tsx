@@ -54,7 +54,7 @@ export default function DepartmentsClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(13,11,199,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(21,21,139,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -116,9 +116,6 @@ export default function DepartmentsClient() {
                   </div>
                   {/* Body */}
                   <div className="infoSection">
-                    <span className="hospitalLabel">
-                      {locale === "am" ? "ዶ/ር ካሳው ማማ ሆስፒታል" : "Dr. Kassaw Mamma Hospital"}
-                    </span>
                     <h3 className="doctorName" style={{ fontSize: 18 }}>
                       {t(`departments.${dept.id}`)}
                     </h3>
@@ -139,7 +136,7 @@ export default function DepartmentsClient() {
       <Box
         py={56}
         style={{
-          background: "var(--bg-deep)",
+          background: "linear-gradient(135deg, #050A28 0%, #0A0B3B 50%, #15158B 100%)",
           position: "relative",
           overflow: "hidden",
         }}
