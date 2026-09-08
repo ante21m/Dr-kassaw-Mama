@@ -138,9 +138,9 @@ export default function Footer() {
               </div>
             </div>
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", height: 140 }}>
-              <iframe title="Map" src="https://www.google.com/maps?q=11.830075,39.599407&output=embed" loading="lazy" style={{ width: "100%", height: "100%", border: "none" }} />
+              <iframe title="Map" src="https://www.google.com/maps?q=11.8339215,39.6049794&output=embed" loading="lazy" style={{ width: "100%", height: "100%", border: "none" }} />
             </div>
-            <a href="https://maps.app.goo.gl/zN7ivPM9C7ZzyuJz7" target="_blank" rel="noopener noreferrer"
+            <a href="https://maps.app.goo.gl/tnVZsFCxaXGPdpf29" target="_blank" rel="noopener noreferrer"
               style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 10, fontSize: "0.82rem", color: "#F2B61D", fontWeight: 600, textDecoration: "none", transition: "gap 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.gap = "10px"}
               onMouseLeave={e => e.currentTarget.style.gap = "6px"}>

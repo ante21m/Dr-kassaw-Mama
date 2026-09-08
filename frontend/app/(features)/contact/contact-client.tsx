@@ -21,10 +21,10 @@ export default function ContactClient() {
   const { t, locale } = useLocale();
 
   const embedMapUrl =
-    "https://www.google.com/maps?q=11.830075,39.599407&output=embed";
+    "https://www.google.com/maps?q=11.8339215,39.6049794&output=embed";
 
   const handleGetDirections = () => {
-    window.open("https://www.google.com/maps/dir/?api=1&destination=11.830075,39.599407", "_blank");
+    window.open("https://www.google.com/maps/dir/?api=1&destination=11.8339215,39.6049794", "_blank");
   };
 
   return (
