@@ -21,8 +21,8 @@ function getErrorMessage(err: unknown): string {
 export default function AdminLoginPage() {
   const router = useRouter();
   const [isRegister, setIsRegister] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('admin123');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fieldError, setFieldError] = useState('');
 
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
           )}
 
           <Alert icon={<Info size={16} />} color="blue" variant="light" mt="md">
-            Username: min 3 chars &middot; Password: min 6 chars
+            Default login &mdash; Username: admin &middot; Password: admin123
           </Alert>
 
           <form onSubmit={handleSubmit}>
