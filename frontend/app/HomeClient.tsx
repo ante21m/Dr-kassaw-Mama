@@ -85,8 +85,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      <AskAISection />
-
       {/* ── STATS STRIP ── */}
       <section style={{ padding: "40px 0", background: "var(--bg-tint)", borderBottom: "1px solid var(--line)" }}>
         <div className="m-container">
@@ -164,6 +162,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── AI ASSISTANT CHATBOT ── */}
+      <AskAISection />
     </main>
   );
 }

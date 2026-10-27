@@ -1535,33 +1535,73 @@ html[lang="am"] body {
 ========================= */
 
 /* ── SMART HERO ── */
+/* Section height now follows the image, no fixed calc(100svh - 85px) */
 .smart-hero {
   position: relative;
-  margin-top: -66px;
-  height: calc(95vh + 66px);
-  min-height: 706px;
+  display: grid;
+  width: 100%;
+  height: auto;
+  min-height: 0;
   overflow: hidden;
-  background: #000;
+  background: #14127a;
 }
 
 .smart-hero-slide {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
+  position: relative;
+  width: 100%;
   opacity: 0;
-  transition: opacity 1.1s ease-in-out;
-  z-index: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .smart-hero-slide.active {
   opacity: 1;
+  visibility: visible;
   z-index: 1;
 }
 
-.smart-hero-slide img {
-  object-fit: cover;
-  object-position: center top;
+.smart-hero-bg {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.smart-hero-bg::before,
+.smart-hero-bg::after {
+  content: none;
+}
+
+/* Full image: left to right, top to bottom, no crop, no distortion */
+.smart-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.smart-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+}
+
+.smart-hero-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 600px) {
+  .smart-hero-dots {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 16px;
+  }
 }
 
 .smart-hero-overlay {

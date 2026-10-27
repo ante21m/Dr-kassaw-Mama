@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { FaCalendarCheck } from "react-icons/fa";
 import { imgVer } from "@/lib/imgver";
 import { useSiteSettings, parseJsonSetting } from "@/app/hooks/useSiteSettings";
 
@@ -21,7 +23,7 @@ function resolveAsset(path?: string) {
 }
 
 const defaultSlides: HeroSlide[] = [
-  { src: `/images/hero-placeholder.jpg${imgVer}`, title: "Dr. Kassaw Mamma Primary Hospital", titleAm: "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
+  { src: `/images/mamma-home-hero.jpg${imgVer}`, title: "Dr. Kassaw Mamma Primary Hospital", titleAm: "ዶ/ር ካሳው ማማ ፕራይመሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
 ];
 
 const SLIDE_MS = 5500;
@@ -146,25 +148,13 @@ const apiSlides = parseJsonSetting<HeroSlide[]>(settings.hero_slides, []);
           key={index}
           className={`smart-hero-slide ${index === current ? "active" : ""}`}
         >
-          {loaded[index] ? (
+          <div className="smart-hero-bg">
             <img
-              src={slide.src}
-              alt=""
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center top",
-                display: "block",
-              }}
+              src={loaded[index] ? slide.src : `/images/hero-placeholder.jpg${imgVer}`}
+              alt={slide.title || "Dr. Kassaw Mamma Primary Hospital"}
+              className="smart-hero-image"
             />
-          ) : (
-            <img
-              src={`/images/hero-placeholder.jpg${imgVer}`}
-              alt=""
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
-            />
-          )}
+          </div>
           <div
             className="smart-hero-overlay"
             style={{ opacity: overlayOpacity(index) }}

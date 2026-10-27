@@ -395,7 +395,7 @@ const faqAnswers: Record<string, { text: string; icon: React.ReactNode; links?: 
 export default function AskAISection() {
   const router = useRouter();
   const { t } = useLocale();
-  const [activeTab, setActiveTab] = useState<"ask" | "symptom" | "tips">("ask");
+  const [activeTab, setActiveTab] = useState<"ask" | "symptom" | "tips" | "popular">("popular");
   const [answer, setAnswer] = useState<{ text: string; icon: React.ReactNode; links?: { label: string; href: string }[] } | null>(null);
   const [customQ, setCustomQ] = useState("");
   const [symptomInput, setSymptomInput] = useState("");
@@ -481,34 +481,33 @@ export default function AskAISection() {
       <div style={{ maxWidth: 960, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(242,182,29,0.1)", border: "1px solid rgba(242,182,29,0.2)", color: "var(--accent)", padding: "6px 18px", borderRadius: 999, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 16 }}>
-            <FaRobot size={13} /> {t("askAI.healthAssistant")}
-          </div>
           <h2 style={{ fontSize: "clamp(26px, 4vw, 38px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: 10 }}>
-            {t("askAI.headerTitle")}
+            How can we help you today?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", maxWidth: 480, margin: "0 auto", lineHeight: 1.6 }}>
-            {t("askAI.headerSub")}
+            Ask questions, check symptoms, or get health tips.
           </p>
         </div>
 
         {/* Tabs */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 32, background: "rgba(255,255,255,0.04)", borderRadius: 12, padding: 5, maxWidth: 420, margin: "0 auto 32px" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: 0, marginBottom: 32, background: "rgba(255,255,255,0.04)", borderRadius: 12, padding: 4, maxWidth: 640, margin: "0 auto 32px", border: "1px solid rgba(255,255,255,0.08)", flexWrap: "wrap" }}>
           {[
-            { key: "ask" as const, label: t("askAI.tabAsk"), icon: FaCommentDots },
-            { key: "symptom" as const, label: t("askAI.tabSymptom"), icon: FaStethoscope },
-            { key: "tips" as const, label: t("askAI.tabTips"), icon: FaLightbulb },
+            { key: "ask", label: "Chatbot", icon: FaCommentDots },
+            { key: "symptom", label: "Symptom Guide", icon: FaStethoscope },
+            { key: "tips", label: "Health Tips", icon: FaLightbulb },
+            { key: "popular", label: "Popular Questions", icon: FaRegHandPeace },
           ].map(({ key, label, icon: Icon }) => (
-            <button key={key} onClick={() => setActiveTab(key)}
+            <button key={key} onClick={() => setActiveTab(key as any)}
               style={{
-                flex: 1,
+                flex: "1 1 auto",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-                padding: "10px 16px", borderRadius: 8, fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", border: "none",
-                background: activeTab === key ? "rgba(242,182,29,0.15)" : "transparent",
-                color: activeTab === key ? "var(--accent)" : "rgba(255,255,255,0.45)",
+                padding: "12px 20px", borderRadius: 8, fontSize: "0.85rem", fontWeight: 600, cursor: "pointer", border: "none",
+                background: activeTab === key ? "var(--accent)" : "transparent",
+                color: activeTab === key ? "#0C0C5E" : "rgba(255,255,255,0.7)",
                 transition: "all 0.25s",
+                whiteSpace: "nowrap",
               }}>
-              <Icon size={13} /> {label}
+              <Icon size={14} /> {label}
             </button>
           ))}
         </div>
@@ -516,6 +515,26 @@ export default function AskAISection() {
         {/* Card */}
         <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 36, backdropFilter: "blur(16px)", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(242,182,29,0.3), transparent)" }} />
+
+          {/* POPULAR QUESTIONS TAB */}
+          {activeTab === "popular" && (
+            <div>
+              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.82rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
+                Popular Questions
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
+                {Object.entries(faqAnswers).map(([q]) => (
+                  <button key={q} onClick={() => { setActiveTab("ask"); askQuestion(q); }}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 18px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, color: "rgba(255,255,255,0.85)", fontSize: "0.9rem", textAlign: "left", cursor: "pointer", transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,182,29,0.08)"; e.currentTarget.style.borderColor = "rgba(242,182,29,0.3)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}>
+                    <span>{q}</span>
+                    <FaArrowRight size={12} style={{ color: "var(--accent)" }} />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ASK TAB */}
           {activeTab === "ask" && (
