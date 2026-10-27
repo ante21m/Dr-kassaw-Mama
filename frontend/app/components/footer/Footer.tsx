@@ -19,7 +19,7 @@ const socialLinks = [
   { icon: FaTelegramPlane, href: "https://t.me/Dr. Kassaw Mamma_Primary_Hospital", label: "Telegram" },
   { icon: FaYoutube, href: "https://youtube.com/@mammaprimaryhospital", label: "YouTube" },
   { icon: FaTwitter, href: "https://twitter.com/mammaprimaryhospital", label: "Twitter" },
-  { icon: TiktokIcon, href: "https://www.tiktok.com/@mamma.hospital", label: "TikTok" },
+  { icon: TiktokIcon, href: "https://www.tiktok.com/@r.kassaw", label: "TikTok" },
 ];
 
 const services = [
