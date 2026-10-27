@@ -5,9 +5,9 @@ export default function JsonLd() {
     name: "Dr. Kassaw Mamma Primary Hospital",
     description:
       "Dr. Kassaw Mamma Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.",
-    url: "https://medhinprimaryhospital.com",
+    url: "https://mammaprimaryhospital.com",
     telephone: "+251-973245788",
-    email: "info@medhinhospital.com",
+    email: "info@mammahospital.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Behind the Piassa Total Gas Station",
@@ -43,10 +43,10 @@ export default function JsonLd() {
       name: "Dr. Kassaw Aragie",
     },
     sameAs: [
-      "https://facebook.com/medhinprimaryhospital",
-      "https://t.me/medhinprimaryhospital",
-      "https://youtube.com/@medhinprimaryhospital",
-      "https://twitter.com/medhinprimaryhospital",
+      "https://facebook.com/mammaprimaryhospital",
+      "https://t.me/mammaprimaryhospital",
+      "https://youtube.com/@mammaprimaryhospital",
+      "https://twitter.com/mammaprimaryhospital",
     ],
   };
 

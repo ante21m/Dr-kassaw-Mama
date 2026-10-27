@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://medhinprimaryhospital.com/sitemap.xml",
+    sitemap: "https://mammaprimaryhospital.com/sitemap.xml",
   };
 }

@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://medhinprimaryhospital.com"),
+  metadataBase: new URL("https://mammaprimaryhospital.com"),
   title: {
     default: title,
     template: "%s | Dr. Kassaw Mamma Primary Hospital",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: "https://medhinprimaryhospital.com",
+    url: "https://mammaprimaryhospital.com",
     siteName: "Dr. Kassaw Mamma Primary Hospital",
     locale: "en_US",
     type: "website",

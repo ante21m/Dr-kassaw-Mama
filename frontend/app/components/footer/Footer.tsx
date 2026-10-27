@@ -15,11 +15,11 @@ function TiktokIcon({ size }: { size: number }) {
 }
 
 const socialLinks = [
-  { icon: FaFacebookF, href: "https://facebook.com/medhinprimaryhospital", label: "Facebook" },
+  { icon: FaFacebookF, href: "https://facebook.com/mammaprimaryhospital", label: "Facebook" },
   { icon: FaTelegramPlane, href: "https://t.me/Dr. Kassaw Mamma_Primary_Hospital", label: "Telegram" },
-  { icon: FaYoutube, href: "https://youtube.com/@medhinprimaryhospital", label: "YouTube" },
-  { icon: FaTwitter, href: "https://twitter.com/medhinprimaryhospital", label: "Twitter" },
-  { icon: TiktokIcon, href: "https://www.tiktok.com/@medhin.hospital", label: "TikTok" },
+  { icon: FaYoutube, href: "https://youtube.com/@mammaprimaryhospital", label: "YouTube" },
+  { icon: FaTwitter, href: "https://twitter.com/mammaprimaryhospital", label: "Twitter" },
+  { icon: TiktokIcon, href: "https://www.tiktok.com/@mamma.hospital", label: "TikTok" },
 ];
 
 const services = [

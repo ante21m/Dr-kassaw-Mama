@@ -4,9 +4,9 @@ import { MantineProvider, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
 
 const theme = createTheme({
-  primaryColor: "medhin",
+  primaryColor: "mamma",
   colors: {
-    medhin: [
+    mamma: [
       "#EFF1FD",
       "#DDE1FC",
       "#B4B1FA",

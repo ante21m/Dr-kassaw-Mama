@@ -37,7 +37,7 @@ const fallbackServiceIds = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = "https://medhinprimaryhospital.com";
+  const base = "https://mammaprimaryhospital.com";
 
   const staticPages = [
     { url: base, priority: 1.0, changeFrequency: "monthly" as const },

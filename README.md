@@ -10,7 +10,7 @@ Complete project package including:
 ## 📁 Project Structure
 
 ```
-medhin-full-package/
+mamma-full-package/
 ├── frontend/          ← Next.js frontend (port 3000)
 ├── backend/           ← NestJS backend API (port 3003)
 ├── smart-website/     ← Standalone HTML file (open directly in browser)
@@ -22,7 +22,7 @@ medhin-full-package/
 ## 🚀 Quick Start
 
 ### Option A — Smart Website (No Setup)
-Just open `smart-website/medhin-hospital-complete.html` in any browser.
+Just open `smart-website/mamma-hospital-complete.html` in any browser.
 Works offline with full demo data. Connects to backend automatically if running.
 
 ---
@@ -143,5 +143,5 @@ The app supports English and Amharic (አማርኛ). Toggle with the language bu
 - **Phone:** +251 900 000 000
 - **Hours:** Mon–Sat 8AM–6PM · Emergency 24/7
 
-"# medhinHospitalui" 
+"# mammaHospitalui" 
 "# Dr-kassaw-Mama" 
